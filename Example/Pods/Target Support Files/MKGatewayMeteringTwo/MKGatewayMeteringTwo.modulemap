@@ -1,0 +1,6 @@
+framework module MKGatewayMeteringTwo {
+  umbrella header "MKGatewayMeteringTwo-umbrella.h"
+
+  export *
+  module * { export * }
+}
