@@ -1,6 +1,6 @@
 {
   "name": "MKGatewayMeteringTwo",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A short description of MKGatewayMeteringTwo.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/lovexiaoxia/MKGatewayMeteringTwo",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lovexiaoxia/MKGatewayMeteringTwo.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "12.0"
@@ -1129,19 +1129,12 @@
                       "dependencies": {
                         "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model": [
 
-                        ],
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/View": [
-
                         ]
                       }
                     },
                     {
                       "name": "Model",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model/**"
-                    },
-                    {
-                      "name": "View",
-                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/View/**"
                     }
                   ]
                 }

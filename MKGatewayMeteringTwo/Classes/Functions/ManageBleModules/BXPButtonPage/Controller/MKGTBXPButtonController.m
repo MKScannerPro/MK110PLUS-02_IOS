@@ -29,6 +29,7 @@
 #import "MKGTDeviceModeManager.h"
 #import "MKGTDeviceModel.h"
 
+#import "MKGTReminderAlertView.h"
 #import "MKGTButtonFirmwareCell.h"
 
 #import "MKGTButtonDFUController.h"
@@ -51,6 +52,8 @@ MKGTButtonFirmwareCellDelegate>
 @property (nonatomic, strong)NSMutableArray *section4List;
 
 @property (nonatomic, strong)NSMutableArray *section5List;
+
+@property (nonatomic, strong)NSMutableArray *section6List;
 
 @property (nonatomic, strong)NSMutableArray *headerList;
 
@@ -130,6 +133,19 @@ MKGTButtonFirmwareCellDelegate>
     return headerView;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 6 && indexPath.row == 0) {
+        //LED control
+        [self showLedReminderAlert];
+        return;
+    }
+    if (indexPath.section == 6 && indexPath.row == 1) {
+        //Buzzer control
+        [self showBuzzerReminderAlert];
+        return;
+    }
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.headerList.count;
@@ -153,6 +169,9 @@ MKGTButtonFirmwareCellDelegate>
     }
     if (section == 5) {
         return self.section5List.count;
+    }
+    if (section == 6) {
+        return self.section6List.count;
     }
     return 0;
 }
@@ -185,10 +204,14 @@ MKGTButtonFirmwareCellDelegate>
         cell.dataModel =  self.section4List[indexPath.row];
         return cell;
     }
-    
-    MKButtonMsgCell *cell = [MKButtonMsgCell initCellWithTableView:tableView];
-    cell.dataModel =  self.section5List[indexPath.row];
-    cell.delegate = self;
+    if (indexPath.section == 5) {
+        MKButtonMsgCell *cell = [MKButtonMsgCell initCellWithTableView:tableView];
+        cell.dataModel =  self.section5List[indexPath.row];
+        cell.delegate = self;
+        return cell;
+    }
+    MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+    cell.dataModel = self.section6List[indexPath.row];
     return cell;
 }
 
@@ -280,21 +303,59 @@ MKGTButtonFirmwareCellDelegate>
     }];
 }
 
+- (void)sendLedReminder:(NSString *)interval duration:(NSString *)duration color:(NSInteger)color {
+    if (!ValidStr(interval) || !ValidStr(duration)) {
+        [self.view showCentralToast:@"Params Cannot Be Empty!"];
+        return;
+    }
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    [MKGTMQTTInterface gt_configDeviceLedReminderWithBleMac:self.deviceBleInfo[@"data"][@"mac"] interval:([interval integerValue] * 100) duration:[duration integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+        [[MKHudManager share] hide];
+        if ([returnData[@"data"][@"result_code"] integerValue] != 0) {
+            [self.view showCentralToast:@"setup failed!"];
+            return;
+        }
+        [self.view showCentralToast:@"setup success!"];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:@"setup failed!"];
+    }];
+}
+
+- (void)sendBuzzerReminder:(NSString *)interval duration:(NSString *)duration {
+    if (!ValidStr(interval) || !ValidStr(duration)) {
+        [self.view showCentralToast:@"Params Cannot Be Empty!"];
+        return;
+    }
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    [MKGTMQTTInterface gt_configDeviceBuzzerReminderWithBleMac:self.deviceBleInfo[@"data"][@"mac"] interval:([interval integerValue] * 100) duration:[duration integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+        [[MKHudManager share] hide];
+        if ([returnData[@"data"][@"result_code"] integerValue] != 0) {
+            [self.view showCentralToast:@"setup failed!"];
+            return;
+        }
+        [self.view showCentralToast:@"setup success!"];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:@"setup failed!"];
+    }];
+}
+
 - (void)updateStatusDatas {
     MKNormalTextCellModel *cellModel1 = self.section4List[0];
     cellModel1.rightMsg = [NSString stringWithFormat:@"%@%@",self.bxpStatusDic[@"data"][@"battery_v"],@"mV"];
     
     MKNormalTextCellModel *cellModel2 = self.section4List[1];
-    cellModel2.rightMsg = [NSString stringWithFormat:@"%@",self.bxpStatusDic[@"data"][@"single_alagt_num"]];
+    cellModel2.rightMsg = [NSString stringWithFormat:@"%@",self.bxpStatusDic[@"data"][@"single_alarm_num"]];
     
     MKNormalTextCellModel *cellModel3 = self.section4List[2];
-    cellModel3.rightMsg = [NSString stringWithFormat:@"%@",self.bxpStatusDic[@"data"][@"double_alagt_num"]];
+    cellModel3.rightMsg = [NSString stringWithFormat:@"%@",self.bxpStatusDic[@"data"][@"double_alarm_num"]];
     
     MKNormalTextCellModel *cellModel4 = self.section4List[3];
-    cellModel4.rightMsg = [NSString stringWithFormat:@"%@",self.bxpStatusDic[@"data"][@"long_alagt_num"]];
+    cellModel4.rightMsg = [NSString stringWithFormat:@"%@",self.bxpStatusDic[@"data"][@"long_alarm_num"]];
     
     MKNormalTextCellModel *cellModel5 = self.section4List[4];
-    NSString *statusValue = [MKBLEBaseSDKAdopter fetchHexValue:[self.bxpStatusDic[@"data"][@"alagt_status"] integerValue] byteLen:1];
+    NSString *statusValue = [MKBLEBaseSDKAdopter fetchHexValue:[self.bxpStatusDic[@"data"][@"alarm_status"] integerValue] byteLen:1];
     NSString *binary = [MKBLEBaseSDKAdopter binaryByhex:statusValue];
     BOOL singleStatus = [[binary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"];
     BOOL doubleStatus = [[binary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"];
@@ -336,6 +397,28 @@ MKGTButtonFirmwareCellDelegate>
                                                object:nil];
 }
 
+- (void)showLedReminderAlert {
+    MKGTReminderAlertViewModel *dataModel = [[MKGTReminderAlertViewModel alloc] init];
+    dataModel.title = @"LED Reminder";
+    dataModel.intervalMsg = @"Blinking interval";
+    dataModel.durationMsg = @"Blinking duration";
+    MKGTReminderAlertView *alertView = [[MKGTReminderAlertView alloc] init];
+    [alertView showAlertWithModel:dataModel confirmAction:^(NSString * _Nonnull interval, NSString * _Nonnull duration, NSInteger color) {
+        [self sendLedReminder:interval duration:duration color:color];
+    }];
+}
+
+- (void)showBuzzerReminderAlert {
+    MKGTReminderAlertViewModel *dataModel = [[MKGTReminderAlertViewModel alloc] init];
+    dataModel.title = @"Buzzer Reminder";
+    dataModel.intervalMsg = @"Ring interval";
+    dataModel.durationMsg = @"Ring duration";
+    MKGTReminderAlertView *alertView = [[MKGTReminderAlertView alloc] init];
+    [alertView showAlertWithModel:dataModel confirmAction:^(NSString * _Nonnull interval, NSString * _Nonnull duration, NSInteger color) {
+        [self sendBuzzerReminder:interval duration:duration];
+    }];
+}
+
 #pragma mark - loadSectionDatas
 - (void)loadSectionDatas {
     [self loadSection0Datas];
@@ -344,6 +427,7 @@ MKGTButtonFirmwareCellDelegate>
     [self loadSection3Datas];
     [self loadSection4Datas];
     [self loadSection5Datas];
+    [self loadSection6Datas];
     
     for (NSInteger i = 0; i < 5; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
@@ -355,6 +439,9 @@ MKGTButtonFirmwareCellDelegate>
     lastHeaderModel.msgTextFont = MKFont(12.f);
     lastHeaderModel.msgTextColor = UIColorFromRGB(0xcccccc);
     [self.headerList addObject:lastHeaderModel];
+    
+    MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
+    [self.headerList addObject:headerModel];
         
     [self.tableView reloadData];
 }
@@ -436,6 +523,18 @@ MKGTButtonFirmwareCellDelegate>
     [self.section5List addObject:cellModel];
 }
 
+- (void)loadSection6Datas {
+    MKNormalTextCellModel *cellModel1 = [[MKNormalTextCellModel alloc] init];
+    cellModel1.leftMsg = @"LED control";
+    cellModel1.showRightIcon = YES;
+    [self.section6List addObject:cellModel1];
+    
+    MKNormalTextCellModel *cellModel2 = [[MKNormalTextCellModel alloc] init];
+    cellModel2.leftMsg = @"Buzzer control";
+    cellModel2.showRightIcon = YES;
+    [self.section6List addObject:cellModel2];
+}
+
 #pragma mark - UI
 - (void)loadSubViews {
     self.defaultTitle = [MKGTDeviceModeManager shared].deviceName;
@@ -500,6 +599,13 @@ MKGTButtonFirmwareCellDelegate>
         _section5List = [NSMutableArray array];
     }
     return _section5List;
+}
+
+- (NSMutableArray *)section6List {
+    if (!_section6List) {
+        _section6List = [NSMutableArray array];
+    }
+    return _section6List;
 }
 
 - (NSMutableArray *)headerList {

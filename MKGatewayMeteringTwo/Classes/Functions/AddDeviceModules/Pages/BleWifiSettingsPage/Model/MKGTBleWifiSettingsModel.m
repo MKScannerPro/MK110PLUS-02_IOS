@@ -138,10 +138,7 @@
                 }
             }
         }
-        if (![self configDate]) {
-            [self operationFailedBlockWithMsg:@"Config Date Error" block:failedBlock];
-            return;
-        }
+        
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();
@@ -396,19 +393,6 @@
         return NO;
     }
     [MKGTInterface gt_configWIFIClientCert:clientCertData sucBlock:^{
-        success = YES;
-        dispatch_semaphore_signal(self.semaphore);
-    } failedBlock:^(NSError * _Nonnull error) {
-        dispatch_semaphore_signal(self.semaphore);
-    }];
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
-    return success;
-}
-
-- (BOOL)configDate {
-    __block BOOL success = NO;
-    long long recordTime = [[NSDate date] timeIntervalSince1970];
-    [MKGTInterface gt_configDeviceTime:recordTime sucBlock:^{
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {

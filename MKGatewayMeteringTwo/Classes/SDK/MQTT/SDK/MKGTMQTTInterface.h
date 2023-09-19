@@ -895,6 +895,39 @@ NS_ASSUME_NONNULL_BEGIN
                                                sucBlock:(void (^)(id returnData))sucBlock
                                             failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// LED Reminder.
+/// @param bleMacAddress The mac address of the target bluetooth device.(e.g.AABBCCDDEEFF)
+/// @param color LED Color.
+/// @param interval flash interval.0-10000(Unit:0.1s)
+/// @param duration flash time.1-6000(Unit:0.1s).
+/// @param macAddress WIFI_STA Mac address of the device(e.g.AABBCCDDEEFF)
+/// @param topic topic 1-128 Characters
+/// @param sucBlock Success callback
+/// @param failedBlock Failed callback
++ (void)gt_configDeviceLedReminderWithBleMac:(NSString *)bleMacAddress
+                                    interval:(NSInteger)interval
+                                    duration:(NSInteger)duration
+                                  macAddress:(NSString *)macAddress
+                                       topic:(NSString *)topic
+                                    sucBlock:(void (^)(id returnData))sucBlock
+                                 failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Buzzer Reminder.
+/// @param bleMacAddress The mac address of the target bluetooth device.(e.g.AABBCCDDEEFF)
+/// @param interval ring interval.0-10000(Unit:0.1s).
+/// @param duration ring time.1-6000(Unit:0.1s).
+/// @param macAddress WIFI_STA Mac address of the device(e.g.AABBCCDDEEFF)
+/// @param topic topic 1-128 Characters
+/// @param sucBlock Success callback
+/// @param failedBlock Failed callback
++ (void)gt_configDeviceBuzzerReminderWithBleMac:(NSString *)bleMacAddress
+                                       interval:(NSInteger)interval
+                                       duration:(NSInteger)duration
+                                     macAddress:(NSString *)macAddress
+                                          topic:(NSString *)topic
+                                       sucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock;
+
 /// Query whether the Bluetooth gateway is connected to the device.
 /// @param macAddress WIFI_STA Mac address of the device.(e.g.AABBCCDDEEFF)
 /// @param topic topic 1-128 Characters

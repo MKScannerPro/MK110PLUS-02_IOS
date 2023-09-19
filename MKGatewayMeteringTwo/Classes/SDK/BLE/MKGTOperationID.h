@@ -75,7 +75,6 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskEnterSTAModeOperation,                //设备重启进入STA模式
     mk_gt_taskConfigNTPServerHostOperation,         //配置NTP服务器域名
     mk_gt_taskConfigTimeZoneOperation,              //配置时区
-    mk_gt_taskConfigDeviceTimeOperation,            //配置UTC时间戳
     
 #pragma mark - Wifi Params
     

@@ -34,10 +34,10 @@
             [self operationFailedBlockWithMsg:@"Read Filter By RSSI Error" block:failedBlock];
             return;
         }
-        if (![self readFilterByPhy]) {
-            [self operationFailedBlockWithMsg:@"Read Filter By Phy Error" block:failedBlock];
-            return;
-        }
+//        if (![self readFilterByPhy]) {
+//            [self operationFailedBlockWithMsg:@"Read Filter By Phy Error" block:failedBlock];
+//            return;
+//        }
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();
@@ -56,10 +56,10 @@
             [self operationFailedBlockWithMsg:@"Setup failed!" block:failedBlock];
             return;
         }
-        if (![self configFilterByPhy]) {
-            [self operationFailedBlockWithMsg:@"Setup failed!" block:failedBlock];
-            return;
-        }
+//        if (![self configFilterByPhy]) {
+//            [self operationFailedBlockWithMsg:@"Setup failed!" block:failedBlock];
+//            return;
+//        }
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();

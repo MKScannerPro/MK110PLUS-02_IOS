@@ -93,7 +93,6 @@
         self.eapUserName = returnData[@"data"][@"eap_username"];
         self.eapPassword = returnData[@"data"][@"eap_passwd"];
         self.verifyServer = ([returnData[@"data"][@"eap_verify_server"] integerValue] == 1);
-        self.country = [returnData[@"data"][@"country"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

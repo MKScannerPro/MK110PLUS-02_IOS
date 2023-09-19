@@ -31,16 +31,13 @@
 
 #import "MKGTMqttWifiSettingsModel.h"
 
-#import "MKGTWifiSettingsBandCell.h"
-
 static NSString *const noteMsg = @"Please note the CA certificate is required, the client certificate and client key are optional.";
 
 @interface MKGTMqttWifiSettingsController ()<UITableViewDelegate,
 UITableViewDataSource,
 MKTextButtonCellDelegate,
 MKTextFieldCellDelegate,
-mk_textSwitchCellDelegate,
-MKGTWifiSettingsBandCellDelegate>
+mk_textSwitchCellDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
@@ -65,8 +62,6 @@ MKGTWifiSettingsBandCellDelegate>
 @property (nonatomic, strong)NSMutableArray *section9List;
 
 @property (nonatomic, strong)NSMutableArray *section10List;
-
-@property (nonatomic, strong)NSMutableArray *section11List;
 
 @property (nonatomic, strong)NSMutableArray *headerList;
 
@@ -104,9 +99,6 @@ MKGTWifiSettingsBandCellDelegate>
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 11) {
-        return 120.f;
-    }
     return 44.f;
 }
 
@@ -239,13 +231,6 @@ MKGTWifiSettingsBandCellDelegate>
     }
 }
 
-#pragma mark - MKGTWifiSettingsBandCellDelegate
-- (void)gt_wifiSettingsBandCell_countryChanged:(NSInteger)country {
-    MKGTWifiSettingsBandCellModel *cellModel = self.section11List[0];
-    cellModel.country = country;
-    self.dataModel.country = country;
-}
-
 #pragma mark - note
 - (void)receiveUpdateEAPCerts:(NSNotification *)note {
     NSDictionary *user = note.userInfo;
@@ -372,10 +357,6 @@ MKGTWifiSettingsBandCellDelegate>
         //Client key.TLS特有
         return ((self.dataModel.security == 1 && self.dataModel.eapType == 2) ? self.section10List.count : 0);
     }
-    if (section == 11) {
-        //Country&Band
-        return self.section11List.count;
-    }
     
     return 0;
 }
@@ -451,17 +432,9 @@ MKGTWifiSettingsBandCellDelegate>
         cell.delegate = self;
         return cell;
     }
-    if (indexPath.section == 10) {
-        //
-        MKTextFieldCell *cell = [MKTextFieldCell initCellWithTableView:self.tableView];
-        cell.dataModel = self.section10List[indexPath.row];
-        cell.delegate = self;
-        return cell;
-    }
-    
-    //Country&Band
-    MKGTWifiSettingsBandCell *cell = [MKGTWifiSettingsBandCell initCellWithTableView:self.tableView];
-    cell.dataModel = self.section11List[indexPath.row];
+    //
+    MKTextFieldCell *cell = [MKTextFieldCell initCellWithTableView:self.tableView];
+    cell.dataModel = self.section10List[indexPath.row];
     cell.delegate = self;
     return cell;
 }
@@ -479,9 +452,8 @@ MKGTWifiSettingsBandCellDelegate>
     [self loadSection8Datas];
     [self loadSection9Datas];
     [self loadSection10Datas];
-    [self loadSection11Datas];
     
-    for (NSInteger i = 0; i < 12; i ++) {
+    for (NSInteger i = 0; i < 11; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
         [self.headerList addObject:headerModel];
     }
@@ -604,12 +576,6 @@ MKGTWifiSettingsBandCellDelegate>
     [self.section10List addObject:cellModel];
 }
 
-- (void)loadSection11Datas {
-    MKGTWifiSettingsBandCellModel *cellModel = [[MKGTWifiSettingsBandCellModel alloc] init];
-    cellModel.country = self.dataModel.country;
-    [self.section11List addObject:cellModel];
-}
-
 #pragma mark - UI
 - (void)loadSubViews {
     self.defaultTitle = @"WIFI Settings";
@@ -711,13 +677,6 @@ MKGTWifiSettingsBandCellDelegate>
         _section10List = [NSMutableArray array];
     }
     return _section10List;
-}
-
-- (NSMutableArray *)section11List {
-    if (!_section11List) {
-        _section11List = [NSMutableArray array];
-    }
-    return _section11List;
 }
 
 - (NSMutableArray *)headerList {

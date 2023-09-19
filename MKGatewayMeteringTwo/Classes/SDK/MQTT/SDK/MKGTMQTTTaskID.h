@@ -83,6 +83,8 @@ typedef NS_ENUM(NSInteger, mk_gt_serverOperationID) {
     mk_gt_server_taskReadBXPButtonConnectedDeviceInfoOperation, //读取已连接BXP-Button设备信息
     mk_gt_server_taskReadBXPButtonStatusOperation,              //读取已连接BXP-Button的状态
     mk_gt_server_taskDismissAlarmStatusOperation,               //BXP-Button消警
+    mk_gt_server_taskConfigDeviceLedReminderOperation,          //LED提醒
+    mk_gt_server_taskConfigDeviceBuzzerReminderOperation,       //Buzzer提醒
     
     mk_gt_server_taskReadGatewayBleConnectStatusOperation,      //读取网关蓝牙连接的状态
     

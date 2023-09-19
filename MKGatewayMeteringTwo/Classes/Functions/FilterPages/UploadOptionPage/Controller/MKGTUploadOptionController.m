@@ -139,7 +139,7 @@ MKGTFilterCellDelegate>
         return self.section0List.count;
     }
     if (section == 1) {
-        return self.section1List.count;
+        return 0;
     }
     if (section == 2) {
         return self.section2List.count;

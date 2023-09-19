@@ -56,6 +56,22 @@
         }
         return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskDismissAlarmStatusOperation];
     }
+    if (msgID == 3110) {
+        //控制B1 LED灯结果
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigDeviceLedReminderOperation];
+    }
+    if (msgID == 3112) {
+        //控制B1 蜂鸣器结果
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigDeviceBuzzerReminderOperation];
+    }
     if (msgID == 3301) {
         //网关连接指定mac地址的蓝牙设备
         BOOL success = ([json[@"result_code"] integerValue] == 0);

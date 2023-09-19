@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MKGatewayMeteringTwo'
-  s.version          = '0.1.0'
+  s.version          = '0.0.1'
   s.summary          = 'A short description of MKGatewayMeteringTwo.'
 
 # This description is used to generate tags and improve search results.
@@ -749,13 +749,9 @@ TODO: Add long description of the pod here.
                   ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Controller/**'
                   
                   ssssss.dependency 'MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model'
-                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/View'
                 end
                 sssss.subspec 'Model' do |ssssss|
                   ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model/**'
-                end
-                sssss.subspec 'View' do |ssssss|
-                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/View/**'
                 end
             end
             

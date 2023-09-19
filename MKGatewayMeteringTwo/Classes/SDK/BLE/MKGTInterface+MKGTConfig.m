@@ -69,17 +69,6 @@ static const NSInteger packDataMaxLen = 150;
                    failedBlock:failedBlock];
 }
 
-+ (void)gt_configDeviceTime:(unsigned long)timestamp
-                   sucBlock:(void (^)(void))sucBlock
-                failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *value = [NSString stringWithFormat:@"%1lx",timestamp];
-    NSString *commandString = [@"ed011404" stringByAppendingString:value];
-    [self configDataWithTaskID:mk_gt_taskConfigDeviceTimeOperation
-                          data:commandString
-                      sucBlock:sucBlock
-                   failedBlock:failedBlock];
-}
-
 #pragma mark *********************MQTT Params************************
 
 + (void)gt_configServerHost:(NSString *)host
