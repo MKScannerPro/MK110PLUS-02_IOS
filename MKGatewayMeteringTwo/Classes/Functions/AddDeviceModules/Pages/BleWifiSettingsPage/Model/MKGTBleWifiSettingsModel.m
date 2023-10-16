@@ -435,9 +435,9 @@
         if (!ValidStr(self.caFileName)) {
             return @"CA File cannot be empty.";
         }
-//        if (!ValidStr(self.clientKeyName) || !ValidStr(self.clientCertName)) {
-//            return @"Client File cannot be empty.";
-//        }
+        if (!ValidStr(self.clientKeyName) || !ValidStr(self.clientCertName)) {
+            return @"Client File cannot be empty.";
+        }
     }
     return @"";
 }

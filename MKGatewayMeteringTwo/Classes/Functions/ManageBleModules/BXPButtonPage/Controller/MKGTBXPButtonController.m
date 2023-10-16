@@ -309,7 +309,7 @@ MKGTButtonFirmwareCellDelegate>
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_configDeviceLedReminderWithBleMac:self.deviceBleInfo[@"data"][@"mac"] interval:([interval integerValue] * 100) duration:[duration integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configDeviceLedReminderWithBleMac:self.deviceBleInfo[@"data"][@"mac"] interval:[interval integerValue] duration:[duration integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         if ([returnData[@"data"][@"result_code"] integerValue] != 0) {
             [self.view showCentralToast:@"setup failed!"];
@@ -328,7 +328,7 @@ MKGTButtonFirmwareCellDelegate>
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_configDeviceBuzzerReminderWithBleMac:self.deviceBleInfo[@"data"][@"mac"] interval:([interval integerValue] * 100) duration:[duration integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configDeviceBuzzerReminderWithBleMac:self.deviceBleInfo[@"data"][@"mac"] interval:[interval integerValue] duration:[duration integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         if ([returnData[@"data"][@"result_code"] integerValue] != 0) {
             [self.view showCentralToast:@"setup failed!"];
@@ -361,7 +361,7 @@ MKGTButtonFirmwareCellDelegate>
     BOOL doubleStatus = [[binary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"];
     BOOL longStatus = [[binary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"];
     BOOL abnormalStatus = [[binary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"];
-    if ([self.bxpStatusDic[@"data"][@"alagt_status"] integerValue] == 0) {
+    if ([self.bxpStatusDic[@"data"][@"alarm_status"] integerValue] == 0) {
         //无触发
         cellModel5.rightMsg = @"Not triggered";
     }else {

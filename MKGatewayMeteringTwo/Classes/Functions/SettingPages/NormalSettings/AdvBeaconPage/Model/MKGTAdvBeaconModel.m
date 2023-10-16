@@ -76,6 +76,11 @@
 
 - (void)configDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.readQueue, ^{
+        NSString *msg = [self checkParams];
+        if (ValidStr(msg)) {
+            [self operationFailedBlockWithMsg:msg block:failedBlock];
+            return;
+        }
         if (![self configAdvBeaconDatas]) {
             [self operationFailedBlockWithMsg:@"Config Advertise iBeacon Error" block:failedBlock];
             return;
@@ -135,6 +140,19 @@
                                                 userInfo:@{@"errorInfo":msg}];
         block(error);
     });
+}
+
+- (NSString *)checkParams {
+    if (!ValidStr(self.major) || [self.major integerValue] < 0 || [self.major integerValue] > 65535) {
+        return @"Major Error";
+    }
+    if (!ValidStr(self.minor) || [self.minor integerValue] < 0 || [self.minor integerValue] > 65535) {
+        return @"Minor Error";
+    }
+    if (!ValidStr(self.advInterval) || [self.advInterval integerValue] < 1 || [self.advInterval integerValue] > 100) {
+        return @"Adv Interval Error";
+    }
+    return @"";
 }
 
 #pragma mark - getter

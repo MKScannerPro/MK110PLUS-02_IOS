@@ -2232,7 +2232,7 @@
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }
-    if (interval < 0 || interval > 10000 || duration < 1 || duration > 6000) {
+    if (interval < 0 || interval > 100 || duration < 1 || duration > 6000) {
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }
@@ -2272,7 +2272,7 @@
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }
-    if (interval < 0 || interval > 10000 || duration < 1 || duration > 6000) {
+    if (interval < 0 || interval > 100 || duration < 1 || duration > 6000) {
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }

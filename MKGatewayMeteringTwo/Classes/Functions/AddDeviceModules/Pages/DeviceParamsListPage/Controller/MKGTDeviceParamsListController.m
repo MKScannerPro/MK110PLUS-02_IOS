@@ -275,6 +275,7 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
             moko_dispatch_main_safe(^{
                 [self.progressView dismiss];
                 [self.view showCentralToast:@"Connect Failed!"];
+                [self performSelector:@selector(gobackDeviceListPage) withObject:nil afterDelay:0.5f];
             });
             return ;
         }
@@ -304,6 +305,10 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
     MKGTConnectSuccessController *vc = [[MKGTConnectSuccessController alloc] init];
     vc.deviceModel = deviceModel;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)gobackDeviceListPage {
+    [self popToViewControllerWithClassName:@"MKGTDeviceListController"];
 }
 
 #pragma mark - loadSectionDatas

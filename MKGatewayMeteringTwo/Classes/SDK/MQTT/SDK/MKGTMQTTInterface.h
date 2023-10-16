@@ -898,7 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// LED Reminder.
 /// @param bleMacAddress The mac address of the target bluetooth device.(e.g.AABBCCDDEEFF)
 /// @param color LED Color.
-/// @param interval flash interval.0-10000(Unit:0.1s)
+/// @param interval flash interval.0-100(Unit:0.1s)
 /// @param duration flash time.1-6000(Unit:0.1s).
 /// @param macAddress WIFI_STA Mac address of the device(e.g.AABBCCDDEEFF)
 /// @param topic topic 1-128 Characters
@@ -914,7 +914,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Buzzer Reminder.
 /// @param bleMacAddress The mac address of the target bluetooth device.(e.g.AABBCCDDEEFF)
-/// @param interval ring interval.0-10000(Unit:0.1s).
+/// @param interval ring interval.0-100(Unit:0.1s).
 /// @param duration ring time.1-6000(Unit:0.1s).
 /// @param macAddress WIFI_STA Mac address of the device(e.g.AABBCCDDEEFF)
 /// @param topic topic 1-128 Characters
