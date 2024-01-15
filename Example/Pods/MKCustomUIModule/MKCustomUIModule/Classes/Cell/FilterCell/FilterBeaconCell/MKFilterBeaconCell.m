@@ -1,12 +1,12 @@
 //
-//  MKGTFilterBeaconCell.m
-//  MKGatewayMeteringTwo_Example
+//  MKFilterBeaconCell.m
+//  MKCustomUIModule_Example
 //
-//  Created by aa on 2023/9/18..
-//  Copyright © 2023 aadyx2007@163.com. All rights reserved.
+//  Created by aa on 2024/1/9.
+//  Copyright © 2024 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTFilterBeaconCell.h"
+#import "MKFilterBeaconCell.h"
 
 #import "Masonry.h"
 
@@ -15,10 +15,10 @@
 #import "MKTextField.h"
 #import "MKCustomUIAdopter.h"
 
-@implementation MKGTFilterBeaconCellModel
+@implementation MKFilterBeaconCellModel
 @end
 
-@interface MKGTFilterBeaconCell ()
+@interface MKFilterBeaconCell ()
 
 @property (nonatomic, strong)UILabel *msgLabel;
 
@@ -34,12 +34,12 @@
 
 @end
 
-@implementation MKGTFilterBeaconCell
+@implementation MKFilterBeaconCell
 
-+ (MKGTFilterBeaconCell *)initCellWithTableView:(UITableView *)tableView {
-    MKGTFilterBeaconCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MKGTFilterBeaconCellIdenty"];
++ (MKFilterBeaconCell *)initCellWithTableView:(UITableView *)tableView {
+    MKFilterBeaconCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MKFilterBeaconCellIdenty"];
     if (!cell) {
-        cell = [[MKGTFilterBeaconCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MKGTFilterBeaconCellIdenty"];
+        cell = [[MKFilterBeaconCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MKFilterBeaconCellIdenty"];
     }
     return cell;
 }
@@ -97,10 +97,10 @@
 }
 
 #pragma mark - setter
-- (void)setDataModel:(MKGTFilterBeaconCellModel *)dataModel {
+- (void)setDataModel:(MKFilterBeaconCellModel *)dataModel {
     _dataModel = nil;
     _dataModel = dataModel;
-    if (!_dataModel || ![_dataModel isKindOfClass:MKGTFilterBeaconCellModel.class]) {
+    if (!_dataModel || ![_dataModel isKindOfClass:MKFilterBeaconCellModel.class]) {
         return;
     }
     self.msgLabel.text = SafeStr(_dataModel.msg);
@@ -132,8 +132,8 @@
         @weakify(self);
         _minTextField.textChangedBlock = ^(NSString * _Nonnull text) {
             @strongify(self);
-            if ([self.delegate respondsToSelector:@selector(mk_gt_beaconMinValueChanged:index:)]) {
-                [self.delegate mk_gt_beaconMinValueChanged:text index:self.dataModel.index];
+            if ([self.delegate respondsToSelector:@selector(mk_beaconMinValueChanged:index:)]) {
+                [self.delegate mk_beaconMinValueChanged:text index:self.dataModel.index];
             }
         };
     }
@@ -163,8 +163,8 @@
         @weakify(self);
         _maxTextField.textChangedBlock = ^(NSString * _Nonnull text) {
             @strongify(self);
-            if ([self.delegate respondsToSelector:@selector(mk_gt_beaconMaxValueChanged:index:)]) {
-                [self.delegate mk_gt_beaconMaxValueChanged:text index:self.dataModel.index];
+            if ([self.delegate respondsToSelector:@selector(mk_beaconMaxValueChanged:index:)]) {
+                [self.delegate mk_beaconMaxValueChanged:text index:self.dataModel.index];
             }
         };
     }

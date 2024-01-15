@@ -1,12 +1,12 @@
 //
-//  MKGTEasyShowView.m
+//  MKEasyShowView.m
 //  MKGatewayMeteringTwo_Example
 //
 //  Created by aa on 2023/9/18.
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTEasyShowView.h"
+#import "MKEasyShowView.h"
 
 #import "Masonry.h"
 
@@ -14,7 +14,7 @@
 
 #import "MKCustomUIAdopter.h"
 
-@interface MKGTEasyShowView ()
+@interface MKEasyShowView ()
 
 @property (nonatomic, strong)UIImageView *refreshIcon;
 
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation MKGTEasyShowView
+@implementation MKEasyShowView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -77,7 +77,7 @@
     if (animated) {
         self.refreshIcon.hidden = NO;
         [self.refreshIcon.layer addAnimation:[MKCustomUIAdopter refreshAnimation:1.f]
-                                      forKey:@"mk_gt_refreshAnimation"];
+                                      forKey:@"mk_easyShow_refreshAnimation"];
     }else {
         self.refreshIcon.hidden = YES;
     }
@@ -96,7 +96,7 @@
 - (UIImageView *)refreshIcon {
     if (!_refreshIcon) {
         _refreshIcon = [[UIImageView alloc] init];
-        _refreshIcon.image = LOADICON(@"MKGatewayMeteringTwo", @"MKGTEasyShowView", @"gt_refreshIcon.png");
+        _refreshIcon.image = LOADICON(@"MKGatewayMeteringTwo", @"MKEasyShowView", @"gt_refreshIcon.png");
     }
     return _refreshIcon;
 }

@@ -1,5 +1,5 @@
 //
-//  MKGTEasyShowView.h
+//  MKEasyShowView.h
 //  MKGatewayMeteringTwo_Example
 //
 //  Created by aa on 2023/9/18.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKGTEasyShowView : UIView
+@interface MKEasyShowView : UIView
 
 - (void)showText:(NSString *)text
        superView:(UIView *)superView

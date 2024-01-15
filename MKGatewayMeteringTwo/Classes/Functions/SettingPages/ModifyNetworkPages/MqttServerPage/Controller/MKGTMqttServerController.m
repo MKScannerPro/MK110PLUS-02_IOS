@@ -28,7 +28,7 @@
 #import "MKCustomUIAdopter.h"
 #import "MKAlertView.h"
 
-#import "MKGTImportServerController.h"
+#import "MKImportServerController.h"
 
 #import "MKGTExcelDataManager.h"
 
@@ -46,7 +46,7 @@ UITableViewDataSource,
 MKTextFieldCellDelegate,
 MKGTMqttServerConfigFooterViewDelegate,
 MFMailComposeViewControllerDelegate,
-MKGTImportServerControllerDelegate>
+MKImportServerControllerDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
@@ -330,7 +330,7 @@ MKGTImportServerControllerDelegate>
     }
     if (index == 1) {
         //Import Config File
-        MKGTImportServerController *vc = [[MKGTImportServerController alloc] init];
+        MKImportServerController *vc = [[MKImportServerController alloc] init];
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -341,8 +341,8 @@ MKGTImportServerControllerDelegate>
     }
 }
 
-#pragma mark - MKGTImportServerControllerDelegate
-- (void)gt_selectedServerParams:(NSString *)fileName {
+#pragma mark - MKImportServerControllerDelegate
+- (void)mk_selectedServerParams:(NSString *)fileName {
     [MKGTExcelDataManager parseDeviceExcel:fileName
                                    sucBlock:^(NSDictionary * _Nonnull returnData) {
         MKGTMqttServerModel *model = [MKGTMqttServerModel mk_modelWithJSON:returnData];

@@ -1,12 +1,12 @@
 //
-//  MKGTFilterNormalTextFieldCell.m
-//  MKGatewayMeteringTwo_Example
+//  MKFilterNormalTextFieldCell.m
+//  MKCustomUIModule_Example
 //
-//  Created by aa on 2023/9/18..
-//  Copyright © 2023 aadyx2007@163.com. All rights reserved.
+//  Created by aa on 2024/1/9.
+//  Copyright © 2024 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTFilterNormalTextFieldCell.h"
+#import "MKFilterNormalTextFieldCell.h"
 
 #import "Masonry.h"
 
@@ -14,10 +14,10 @@
 
 #import "MKCustomUIAdopter.h"
 
-@implementation MKGTFilterNormalTextFieldCellModel
+@implementation MKFilterNormalTextFieldCellModel
 @end
 
-@interface MKGTFilterNormalTextFieldCell ()
+@interface MKFilterNormalTextFieldCell ()
 
 @property (nonatomic, strong)UILabel *msgLabel;
 
@@ -25,12 +25,12 @@
 
 @end
 
-@implementation MKGTFilterNormalTextFieldCell
+@implementation MKFilterNormalTextFieldCell
 
-+ (MKGTFilterNormalTextFieldCell *)initCellWithTableView:(UITableView *)tableView {
-    MKGTFilterNormalTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MKGTFilterNormalTextFieldCellIdenty"];
++ (MKFilterNormalTextFieldCell *)initCellWithTableView:(UITableView *)tableView {
+    MKFilterNormalTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MKFilterNormalTextFieldCellIdenty"];
     if (!cell) {
-        cell = [[MKGTFilterNormalTextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MKGTFilterNormalTextFieldCellIdenty"];
+        cell = [[MKFilterNormalTextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MKFilterNormalTextFieldCellIdenty"];
     }
     return cell;
 }
@@ -60,10 +60,10 @@
 }
 
 #pragma mark - setter
-- (void)setDataModel:(MKGTFilterNormalTextFieldCellModel *)dataModel {
+- (void)setDataModel:(MKFilterNormalTextFieldCellModel *)dataModel {
     _dataModel = nil;
     _dataModel = dataModel;
-    if (!_dataModel || ![_dataModel isKindOfClass:MKGTFilterNormalTextFieldCellModel.class]) {
+    if (!_dataModel || ![_dataModel isKindOfClass:MKFilterNormalTextFieldCellModel.class]) {
         return;
     }
     self.msgLabel.text = SafeStr(_dataModel.msg);
@@ -92,8 +92,8 @@
         @weakify(self);
         _textField.textChangedBlock = ^(NSString * _Nonnull text) {
             @strongify(self);
-            if ([self.delegate respondsToSelector:@selector(mk_gt_filterNormalTextFieldValueChanged:index:)]) {
-                [self.delegate mk_gt_filterNormalTextFieldValueChanged:text index:self.dataModel.index];
+            if ([self.delegate respondsToSelector:@selector(mk_filterNormalTextFieldValueChanged:index:)]) {
+                [self.delegate mk_filterNormalTextFieldValueChanged:text index:self.dataModel.index];
             }
         };
     }

@@ -1,16 +1,16 @@
 //
-//  MKGTBleBaseController.h
+//  MKGatewayAddDeviceView.h
 //  MKGatewayMeteringTwo_Example
 //
 //  Created by aa on 2023/9/18.
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import <MKBaseModuleLibrary/MKBaseViewController.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKGTBleBaseController : MKBaseViewController
+@interface MKGatewayAddDeviceView : UIView
 
 @end
 

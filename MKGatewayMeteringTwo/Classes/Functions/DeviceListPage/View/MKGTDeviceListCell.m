@@ -101,10 +101,10 @@
         return;
     }
     self.deviceNameLabel.text = SafeStr(_dataModel.deviceName);
-    self.stateLabel.text = (_dataModel.onLineState == MKGTDeviceModelStateOnline ? @"Online" : @"Offline");
-    self.stateLabel.textColor = (_dataModel.onLineState == MKGTDeviceModelStateOnline ? NAVBAR_COLOR_MACROS : UIColorFromRGB(0xcccccc));
+    self.stateLabel.text = (_dataModel.onLineState == MKGatewayDeviceModelStateOnline ? @"Online" : @"Offline");
+    self.stateLabel.textColor = (_dataModel.onLineState == MKGatewayDeviceModelStateOnline ? NAVBAR_COLOR_MACROS : UIColorFromRGB(0xcccccc));
     self.macLabel.text = SafeStr(_dataModel.macAddress);
-    if (dataModel.onLineState == MKGTDeviceModelStateOffline) {
+    if (dataModel.onLineState == MKGatewayDeviceModelStateOffline) {
         //设备离线
         self.wifiIcon.image = LOADICON(@"MKGatewayMeteringTwo", @"MKGTDeviceListCell", @"gt_offline_wifi.png");
         return;

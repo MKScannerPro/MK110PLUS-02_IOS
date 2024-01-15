@@ -1,12 +1,12 @@
 //
-//  MKGTFilterByRawDataCell.m
-//  MKGatewayMeteringTwo_Example
+//  MKFilterByRawDataCell.m
+//  MKCustomUIModule_Example
 //
-//  Created by aa on 2023/9/18.
-//  Copyright © 2023 aadyx2007@163.com. All rights reserved.
+//  Created by aa on 2024/1/9.
+//  Copyright © 2024 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTFilterByRawDataCell.h"
+#import "MKFilterByRawDataCell.h"
 
 #import "Masonry.h"
 
@@ -15,7 +15,7 @@
 
 #import "MKTextField.h"
 
-@implementation MKGTFilterByRawDataCellModel
+@implementation MKFilterByRawDataCellModel
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -70,7 +70,7 @@
 
 @end
 
-@interface MKGTFilterByRawDataCell ()
+@interface MKFilterByRawDataCell ()
 
 @property (nonatomic, strong)UILabel *msgLabel;
 
@@ -88,12 +88,12 @@
 
 @end
 
-@implementation MKGTFilterByRawDataCell
+@implementation MKFilterByRawDataCell
 
-+ (MKGTFilterByRawDataCell *)initCellWithTableView:(UITableView *)tableView {
-    MKGTFilterByRawDataCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MKGTFilterByRawDataCellIdenty"];
++ (MKFilterByRawDataCell *)initCellWithTableView:(UITableView *)tableView {
+    MKFilterByRawDataCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MKFilterByRawDataCellIdenty"];
     if (!cell) {
-        cell = [[MKGTFilterByRawDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MKGTFilterByRawDataCellIdenty"];
+        cell = [[MKFilterByRawDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MKFilterByRawDataCellIdenty"];
     }
     return cell;
 }
@@ -170,17 +170,17 @@
 }
 
 #pragma mark - event method
-- (void)textFieldValueChanged:(NSString *)text textType:(mk_gt_filterRawAdvDataTextType)type {
-    if ([self.delegate respondsToSelector:@selector(gt_rawFilterDataChanged:index:textValue:)]) {
-        [self.delegate gt_rawFilterDataChanged:type index:self.dataModel.index textValue:text];
+- (void)textFieldValueChanged:(NSString *)text textType:(mk_filterByRawDataTextType)type {
+    if ([self.delegate respondsToSelector:@selector(mk_rawFilterDataChanged:index:textValue:)]) {
+        [self.delegate mk_rawFilterDataChanged:type index:self.dataModel.index textValue:text];
     }
 }
 
 #pragma mark - setter
-- (void)setDataModel:(MKGTFilterByRawDataCellModel *)dataModel {
+- (void)setDataModel:(MKFilterByRawDataCellModel *)dataModel {
     _dataModel = nil;
     _dataModel = dataModel;
-    if (!_dataModel || ![_dataModel isKindOfClass:MKGTFilterByRawDataCellModel.class]) {
+    if (!_dataModel || ![_dataModel isKindOfClass:MKFilterByRawDataCellModel.class]) {
         return;
     }
     self.msgLabel.text = SafeStr(_dataModel.msg);
@@ -214,7 +214,7 @@
         WS(weakSelf);
         _typeTextField.textChangedBlock = ^(NSString * _Nonnull text) {
             __strong typeof(self) sself = weakSelf;
-            [sself textFieldValueChanged:text textType:mk_gt_filterRawAdvDataTextTypeDataType];
+            [sself textFieldValueChanged:text textType:mk_filterByRawDataTextTypeDataType];
         };
     }
     return _typeTextField;
@@ -228,7 +228,7 @@
         WS(weakSelf);
         _minTextField.textChangedBlock = ^(NSString * _Nonnull text) {
             __strong typeof(self) sself = weakSelf;
-            [sself textFieldValueChanged:text textType:mk_gt_filterRawAdvDataTextTypeMinIndex];
+            [sself textFieldValueChanged:text textType:mk_filterByRawDataTextTypeMinIndex];
         };
     }
     return _minTextField;
@@ -242,7 +242,7 @@
         WS(weakSelf);
         _maxTextField.textChangedBlock = ^(NSString * _Nonnull text) {
             __strong typeof(self) sself = weakSelf;
-            [sself textFieldValueChanged:text textType:mk_gt_filterRawAdvDataTextTypeMaxIndex];
+            [sself textFieldValueChanged:text textType:mk_filterByRawDataTextTypeMaxIndex];
         };
     }
     return _maxTextField;
@@ -277,7 +277,7 @@
         WS(weakSelf);
         _rawDataField.textChangedBlock = ^(NSString * _Nonnull text) {
             __strong typeof(self) sself = weakSelf;
-            [sself textFieldValueChanged:text textType:mk_gt_filterRawAdvDataTextTypeRawDataType];
+            [sself textFieldValueChanged:text textType:mk_filterByRawDataTextTypeRawDataType];
         };
     }
     return _rawDataField;

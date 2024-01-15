@@ -1,18 +1,18 @@
 //
-//  MKGTAddDeviceView.m
+//  MKGatewayAddDeviceView.m
 //  MKGatewayMeteringTwo_Example
 //
 //  Created by aa on 2023/9/18.
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTAddDeviceView.h"
+#import "MKGatewayAddDeviceView.h"
 
 #import "Masonry.h"
 
 #import "MKMacroDefines.h"
 
-@interface MKGTAddDeviceView ()
+@interface MKGatewayAddDeviceView ()
 
 @property (nonatomic, strong)UILabel *msgLabel;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation MKGTAddDeviceView
+@implementation MKGatewayAddDeviceView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -62,7 +62,7 @@
 - (UIImageView *)centerIcon{
     if (!_centerIcon) {
         _centerIcon = [[UIImageView alloc] init];
-        _centerIcon.image = LOADICON(@"MKGatewayMeteringTwo", @"MKGTAddDeviceView", @"gt_deviceList_centerIcon.png");
+        _centerIcon.image = LOADICON(@"MKGatewayMeteringTwo", @"MKGatewayAddDeviceView", @"gt_deviceList_centerIcon.png");
     }
     return _centerIcon;
 }
