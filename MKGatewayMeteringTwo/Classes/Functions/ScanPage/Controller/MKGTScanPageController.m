@@ -23,8 +23,6 @@
 
 #import "MKBLEBaseSDKAdopter.h"
 
-#import "MKBlePageModel.h"
-
 #import "MKGTBLESDK.h"
 
 #import "MKGTDeviceParamsListController.h"
@@ -65,12 +63,10 @@ mk_gt_centralManagerScanDelegate>
 
 - (void)dealloc {
     NSLog(@"MKGTScanPageController销毁");
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     //移除runloop的监听
     CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), self.observerRef, kCFRunLoopCommonModes);
     [[MKGTCentralManager shared] stopScan];
     [MKGTCentralManager sharedDealloc];
-    [MKBlePageModel sharedDealloc];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -83,12 +79,6 @@ mk_gt_centralManagerScanDelegate>
     [self loadSubViews];
     [self runloopObserver];
     [MKGTCentralManager shared].delegate = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(connectStatusChanged)
-                                                 name:mk_gt_peripheralConnectStateChangedNotification
-                                               object:nil];
-    //初始化后续蓝牙页面的基类
-    [[MKBlePageModel shared] configDisconnectNotification:@"mk_gt_deviceDisconnected" backToClassName:@"MKGTScanPageController"];
 }
 
 #pragma mark - super method
@@ -148,14 +138,6 @@ mk_gt_centralManagerScanDelegate>
     if (self.rightButton.isSelected) {
         [self.refreshIcon.layer removeAnimationForKey:@"mk_refreshAnimationKey"];
         [self.rightButton setSelected:NO];
-    }
-}
-
-#pragma mark - Note
-- (void)connectStatusChanged {
-    if ([MKGTCentralManager shared].connectStatus == mk_gt_centralConnectStatusDisconnect) {
-        //通知所有后续蓝牙页面，设备断开连接了，需要返回到当前页面
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_deviceDisconnected" object:nil];
     }
 }
 

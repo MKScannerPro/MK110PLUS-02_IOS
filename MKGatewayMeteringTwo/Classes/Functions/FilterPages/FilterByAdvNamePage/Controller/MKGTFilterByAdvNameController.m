@@ -27,13 +27,13 @@
 
 #import "MKGTDeviceModel.h"
 
-#import "MKFilterEditSectionHeaderView.h"
+#import "MKGTFilterEditSectionHeaderView.h"
 
 #import "MKGTFilterByAdvNameModel.h"
 
 @interface MKGTFilterByAdvNameController ()<UITableViewDelegate,
 UITableViewDataSource,
-MKFilterEditSectionHeaderViewDelegate,
+MKGTFilterEditSectionHeaderViewDelegate,
 mk_textSwitchCellDelegate,
 MKTextFieldCellDelegate>
 
@@ -84,10 +84,10 @@ MKTextFieldCellDelegate>
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
-        MKFilterEditSectionHeaderViewModel *headerModel = [[MKFilterEditSectionHeaderViewModel alloc] init];
+        MKGTFilterEditSectionHeaderViewModel *headerModel = [[MKGTFilterEditSectionHeaderViewModel alloc] init];
         headerModel.index = 0;
         headerModel.msg = @"Edit ADV Name";
-        MKFilterEditSectionHeaderView *headerView = [MKFilterEditSectionHeaderView initHeaderViewWithTableView:tableView];
+        MKGTFilterEditSectionHeaderView *headerView = [MKGTFilterEditSectionHeaderView initHeaderViewWithTableView:tableView];
         headerView.dataModel = headerModel;
         headerView.delegate = self;
         return headerView;
@@ -125,10 +125,10 @@ MKTextFieldCellDelegate>
     return cell;
 }
 
-#pragma mark - MKFilterEditSectionHeaderViewDelegate
+#pragma mark - MKGTFilterEditSectionHeaderViewDelegate
 /// 加号点击事件
 /// @param index 所在index
-- (void)mk_filterEditSectionHeaderView_addButtonPressed:(NSInteger)index {
+- (void)mk_gt_filterEditSectionHeaderView_addButtonPressed:(NSInteger)index {
     if (index != 0) {
         return;
     }
@@ -149,7 +149,7 @@ MKTextFieldCellDelegate>
 
 /// 减号点击事件
 /// @param index 所在index
-- (void)mk_filterEditSectionHeaderView_subButtonPressed:(NSInteger)index {
+- (void)mk_gt_filterEditSectionHeaderView_subButtonPressed:(NSInteger)index {
     if (index != 0 || self.section1List.count == 0) {
         return;
     }

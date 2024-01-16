@@ -6,11 +6,11 @@
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKMqttBleBaseController.h"
+#import "MKGTBleBaseController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKGTBleNetworkSettingsController : MKMqttBleBaseController
+@interface MKGTBleNetworkSettingsController : MKGTBleBaseController
 
 @end
 

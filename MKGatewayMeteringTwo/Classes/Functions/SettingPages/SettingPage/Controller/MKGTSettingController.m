@@ -24,7 +24,7 @@
 #import "MKTableSectionLineHeader.h"
 #import "MKAlertView.h"
 
-#import "MKGatewayDatabaseManager.h"
+#import "MKGTDeviceDatabaseManager.h"
 
 #import "MKGTDeviceModeManager.h"
 
@@ -288,7 +288,9 @@ UITableViewDataSource>
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Save..." inView:self.view isPenetration:NO];
-    [MKGatewayDatabaseManager updateLocalName:self.localNameAsciiStr macAddress:[MKGTDeviceModeManager shared].macAddress databaseName:@"GTDeviceDB" tableName:@"GTDeviceTable" sucBlock:^{
+    [MKGTDeviceDatabaseManager updateLocalName:self.localNameAsciiStr
+                                    macAddress:[MKGTDeviceModeManager shared].macAddress
+                                      sucBlock:^{
         [[MKHudManager share] hide];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_deviceNameChangedNotification"
                                                             object:nil
@@ -296,7 +298,8 @@ UITableViewDataSource>
                                                               @"macAddress":[MKGTDeviceModeManager shared].macAddress,
                                                               @"deviceName":self.localNameAsciiStr
                                                           }];
-    } failedBlock:^(NSError * _Nonnull error) {
+    }
+                                   failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
@@ -331,7 +334,7 @@ UITableViewDataSource>
 
 - (void)removeDevice {
     [[MKHudManager share] showHUDWithTitle:@"Delete..." inView:self.view isPenetration:NO];
-    [MKGatewayDatabaseManager deleteWithDatabaseName:@"GTDeviceDB" tableName:@"GTDeviceTable" macAddress:[MKGTDeviceModeManager shared].macAddress sucBlock:^{
+    [MKGTDeviceDatabaseManager deleteDeviceWithMacAddress:[MKGTDeviceModeManager shared].macAddress sucBlock:^{
         [[MKHudManager share] hide];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_deleteDeviceNotification"
                                                             object:nil

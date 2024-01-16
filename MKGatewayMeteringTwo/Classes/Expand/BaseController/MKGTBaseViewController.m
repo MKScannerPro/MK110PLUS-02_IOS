@@ -73,7 +73,7 @@
 - (void)addNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(deviceOffline:)
-                                                 name:MKGatewayDeviceModelOfflineNotification
+                                                 name:MKGTDeviceModelOfflineNotification
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveDeviceLwtMessage:)

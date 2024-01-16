@@ -14,17 +14,12 @@
 #import "MKBaseTableView.h"
 #import "UIView+MKAdd.h"
 #import "UITableView+MKAdd.h"
-#import "NSObject+MKModel.h"
 
 #import "MKHudManager.h"
 #import "MKCustomUIAdopter.h"
 #import "MKAlertView.h"
 
 #import "MKNetworkManager.h"
-
-#import "MKGatewayDatabaseManager.h"
-#import "MKGatewayAddDeviceView.h"
-#import "MKEasyShowView.h"
 
 #import "MKGTDeviceModeManager.h"
 #import "MKGTDeviceModel.h"
@@ -33,11 +28,15 @@
 
 #import "MKGTMQTTDataManager.h"
 
+#import "MKGTDeviceDatabaseManager.h"
+
 #import "CTMediator+MKGTAdd.h"
 
 #import "MKGTDeviceListModel.h"
 
+#import "MKGTAddDeviceView.h"
 #import "MKGTDeviceListCell.h"
+#import "MKGTEasyShowView.h"
 
 #import "MKGTServerForAppController.h"
 #import "MKGTScanPageController.h"
@@ -48,17 +47,17 @@ static NSTimeInterval const kRefreshInterval = 0.5f;
 @interface MKGTDeviceListController ()<UITableViewDelegate,
 UITableViewDataSource,
 MKGTDeviceListCellDelegate,
-MKGatewayDeviceModelDelegate>
+MKGTDeviceModelDelegate>
 
 /// 没有添加设备的时候显示
-@property (nonatomic, strong)MKGatewayAddDeviceView *addView;
+@property (nonatomic, strong)MKGTAddDeviceView *addView;
 
 /// 本地有设备的时候显示
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
 @property (nonatomic, strong)UIView *footerView;
 
-@property (nonatomic, strong)MKEasyShowView *loadingView;
+@property (nonatomic, strong)MKGTEasyShowView *loadingView;
 
 @property (nonatomic, strong)NSMutableArray *dataList;
 
@@ -109,7 +108,7 @@ MKGatewayDeviceModelDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MKGTDeviceListModel *deviceModel = self.dataList[indexPath.row];
-    if (deviceModel.onLineState != MKGatewayDeviceModelStateOnline) {
+    if (deviceModel.onLineState != MKGTDeviceModelStateOnline) {
         [self.view showCentralToast:@"Device is off-line!"];
         return;
     }
@@ -162,11 +161,11 @@ MKGatewayDeviceModelDelegate>
     [alertView showAlertWithTitle:@"Remove Device" message:msg notificationName:@"mk_gt_needDismissAlert"];
 }
 
-#pragma mark - MKGatewayDeviceModelDelegate
+#pragma mark - MKGTDeviceModelDelegate
 /// 当前设备离线
 /// @param deviceID 当前设备的deviceID
-- (void)mk_deviceOfflineWithMacAddress:(NSString *)macAddress {
-    [self deviceModelOnlineStateChanged:MKGatewayDeviceModelStateOffline macAddress:macAddress];
+- (void)gt_deviceOfflineWithMacAddress:(NSString *)macAddress {
+    [self deviceModelOnlineStateChanged:MKGTDeviceModelStateOffline macAddress:macAddress];
 }
 
 #pragma mark - note
@@ -226,7 +225,7 @@ MKGatewayDeviceModelDelegate>
     if (!ValidDict(user) || !ValidStr(user[@"macAddress"]) || self.dataList.count == 0) {
         return;
     }
-    [self deviceModelOnlineStateChanged:MKGatewayDeviceModelStateOnline macAddress:user[@"macAddress"]];
+    [self deviceModelOnlineStateChanged:MKGTDeviceModelStateOnline macAddress:user[@"macAddress"]];
 }
 
 - (void)receiveDeviceNetworkState:(NSNotification *)note {
@@ -237,7 +236,7 @@ MKGatewayDeviceModelDelegate>
     for (NSInteger i = 0; i < self.dataList.count; i ++) {
         MKGTDeviceListModel *deviceModel = self.dataList[i];
         if ([deviceModel.macAddress isEqualToString:user[@"macAddress"]]) {
-            deviceModel.onLineState = MKGatewayDeviceModelStateOnline;
+            deviceModel.onLineState = MKGTDeviceModelStateOnline;
             [deviceModel startStateMonitoringTimer];
             deviceModel.wifiLevel = [user[@"data"][@"wifi_rssi"] integerValue];
             break;
@@ -317,7 +316,7 @@ MKGatewayDeviceModelDelegate>
             model.publishedTopic = user[@"publishedTopic"];
             model.lwtStatus = [user[@"lwtStatus"] boolValue];
             model.lwtTopic = user[@"lwtTopic"];
-            model.onLineState = MKGatewayDeviceModelStateOffline;
+            model.onLineState = MKGTDeviceModelStateOffline;
             [subTopicList addObject:[model currentPublishedTopic]];
             if (model.lwtStatus) {
                 //如果用户打开了遗嘱功能，则订阅topic
@@ -376,7 +375,7 @@ MKGatewayDeviceModelDelegate>
     for (NSInteger i = 0; i < self.dataList.count; i ++) {
         MKGTDeviceListModel *deviceModel = self.dataList[i];
         if ([deviceModel.macAddress isEqualToString:macAddress]) {
-            deviceModel.onLineState = MKGatewayDeviceModelStateOffline;
+            deviceModel.onLineState = MKGTDeviceModelStateOffline;
             break;
         }
     }
@@ -396,7 +395,7 @@ MKGatewayDeviceModelDelegate>
     for (NSInteger i = 0; i < self.dataList.count; i ++) {
         MKGTDeviceListModel *deviceModel = self.dataList[i];
         if ([deviceModel.macAddress isEqualToString:macAddress]) {
-            deviceModel.onLineState = MKGatewayDeviceModelStateOffline;
+            deviceModel.onLineState = MKGTDeviceModelStateOffline;
             [unSubTopicList addObject:[deviceModel currentPublishedTopic]];
             if (deviceModel.lwtStatus) {
                 [unSubTopicList addObject:deviceModel.lwtTopic];
@@ -465,16 +464,9 @@ MKGatewayDeviceModelDelegate>
 
 - (void)readDataFromDatabase {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    [MKGatewayDatabaseManager readLocalDeviceWithDatabaseName:@"GTDeviceDB" tableName:@"GTDeviceTable" sucBlock:^(NSArray<NSDictionary *> * _Nonnull deviceList) {
-        NSMutableArray *tempList = [NSMutableArray array];
-        for (NSInteger i = 0; i < deviceList.count; i ++) {
-            MKGTDeviceModel *device = [MKGTDeviceModel mk_modelWithJSON:deviceList[i]];
-            if (device) {
-                [tempList addObject:device];
-            }
-        }
+    [MKGTDeviceDatabaseManager readLocalDeviceWithSucBlock:^(NSArray<MKGTDeviceModel *> * _Nonnull deviceList) {
         [[MKHudManager share] hide];
-        [self loadTopics:tempList];
+        [self loadTopics:deviceList];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
@@ -510,12 +502,12 @@ MKGatewayDeviceModelDelegate>
     [[MKGTMQTTDataManager shared] subscriptions:topicList];
 }
 
-- (void)deviceModelOnlineStateChanged:(MKGatewayDeviceModelState)state macAddress:(NSString *)macAddress {
+- (void)deviceModelOnlineStateChanged:(MKGTDeviceModelState)state macAddress:(NSString *)macAddress {
     for (NSInteger i = 0; i < self.dataList.count; i ++) {
         MKGTDeviceListModel *deviceModel = self.dataList[i];
         if ([deviceModel.macAddress isEqualToString:macAddress]) {
             deviceModel.onLineState = state;
-            if (state == MKGatewayDeviceModelStateOnline) {
+            if (state == MKGTDeviceModelStateOnline) {
                 //在线状态开启监听
                 [deviceModel startStateMonitoringTimer];
             }
@@ -528,7 +520,7 @@ MKGatewayDeviceModelDelegate>
 - (void)removeDeviceFromLocal:(NSInteger)index {
     MKGTDeviceListModel *deviceModel = self.dataList[index];
     [[MKHudManager share] showHUDWithTitle:@"Delete..." inView:self.view isPenetration:NO];
-    [MKGatewayDatabaseManager deleteWithDatabaseName:@"GTDeviceDB" tableName:@"GTDeviceTable" macAddress:deviceModel.macAddress sucBlock:^{
+    [MKGTDeviceDatabaseManager deleteDeviceWithMacAddress:deviceModel.macAddress sucBlock:^{
         [[MKHudManager share] hide];
         [self.dataList removeObject:deviceModel];
         [[MKGTMQTTDataManager shared] unsubscriptions:@[[deviceModel currentPublishedTopic]]];
@@ -641,16 +633,16 @@ MKGatewayDeviceModelDelegate>
     return _tableView;
 }
 
-- (MKGatewayAddDeviceView *)addView {
+- (MKGTAddDeviceView *)addView {
     if (!_addView) {
-        _addView = [[MKGatewayAddDeviceView alloc] init];
+        _addView = [[MKGTAddDeviceView alloc] init];
     }
     return _addView;
 }
 
-- (MKEasyShowView *)loadingView {
+- (MKGTEasyShowView *)loadingView {
     if (!_loadingView) {
-        _loadingView = [[MKEasyShowView alloc] init];
+        _loadingView = [[MKGTEasyShowView alloc] init];
     }
     return _loadingView;
 }

@@ -26,16 +26,16 @@
 
 #import "MKGTDeviceModel.h"
 
-#import "MKFilterByRawDataCell.h"
-#import "MKFilterEditSectionHeaderView.h"
+#import "MKGTFilterByRawDataCell.h"
+#import "MKGTFilterEditSectionHeaderView.h"
 
 #import "MKGTFilterByOtherModel.h"
 
 @interface MKGTFilterByOtherController ()<UITableViewDelegate,
 UITableViewDataSource,
 mk_textSwitchCellDelegate,
-MKFilterEditSectionHeaderViewDelegate,
-MKFilterByRawDataCellDelegate,
+MKGTFilterEditSectionHeaderViewDelegate,
+MKGTFilterByRawDataCellDelegate,
 MKTextButtonCellDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
@@ -90,8 +90,8 @@ MKTextButtonCellDelegate>
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
-        MKFilterEditSectionHeaderView *headerView = [MKFilterEditSectionHeaderView initHeaderViewWithTableView:tableView];
-        MKFilterEditSectionHeaderViewModel *model = [[MKFilterEditSectionHeaderViewModel alloc] init];
+        MKGTFilterEditSectionHeaderView *headerView = [MKGTFilterEditSectionHeaderView initHeaderViewWithTableView:tableView];
+        MKGTFilterEditSectionHeaderViewModel *model = [[MKGTFilterEditSectionHeaderViewModel alloc] init];
         model.index = 0;
         model.msg = @"Filter Condition";
         model.contentColor = COLOR_WHITE_MACROS;
@@ -130,7 +130,7 @@ MKTextButtonCellDelegate>
         return cell;
     }
     if (indexPath.section == 1) {
-        MKFilterByRawDataCell *cell = [MKFilterByRawDataCell initCellWithTableView:tableView];
+        MKGTFilterByRawDataCell *cell = [MKGTFilterByRawDataCell initCellWithTableView:tableView];
         cell.dataModel = self.section1List[indexPath.row];
         cell.delegate = self;
         return cell;
@@ -155,10 +155,10 @@ MKTextButtonCellDelegate>
     }
 }
 
-#pragma mark - MKFilterEditSectionHeaderViewDelegate
+#pragma mark - MKGTFilterEditSectionHeaderViewDelegate
 /// 加号点击事件
 /// @param index 所在index
-- (void)mk_filterEditSectionHeaderView_addButtonPressed:(NSInteger)index {
+- (void)mk_gt_filterEditSectionHeaderView_addButtonPressed:(NSInteger)index {
     if (index != 0) {
         return;
     }
@@ -167,7 +167,7 @@ MKTextButtonCellDelegate>
         return;
     }
     NSInteger cellModelIndex = self.section1List.count;
-    MKFilterByRawDataCellModel *cellModel = [[MKFilterByRawDataCellModel alloc] init];
+    MKGTFilterByRawDataCellModel *cellModel = [[MKGTFilterByRawDataCellModel alloc] init];
     if (cellModelIndex == 0) {
         //Condition A
         cellModel.msg = @"Condition A";
@@ -196,7 +196,7 @@ MKTextButtonCellDelegate>
 
 /// 减号点击事件
 /// @param index 所在index
-- (void)mk_filterEditSectionHeaderView_subButtonPressed:(NSInteger)index {
+- (void)mk_gt_filterEditSectionHeaderView_subButtonPressed:(NSInteger)index {
     if (index != 0 || self.section1List.count == 0) {
         return;
     }
@@ -209,34 +209,34 @@ MKTextButtonCellDelegate>
     [self.tableView reloadData];
 }
 
-#pragma mark - MKFilterByRawDataCellDelegate
+#pragma mark - MKGTFilterByRawDataCellDelegate
 /// 输入框内容发生改变
 /// @param textType 哪个输入框发生改变了
 /// @param index 当前cell所在的row
 /// @param textValue 当前textField内容
-- (void)mk_rawFilterDataChanged:(mk_filterByRawDataTextType)textType
+- (void)gt_rawFilterDataChanged:(mk_gt_filterRawAdvDataTextType)textType
                           index:(NSInteger)index
                       textValue:(NSString *)textValue {
     if (index >= self.section1List.count) {
         return;
     }
-    MKFilterByRawDataCellModel *cellModel = self.section1List[index];
-    if (textType == mk_filterByRawDataTextTypeDataType) {
+    MKGTFilterByRawDataCellModel *cellModel = self.section1List[index];
+    if (textType == mk_gt_filterRawAdvDataTextTypeDataType) {
         //过滤类型输入框内容发生改变
         cellModel.dataType = textValue;
         return;
     }
-    if (textType == mk_filterByRawDataTextTypeMinIndex) {
+    if (textType == mk_gt_filterRawAdvDataTextTypeMinIndex) {
         //开始过滤的Byte索引输入框发生改变
         cellModel.minIndex = textValue;
         return;
     }
-    if (textType == mk_filterByRawDataTextTypeMaxIndex) {
+    if (textType == mk_gt_filterRawAdvDataTextTypeMaxIndex) {
         //截止过滤的Byte索引输入框发生改变
         cellModel.maxIndex = textValue;
         return;
     }
-    if (textType == mk_filterByRawDataTextTypeRawDataType) {
+    if (textType == mk_gt_filterRawAdvDataTextTypeRawDataType) {
         //过滤内容输入框发生改变
         cellModel.rawData = textValue;
         return;
@@ -277,7 +277,7 @@ MKTextButtonCellDelegate>
 - (void)configDataToDevice {
     NSMutableArray *list = [NSMutableArray array];
     for (NSInteger i = 0; i < self.section1List.count; i ++) {
-        MKFilterByRawDataCellModel *cellModel = self.section1List[i];
+        MKGTFilterByRawDataCellModel *cellModel = self.section1List[i];
         if ((ValidStr(cellModel.maxIndex) && !ValidStr(cellModel.minIndex)) || !ValidStr(cellModel.maxIndex) && ValidStr(cellModel.minIndex)) {
             //不允许一个为空一个不为空，可以都为空
             [self.view showCentralToast:@"Filter by Raw Adv Data Params Error"];
@@ -400,7 +400,7 @@ MKTextButtonCellDelegate>
 - (void)loadSection1Datas {
     for (NSInteger i = 0; i < self.dataModel.rawDataList.count; i ++) {
         NSDictionary *dic = self.dataModel.rawDataList[i];
-        MKFilterByRawDataCellModel *cellModel = [[MKFilterByRawDataCellModel alloc] init];
+        MKGTFilterByRawDataCellModel *cellModel = [[MKGTFilterByRawDataCellModel alloc] init];
         if (i == 0) {
             //Condition A
             cellModel.msg = @"Condition A";

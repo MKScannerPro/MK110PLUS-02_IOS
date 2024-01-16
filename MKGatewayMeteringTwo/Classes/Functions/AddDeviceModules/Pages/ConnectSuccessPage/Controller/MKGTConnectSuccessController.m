@@ -19,9 +19,9 @@
 #import "MKTextField.h"
 #import "MKHudManager.h"
 
-#import "MKGatewayDatabaseManager.h"
-
 #import "MKGTDeviceModel.h"
+
+#import "MKGTDeviceDatabaseManager.h"
 
 @interface MKGTConnectSuccessController ()
 
@@ -67,16 +67,7 @@
     }
     self.deviceModel.deviceName = SafeStr(self.textField.text);
     [[MKHudManager share] showHUDWithTitle:@"Save..." inView:self.view isPenetration:NO];
-    MKGatewayDatabaseModel *databaseModel = [[MKGatewayDatabaseModel alloc] init];
-    databaseModel.deviceType = self.deviceModel.deviceType;
-    databaseModel.clientID = self.deviceModel.clientID;
-    databaseModel.deviceName = self.deviceModel.deviceName;
-    databaseModel.subscribedTopic = self.deviceModel.subscribedTopic;
-    databaseModel.publishedTopic = self.deviceModel.publishedTopic;
-    databaseModel.macAddress = self.deviceModel.macAddress;
-    databaseModel.lwtStatus = self.deviceModel.lwtStatus;
-    databaseModel.lwtTopic = self.deviceModel.lwtTopic;
-    [MKGatewayDatabaseManager insertWithDatabaseName:@"GTDeviceDB" tableName:@"GTDeviceTable" deviceList:@[databaseModel] sucBlock:^{
+    [MKGTDeviceDatabaseManager insertDeviceList:@[self.deviceModel] sucBlock:^{
         [[MKHudManager share] hide];
         [self popToViewControllerWithClassName:@"MKGTDeviceListController"];
         
@@ -89,7 +80,7 @@
         deviceModel.macAddress = self.deviceModel.macAddress;
         deviceModel.lwtStatus = self.deviceModel.lwtStatus;
         deviceModel.lwtTopic = self.deviceModel.lwtTopic;
-        deviceModel.onLineState = MKGatewayDeviceModelStateOnline;
+        deviceModel.onLineState = MKGTDeviceModelStateOnline;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_addNewDeviceSuccessNotification"
                                                             object:nil

@@ -62,12 +62,30 @@ TODO: Add long description of the pod here.
   end
   
   s.subspec 'Expand' do |ss|
+    
+    ss.subspec 'BleBaseController' do |sss|
+      
+      sss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/BleBaseController/**'
+    
+    
+      sss.dependency 'MKGatewayMeteringTwo/SDK/BLE'
+    end
+  
     ss.subspec 'BaseController' do |sss|
       
       sss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/BaseController/**'
     
     
       sss.dependency 'MKGatewayMeteringTwo/SDK/MQTT'
+      sss.dependency 'MKGatewayMeteringTwo/DeviceModel'
+    end
+    
+    ss.subspec 'DatabaseManager' do |sss|
+      
+      sss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/DatabaseManager/**'
+    
+    
+      sss.dependency 'FMDB'
       sss.dependency 'MKGatewayMeteringTwo/DeviceModel'
     end
     
@@ -81,6 +99,29 @@ TODO: Add long description of the pod here.
     end
     
     ss.subspec 'View' do |sss|
+      sss.subspec 'AlertView' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/AlertView/**'
+      end
+      
+      sss.subspec 'FilterCell' do |ssss|
+        
+        ssss.subspec 'FilterBeaconCell' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterBeaconCell/**'
+        end
+        
+        ssss.subspec 'FilterByRawDataCell' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterByRawDataCell/**'
+        end
+        
+        ssss.subspec 'FilterEditSectionHeaderView' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterEditSectionHeaderView/**'
+        end
+        
+        ssss.subspec 'FilterNormalTextFieldCell' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterNormalTextFieldCell/**'
+        end
+      
+      end
       
       sss.subspec 'UserCredentialsView' do |ssss|
         
@@ -88,6 +129,12 @@ TODO: Add long description of the pod here.
         
       end
         
+    end
+    
+    ss.subspec 'ImportServerPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/ImportServerPage/Controller/**'
+      end
     end
     
     ss.dependency 'MKBaseModuleLibrary'
@@ -854,50 +901,6 @@ TODO: Add long description of the pod here.
     ss.dependency 'MKCustomUIModule'
     
     ss.dependency 'MLInputDodger'
-    
-  end
-  
-  s.subspec 'Module' do |ss|
-    
-    ss.subspec 'BleBaseController' do |sss|
-      
-      sss.source_files = 'MKGatewayMeteringTwo/Classes/Module/BleBaseController/**'
-      
-    end
-    
-    ss.subspec 'DeviceModel' do |sss|
-      
-      sss.source_files = 'MKGatewayMeteringTwo/Classes/Module/DeviceModel/**'
-    
-    end
-    
-    ss.subspec 'Expand' do |sss|
-      sss.subspec 'View' do |ssss|
-        ssss.subspec 'AddDeviceView' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Module/Expand/View/AddDeviceView/**'
-        end
-        ssss.subspec 'AlertView' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Module/Expand/View/AlertView/**'
-        end
-        ssss.subspec 'EasyShowView' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Module/Expand/View/EasyShowView/**'
-        end
-      end
-      
-      sss.subspec 'ImportServerPage' do |ssss|
-        ssss.subspec 'Controller' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Module/Expand/ImportServerPage/Controller/**'
-        end
-      end
-      
-      sss.subspec 'DatabaseManager' do |ssss|
-        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Module/Expand/DatabaseManager/**'
-        
-        ssss.dependency 'FMDB'
-      end
-      
-    end
-        
     
   end
 

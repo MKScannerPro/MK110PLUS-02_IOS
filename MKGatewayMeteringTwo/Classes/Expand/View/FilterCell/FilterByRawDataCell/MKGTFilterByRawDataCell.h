@@ -1,16 +1,16 @@
 //
-//  MKFilterByRawDataCell.h
-//  MKCustomUIModule_Example
+//  MKGTFilterByRawDataCell.h
+//  MKGatewayMeteringTwo_Example
 //
-//  Created by aa on 2024/1/9.
-//  Copyright © 2024 aadyx2007@163.com. All rights reserved.
+//  Created by aa on 2023/9/18.
+//  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
 #import <MKBaseModuleLibrary/MKBaseCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKFilterByRawDataCellModel : NSObject
+@interface MKGTFilterByRawDataCellModel : NSObject
 
 /// 当前cell所在index
 @property (nonatomic, assign)NSInteger index;
@@ -48,32 +48,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-typedef NS_ENUM(NSInteger, mk_filterByRawDataTextType) {
-    mk_filterByRawDataTextTypeDataType,            //过滤类型输入框内容发生改变
-    mk_filterByRawDataTextTypeMinIndex,            //开始过滤的Byte索引输入框发生改变
-    mk_filterByRawDataTextTypeMaxIndex,            //截止过滤的Byte索引输入框发生改变
-    mk_filterByRawDataTextTypeRawDataType,         //过滤内容输入框发生改变
+typedef NS_ENUM(NSInteger, mk_gt_filterRawAdvDataTextType) {
+    mk_gt_filterRawAdvDataTextTypeDataType,            //过滤类型输入框内容发生改变
+    mk_gt_filterRawAdvDataTextTypeMinIndex,            //开始过滤的Byte索引输入框发生改变
+    mk_gt_filterRawAdvDataTextTypeMaxIndex,            //截止过滤的Byte索引输入框发生改变
+    mk_gt_filterRawAdvDataTextTypeRawDataType,         //过滤内容输入框发生改变
 };
 
-@protocol MKFilterByRawDataCellDelegate <NSObject>
+@protocol MKGTFilterByRawDataCellDelegate <NSObject>
 
 /// 输入框内容发生改变
 /// @param textType 哪个输入框发生改变了
 /// @param index 当前cell所在的row
 /// @param textValue 当前textField内容
-- (void)mk_rawFilterDataChanged:(mk_filterByRawDataTextType)textType
+- (void)gt_rawFilterDataChanged:(mk_gt_filterRawAdvDataTextType)textType
                           index:(NSInteger)index
                       textValue:(NSString *)textValue;
 
 @end
 
-@interface MKFilterByRawDataCell : MKBaseCell
+@interface MKGTFilterByRawDataCell : MKBaseCell
 
-@property (nonatomic, strong)MKFilterByRawDataCellModel *dataModel;
+@property (nonatomic, strong)MKGTFilterByRawDataCellModel *dataModel;
 
-@property (nonatomic, weak)id <MKFilterByRawDataCellDelegate>delegate;
+@property (nonatomic, weak)id <MKGTFilterByRawDataCellDelegate>delegate;
 
-+ (MKFilterByRawDataCell *)initCellWithTableView:(UITableView *)tableView;
++ (MKGTFilterByRawDataCell *)initCellWithTableView:(UITableView *)tableView;
 
 @end
 

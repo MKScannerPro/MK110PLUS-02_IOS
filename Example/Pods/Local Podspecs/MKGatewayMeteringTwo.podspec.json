@@ -72,10 +72,31 @@
       },
       "subspecs": [
         {
+          "name": "BleBaseController",
+          "source_files": "MKGatewayMeteringTwo/Classes/Expand/BleBaseController/**",
+          "dependencies": {
+            "MKGatewayMeteringTwo/SDK/BLE": [
+
+            ]
+          }
+        },
+        {
           "name": "BaseController",
           "source_files": "MKGatewayMeteringTwo/Classes/Expand/BaseController/**",
           "dependencies": {
             "MKGatewayMeteringTwo/SDK/MQTT": [
+
+            ],
+            "MKGatewayMeteringTwo/DeviceModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "DatabaseManager",
+          "source_files": "MKGatewayMeteringTwo/Classes/Expand/DatabaseManager/**",
+          "dependencies": {
+            "FMDB": [
 
             ],
             "MKGatewayMeteringTwo/DeviceModel": [
@@ -99,8 +120,42 @@
           "name": "View",
           "subspecs": [
             {
+              "name": "AlertView",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/AlertView/**"
+            },
+            {
+              "name": "FilterCell",
+              "subspecs": [
+                {
+                  "name": "FilterBeaconCell",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterBeaconCell/**"
+                },
+                {
+                  "name": "FilterByRawDataCell",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterByRawDataCell/**"
+                },
+                {
+                  "name": "FilterEditSectionHeaderView",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterEditSectionHeaderView/**"
+                },
+                {
+                  "name": "FilterNormalTextFieldCell",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterNormalTextFieldCell/**"
+                }
+              ]
+            },
+            {
               "name": "UserCredentialsView",
               "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/UserCredentialsView/**"
+            }
+          ]
+        },
+        {
+          "name": "ImportServerPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/ImportServerPage/Controller/**"
             }
           ]
         }
@@ -1302,59 +1357,6 @@
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/SettingPage/Model/**"
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Module",
-      "subspecs": [
-        {
-          "name": "BleBaseController",
-          "source_files": "MKGatewayMeteringTwo/Classes/Module/BleBaseController/**"
-        },
-        {
-          "name": "DeviceModel",
-          "source_files": "MKGatewayMeteringTwo/Classes/Module/DeviceModel/**"
-        },
-        {
-          "name": "Expand",
-          "subspecs": [
-            {
-              "name": "View",
-              "subspecs": [
-                {
-                  "name": "AddDeviceView",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Module/Expand/View/AddDeviceView/**"
-                },
-                {
-                  "name": "AlertView",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Module/Expand/View/AlertView/**"
-                },
-                {
-                  "name": "EasyShowView",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Module/Expand/View/EasyShowView/**"
-                }
-              ]
-            },
-            {
-              "name": "ImportServerPage",
-              "subspecs": [
-                {
-                  "name": "Controller",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Module/Expand/ImportServerPage/Controller/**"
-                }
-              ]
-            },
-            {
-              "name": "DatabaseManager",
-              "source_files": "MKGatewayMeteringTwo/Classes/Module/Expand/DatabaseManager/**",
-              "dependencies": {
-                "FMDB": [
-
-                ]
-              }
             }
           ]
         }

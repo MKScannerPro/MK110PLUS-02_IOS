@@ -21,13 +21,13 @@
 #import "MKSettingTextCell.h"
 #import "MKAlertView.h"
 
-#import "MKGatewayDatabaseManager.h"
-
 #import "MKGTMQTTDataManager.h"
 #import "MKGTMQTTInterface.h"
 
 #import "MKGTDeviceModeManager.h"
 #import "MKGTDeviceModel.h"
+
+#import "MKGTDeviceDatabaseManager.h"
 
 #import "MKGTMqttParamsModel.h"
 
@@ -160,15 +160,7 @@
 #pragma mark - private method
 - (void)updateLocaDeviceData {
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
-    
-    MKGatewayDatabaseModel *databaseModel = [[MKGatewayDatabaseModel alloc] init];
-    databaseModel.macAddress = SafeStr([MKGTDeviceModeManager shared].macAddress);
-    databaseModel.clientID = SafeStr(self.dataModel.clientID);
-    databaseModel.subscribedTopic = SafeStr(self.dataModel.subscribeTopic);
-    databaseModel.publishedTopic = SafeStr(self.dataModel.publishTopic);
-    databaseModel.lwtStatus = @(self.dataModel.lwtStatus);
-    databaseModel.lwtTopic = SafeStr(self.dataModel.lwtTopic);
-    [MKGatewayDatabaseManager updateDeviceWithDatabaseName:@"GTDeviceDB" tableName:@"GTDeviceTable" deviceModel:databaseModel sucBlock:^{
+    [MKGTDeviceDatabaseManager updateClientID:self.dataModel.clientID subscribedTopic:self.dataModel.subscribeTopic publishedTopic:self.dataModel.publishTopic lwtStatus:self.dataModel.lwtStatus lwtTopic:self.dataModel.lwtTopic macAddress:[MKGTDeviceModeManager shared].macAddress sucBlock:^{
         [[MKHudManager share] hide];
         [self.view showCentralToast:@"Setup succeed!"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_deviceModifyMQTTServerSuccessNotification"
