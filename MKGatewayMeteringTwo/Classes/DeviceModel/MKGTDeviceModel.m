@@ -21,6 +21,7 @@ NSString *const MKGTDeviceModelOfflineNotification = @"MKGTDeviceModelOfflineNot
  */
 @property (nonatomic, strong)dispatch_source_t receiveTimer;
 
+/// 定时器计数
 @property (nonatomic, assign)NSInteger receiveTimerCount;
 
 @property (nonatomic, assign)BOOL offline;
