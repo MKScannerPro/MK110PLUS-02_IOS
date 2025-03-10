@@ -168,6 +168,12 @@ TODO: Add long description of the pod here.
     
   end
   
+  s.subspec 'LoginManager' do |ss|
+    ss.source_files = 'MKGatewayMeteringTwo/Classes/LoginManager/**'
+  
+    ss.dependency 'MKIotCloudManager'
+  end
+  
   s.subspec 'Functions' do |ss|
     
     ss.subspec 'AddDeviceModules' do |sss|
@@ -368,6 +374,8 @@ TODO: Add long description of the pod here.
           ssss.dependency 'MKGatewayMeteringTwo/Functions/ServerForApp'
           ssss.dependency 'MKGatewayMeteringTwo/Functions/ScanPage'
           ssss.dependency 'MKGatewayMeteringTwo/Functions/DeviceDataPage'
+          ssss.dependency 'MKGatewayMeteringTwo/Functions/SyncDevicePage'
+          
         end
         
         sss.subspec 'Model' do |ssss|
@@ -891,11 +899,24 @@ TODO: Add long description of the pod here.
         
     end
     
+    ss.subspec 'SyncDevicePage' do |sss|
+        sss.subspec 'Controller' do |ssss|
+          ssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SyncDevicePage/Controller/**'
+          
+          ssss.dependency 'MKGatewayMeteringTwo/Functions/SyncDevicePage/View'
+        end
+        
+        sss.subspec 'View' do |ssss|
+          ssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SyncDevicePage/View/**'
+        end
+    end
+    
     ss.dependency 'MKGatewayMeteringTwo/SDK'
     ss.dependency 'MKGatewayMeteringTwo/Expand'
     ss.dependency 'MKGatewayMeteringTwo/CTMediator'
     ss.dependency 'MKGatewayMeteringTwo/DeviceModel'
     ss.dependency 'MKGatewayMeteringTwo/CTMediator'
+    ss.dependency 'MKGatewayMeteringTwo/LoginManager'
   
     ss.dependency 'MKBaseModuleLibrary'
     ss.dependency 'MKCustomUIModule'

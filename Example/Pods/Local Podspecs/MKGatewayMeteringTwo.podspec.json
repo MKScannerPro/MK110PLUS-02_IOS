@@ -205,6 +205,15 @@
       ]
     },
     {
+      "name": "LoginManager",
+      "source_files": "MKGatewayMeteringTwo/Classes/LoginManager/**",
+      "dependencies": {
+        "MKIotCloudManager": [
+
+        ]
+      }
+    },
+    {
       "name": "Functions",
       "dependencies": {
         "MKGatewayMeteringTwo/SDK": [
@@ -217,6 +226,9 @@
 
         ],
         "MKGatewayMeteringTwo/DeviceModel": [
+
+        ],
+        "MKGatewayMeteringTwo/LoginManager": [
 
         ],
         "MKBaseModuleLibrary": [
@@ -548,6 +560,9 @@
 
                 ],
                 "MKGatewayMeteringTwo/Functions/DeviceDataPage": [
+
+                ],
+                "MKGatewayMeteringTwo/Functions/SyncDevicePage": [
 
                 ]
               }
@@ -1357,6 +1372,24 @@
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/SettingPage/Model/**"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "name": "SyncDevicePage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKGatewayMeteringTwo/Classes/Functions/SyncDevicePage/Controller/**",
+              "dependencies": {
+                "MKGatewayMeteringTwo/Functions/SyncDevicePage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKGatewayMeteringTwo/Classes/Functions/SyncDevicePage/View/**"
             }
           ]
         }
