@@ -149,6 +149,7 @@
 #import "MKGTSettingModel.h"
 #import "MKGTSyncDeviceController.h"
 #import "MKGTSyncDeviceCell.h"
+#import "MKGTNetworkService.h"
 #import "MKGTUserLoginManager.h"
 #import "CBPeripheral+MKGTAdd.h"
 #import "MKGTBLESDK.h"
