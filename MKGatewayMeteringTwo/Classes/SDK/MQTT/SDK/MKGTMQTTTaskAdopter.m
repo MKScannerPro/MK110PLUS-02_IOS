@@ -72,6 +72,150 @@
         }
         return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigDeviceBuzzerReminderOperation];
     }
+    if (msgID == 3114) {
+        //删除触发记录
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskClearTriggerEventCountOperation];
+    }
+    if (msgID == 3116) {
+        //BXP-B-D 监听三轴数据
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnNotifyAccDataOperation];
+    }
+    if (msgID == 3119) {
+        //BXP-B-D 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnRemotePowerOffOperation];
+    }
+    if (msgID == 3121) {
+        //BXP-B-D 广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnReadAdvParamsOperation];
+    }
+    if (msgID == 3123) {
+        //BXP-B-D 广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnConfigAdvParamsOperation];
+    }
+    if (msgID == 3151) {
+        //BXP-B-CR 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectBXPButtonCRWithMacOperation];
+    }
+    if (msgID == 3153) {
+        //BXP-B-CR 设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPButtonCRConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3155) {
+        //BXP-B-CR获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPButtonCRStatusOperation];
+    }
+    if (msgID == 3157) {
+        //BXP-B-CR消警
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskDismissBXPBCRAlarmStatusOperation];
+    }
+    if (msgID == 3159) {
+        //BXP-B-CR控制LED
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRLedRemoteReminderOperation];
+    }
+    if (msgID == 3161) {
+        //BXP-B-CR控制蜂鸣器
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRBuzzerRemoteReminderOperation];
+    }
+    if (msgID == 3163) {
+        //BXP-B-CR删除触发记录结果
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskClearBXPButtonCREventCountOperation];
+    }
+    if (msgID == 3165) {
+        //BXP-B-CR监听三轴数据开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRNotifyAccDataOperation];
+    }
+    if (msgID == 3168) {
+        //BXP-B-CR 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRRemotePowerOffOperation];
+    }
+    if (msgID == 3170) {
+        //BXP-B-CR控制马达
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRVibratingRemoteReminderOperation];
+    }
+    if (msgID == 3172) {
+        //BXP-B-CR控制监听触发记录
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPCRNotifyAlarmDataOperation];
+    }
+    if (msgID == 3175) {
+        //BXP-B-CR读取广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRReadAdvParamsOperation];
+    }
+    if (msgID == 3177) {
+        //BXP-B-CR配置广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnCRConfigAdvParamsOperation];
+    }
     if (msgID == 3301) {
         //网关连接指定mac地址的蓝牙设备
         BOOL success = ([json[@"result_code"] integerValue] == 0);
@@ -111,6 +255,583 @@
             return @{};
         }
         return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskWriteCharacteristicValueOperation];
+    }
+    
+    if (msgID == 3351) {
+        //BXP-C 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectBXPCWithMacOperation];
+    }
+    if (msgID == 3353) {
+        //BXP-C 读取设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPCConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3355) {
+        //BXP-C 获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPCStatusOperation];
+    }
+    if (msgID == 3357) {
+        //控制实时温湿度数据监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyBXPCNotifyRealTimeHTDataOperation];
+    }
+    if (msgID == 3360) {
+        //BXP-C 实时三轴数据监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPCNotifyAccDataOperation];
+    }
+    if (msgID == 3363) {
+        //控制历史温湿度数据监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyBXPCNotifyHistoricalHTDataOperation];
+    }
+    if (msgID == 3366) {
+        //清除历史温湿度数据
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskDeleteBXPCHistoricalHTDataOperation];
+    }
+    if (msgID == 3368) {
+        //BXP-C 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpCPowerOffOperation];
+    }
+    if (msgID == 3370) {
+        //BXP-C 读取温湿度采样率
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPCTHDataSampleRateOperation];
+    }
+    if (msgID == 3372) {
+        //BXP-C 配置温湿度采样率
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPCSampleRateOperation];
+    }
+    if (msgID == 3374) {
+        //BXP-C 读取广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPCAdvParamsOperation];
+    }
+    if (msgID == 3376) {
+        //BXP-C 配置广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPCAdvParamsOperation];
+    }
+    if (msgID == 3401) {
+        //BXP-D 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectBXPDWithMacOperation];
+    }
+    if (msgID == 3403) {
+        //BXP-D 读取设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPDConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3405) {
+        //BXP-D 获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPDStatusOperation];
+    }
+    if (msgID == 3407) {
+        //BXP-D 读取三轴参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPDAccParamsOperation];
+    }
+    if (msgID == 3409) {
+        //BXP-D 配置三轴参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPDAccParamsOperation];
+    }
+    if (msgID == 3415) {
+        //BXP-D 实时三轴监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPDNotifyAccDataOperation];
+    }
+    if (msgID == 3418) {
+        //BXP-D 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpDPowerOffOperation];
+    }
+    if (msgID == 3420) {
+        //BXP-D 读取广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPDAdvParamsOperation];
+    }
+    if (msgID == 3422) {
+        //BXP-D 配置广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPDAdvParamsOperation];
+    }
+    if (msgID == 3451) {
+        //BXP-T 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectBXPTWithMacOperation];
+    }
+    if (msgID == 3453) {
+        //BXP-T 读取设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPTConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3455) {
+        //BXP-T 获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPTStatusOperation];
+    }
+    if (msgID == 3457) {
+        //BXP-T 读取三轴参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPTAccParamsOperation];
+    }
+    if (msgID == 3459) {
+        //BXP-T 配置三轴参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPTAccParamsOperation];
+    }
+    if (msgID == 3461) {
+        //BXP-T 读取移动触发次数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPTMotioEventCountOperation];
+    }
+    if (msgID == 3463) {
+        //BXP-T 清除移动触发次数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskClearBXPTMotioEventCountOperation];
+    }
+    if (msgID == 3465) {
+        //BXP-T 远程控制LED
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPTLedRemoteReminderOperation];
+    }
+    if (msgID == 3467) {
+        //BXP-T 实时三轴监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPTNotifyAccDataOperation];
+    }
+    if (msgID == 3470) {
+        //BXP-T 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpTPowerOffOperation];
+    }
+    if (msgID == 3472) {
+        //BXP-T 读取广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPTAdvParamsOperation];
+    }
+    if (msgID == 3474) {
+        //BXP-T 配置广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPTAdvParamsOperation];
+    }
+    if (msgID == 3501) {
+        //BXP-S 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectBXPSWithMacOperation];
+    }
+    if (msgID == 3503) {
+        //BXP-S 读取设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPSConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3505) {
+        //BXP-S 获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPSStatusOperation];
+    }
+    if (msgID == 3507) {
+        //BXP-S 控制实时温湿度数据监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyBXPSNotifyRealTimeHTDataOperation];
+    }
+    if (msgID == 3510) {
+        //BXP-S 实时三轴数据监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPSNotifyAccDataOperation];
+    }
+    if (msgID == 3513) {
+        //BXP-S 控制历史温湿度数据监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyBXPSNotifyHistoricalHTDataOperation];
+    }
+    if (msgID == 3516) {
+        //BXP-S 清除历史温湿度数据
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskDeleteBXPSHistoricalHTDataOperation];
+    }
+    if (msgID == 3518) {
+        //BXP-S 读取温湿度采样率
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPSTHDataSampleRateOperation];
+    }
+    if (msgID == 3520) {
+        //BXP-S 配置温湿度采样率
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPSSampleRateOperation];
+    }
+    if (msgID == 3522) {
+        //BXP-S 读取hall触发次数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPSHallCountOperation];
+    }
+    if (msgID == 3524) {
+        //BXP-S 清除hall触发次数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskClearBXPSHallCountOperation];
+    }
+    if (msgID == 3526) {
+        //BXP-S 远程控制LED
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPSLedRemoteReminderOperation];
+    }
+    if (msgID == 3526) {
+        //BXP-S 实时三轴监听开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPSNotifyAccDataOperation];
+    }
+    if (msgID == 3528) {
+        //BXP-S 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBXPSPowerOffOperation];
+    }
+    if (msgID == 3530) {
+        //BXP-S 读取通道广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadBXPSAdvParamsOperation];
+    }
+    if (msgID == 3532) {
+        //BXP-S 配置通道广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigBXPSAdvParamsOperation];
+    }
+    if (msgID == 3551) {
+        //MK Pir 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectMKPirWithMacOperation];
+    }
+    if (msgID == 3553) {
+        //MK Pir 读取设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKPirConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3555) {
+        //MK Pir 获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKPirStatusOperation];
+    }
+    if (msgID == 3557) {
+        //MK Pir 监听传感器数据
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyMKPirSensorDataOperation];
+    }
+    if (msgID == 3560) {
+        //MK Pir 读取灵敏度
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKPirSensorSensitivityOperation];
+    }
+    if (msgID == 3562) {
+        //MK Pir 配置灵敏度
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigMKPirSensorSensitivityOperation];
+    }
+    if (msgID == 3564) {
+        //MK Pir 读取延时状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKPirSensorDelayOperation];
+    }
+    if (msgID == 3566) {
+        //MK Pir 配置延时状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigMKPirSensorDelayOperation];
+    }
+    if (msgID == 3568) {
+        //MK Pir 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskMKPirPowerOffOperation];
+    }
+    if (msgID == 3570) {
+        //MK Pir 读取广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKPirAdvParamsOperation];
+    }
+    if (msgID == 3572) {
+        //MK Pir 配置广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigMKPirAdvParamsOperation];
+    }
+    if (msgID == 3601) {
+        //MK Tof 连接设备
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConnectMKTofWithMacOperation];
+    }
+    if (msgID == 3603) {
+        //MK Tof 读取设备信息
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKTofConnectedDeviceInfoOperation];
+    }
+    if (msgID == 3605) {
+        //MK Tof 获取当前状态
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKTofStatusOperation];
+    }
+    if (msgID == 3607) {
+        //MK Tof 监听三轴数据
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyMKTofAccDataOperation];
+    }
+    if (msgID == 3610) {
+        //MK Tof 远程关机
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskMKTofPowerOffOperation];
+    }
+    if (msgID == 3612) {
+        //MK Tof 读取广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKTofAdvParamsOperation];
+    }
+    if (msgID == 3614) {
+        //MK Tof 配置广播参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigMKTofAdvParamsOperation];
+    }
+    if (msgID == 3616) {
+        //MK Tof 读取采样参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKTofSensorParamsOperation];
+    }
+    if (msgID == 3618) {
+        //MK Tof 配置采样参数
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigMKTofSensorParamsOperation];
+    }
+    if (msgID == 3620) {
+        //MK Tof 读取距离模式
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskReadMKTofRangingModeOperation];
+    }
+    if (msgID == 3622) {
+        //MK Tof 配置距离模式
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigMKTofRangingModeOperation];
+    }
+    if (msgID == 3624) {
+        //MK Tof 监听数据开关
+        BOOL success = ([json[@"result_code"] integerValue] == 0);
+        if (!success) {
+            return @{};
+        }
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskNotifyMKTofSensorDataOperation];
     }
     
     return @{};
@@ -240,6 +961,15 @@
     }else if (msgID == 1061) {
         //配置iBeacon广播参数
         operationID = mk_gt_server_taskConfigAdvertiseBeaconParamsOperation;
+    }else if (msgID == 1062) {
+        //配置MK-TOF过滤
+        operationID = mk_gt_server_taskConfigFilterByTofOperation;
+    }else if (msgID == 1063) {
+        //配置数据上报间隔
+        operationID = mk_gt_server_taskConfigUploadDataIntervalOperation;
+    }else if (msgID == 1064) {
+        //配置过滤NanoBeacon信息
+        operationID = mk_gt_server_taskConfigFilterByNanoBeaconOperation;
     }else if (msgID == 1080) {
         //配置计量数据上报开关
         operationID = mk_gt_server_taskConfigMeteringSwitchOperation;
@@ -261,6 +991,12 @@
     }else if (msgID == 1202) {
         //指定BXP-Button设备DFU升级
         operationID = mk_gt_server_taskStartBXPButtonDfuWithMacOperation;
+    }else if (msgID == 1205) {
+        //指定MKGT3 V2设备DFU升级
+        operationID = mk_gt_server_taskStartBXPDfuWithMacOperation;
+    }else if (msgID == 1209) {
+        //配置蓝牙连接通信超时时间
+        operationID = mk_gt_server_taskConfigBleCommunicateTimeoutOperation;
     }
     return [self dataParserGetDataSuccess:json operationID:operationID];
 }
@@ -375,6 +1111,15 @@
     }else if (msgID == 2061) {
         //读取iBeacon广播参数
         operationID = mk_gt_server_taskReadAdvertiseBeaconParamsOperation;
+    }else if (msgID == 2062) {
+        //读取MK-TOF过滤
+        operationID = mk_gt_server_taskReadFilterByTofOperation;
+    }else if (msgID == 2063) {
+        //读取数据上报间隔
+        operationID = mk_gt_server_taskReadUploadDataIntervalOperation;
+    }else if (msgID == 2064) {
+        //读取NanoBeacon过滤内容
+        operationID = mk_gt_server_taskReadFilterByNanoBeaconOperation;
     }else if (msgID == 2080) {
         //读取计量数据上报开关
         operationID = mk_gt_server_taskReadMeteringSwitchOperation;
@@ -396,6 +1141,9 @@
     }else if (msgID == 2201) {
         //读取网关蓝牙连接的状态
         operationID = mk_gt_server_taskReadGatewayBleConnectStatusOperation;
+    }else if (msgID == 2209) {
+        //读取蓝牙连接通信超时时间
+        operationID = mk_gt_server_taskReadBleCommunicateTimeoutOperation;
     }
     return [self dataParserGetDataSuccess:json operationID:operationID];
 }

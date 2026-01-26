@@ -2,7 +2,7 @@
 //  MKGTAlertView.m
 //  MKGatewayMeteringTwo
 //
-//  Created by aa on 2023/9/18.
+//  Created by aa on 2023/2/7.
 //
 
 #import "MKGTAlertView.h"

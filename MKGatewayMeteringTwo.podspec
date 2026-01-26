@@ -99,36 +99,53 @@ TODO: Add long description of the pod here.
     end
     
     ss.subspec 'View' do |sss|
+      sss.subspec 'AdvNormalCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/AdvNormalCell/**'
+      end
+      
+      sss.subspec 'AdvTriggerCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/AdvTriggerCell/**'
+      end
+      
+      sss.subspec 'AdvTriggerTwoStateCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/AdvTriggerTwoStateCell/**'
+      end
+      
       sss.subspec 'AlertView' do |ssss|
         ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/AlertView/**'
       end
       
-      sss.subspec 'FilterCell' do |ssss|
-        
-        ssss.subspec 'FilterBeaconCell' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterBeaconCell/**'
-        end
-        
-        ssss.subspec 'FilterByRawDataCell' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterByRawDataCell/**'
-        end
-        
-        ssss.subspec 'FilterEditSectionHeaderView' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterEditSectionHeaderView/**'
-        end
-        
-        ssss.subspec 'FilterNormalTextFieldCell' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterNormalTextFieldCell/**'
-        end
+      sss.subspec 'BleWifiSettingsCertCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/BleWifiSettingsCertCell/**'
+      end
       
+      sss.subspec 'ButtonFirmwareCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/ButtonFirmwareCell/**'
+      end
+      
+      sss.subspec 'BXPAdvParamsCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/BXPAdvParamsCell/**'
+      end
+      
+      sss.subspec 'BXPButtonAccHeaderView' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/BXPButtonAccHeaderView/**'
+      end
+      
+      sss.subspec 'MKGTFilterCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/MKGTFilterCell/**'
+      end
+      
+      sss.subspec 'PressEventCountCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/PressEventCountCell/**'
+      end
+      
+      sss.subspec 'RemoteReminderCell' do |ssss|
+        ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/RemoteReminderCell/**'
       end
       
       sss.subspec 'UserCredentialsView' do |ssss|
-        
         ssss.source_files = 'MKGatewayMeteringTwo/Classes/Expand/View/UserCredentialsView/**'
-        
       end
-        
     end
     
     ss.subspec 'ImportServerPage' do |sss|
@@ -181,6 +198,30 @@ TODO: Add long description of the pod here.
             ssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/ParamsModel/**'
         end
         sss.subspec 'Pages' do |ssss|
+          ssss.subspec 'BleAdvBeaconPage' do |sssss|
+              sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model'
+              end
+              
+              sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model/**'
+              end
+          end
+          
+          ssss.subspec 'BleAdvBeaconV2Page' do |sssss|
+              sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model'
+              end
+              
+              sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model/**'
+              end
+          end
+          
             ssss.subspec 'BleDeviceInfoPage' do |sssss|
                 sssss.subspec 'Controller' do |ssssss|
                   ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Controller/**'
@@ -193,15 +234,15 @@ TODO: Add long description of the pod here.
                 end
             end
             
-            ssss.subspec 'BleNetworkSettingsPage' do |sssss|
+            ssss.subspec 'BleDeviceInfoV2Page' do |sssss|
                 sssss.subspec 'Controller' do |ssssss|
-                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Controller/**'
+                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Controller/**'
                   
-                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model'
+                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model'
                 end
                 
                 sssss.subspec 'Model' do |ssssss|
-                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model/**'
+                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model/**'
                 end
             end
             
@@ -218,12 +259,14 @@ TODO: Add long description of the pod here.
             end
             
             ssss.subspec 'BleWifiSettingsPage' do |sssss|
-                sssss.subspec 'Controller' do |ssssss|
-                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Controller/**'
-                  
-                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model'
-                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View'
-                end
+              sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage'
+              end
                 
                 sssss.subspec 'Model' do |ssssss|
                   ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model/**'
@@ -232,18 +275,7 @@ TODO: Add long description of the pod here.
                 sssss.subspec 'View' do |ssssss|
                   ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View/**'
                 end
-            end
-            
-            ssss.subspec 'BleAdvBeaconPage' do |sssss|
-                sssss.subspec 'Controller' do |ssssss|
-                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Controller/**'
-                  
-                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model'
-                end
                 
-                sssss.subspec 'Model' do |ssssss|
-                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model/**'
-                end
             end
             
             ssss.subspec 'BleMeteringSettingsPage' do |sssss|
@@ -269,7 +301,6 @@ TODO: Add long description of the pod here.
                 ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/DeviceParamsListPage/Controller/**'
               
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage'
-                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage'
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage'
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage'
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage'
@@ -277,6 +308,33 @@ TODO: Add long description of the pod here.
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage'
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage'
                 ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice'
+              end
+            end
+            
+            ssss.subspec 'DeviceParamsListV2Page' do |sssss|
+              sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/DeviceParamsListV2Page/Controller/**'
+              
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice'
+              end
+            end
+            
+            ssss.subspec 'NearbyWifiPage' do |sssss|
+              sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/NearbyWifiPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/View'
+              end
+              
+              sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/NearbyWifiPage/View/**'
               end
             end
             
@@ -391,6 +449,19 @@ TODO: Add long description of the pod here.
     
     ss.subspec 'FilterPages' do |sss|
       
+      sss.subspec 'DataUploadIntervalPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/DataUploadIntervalPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/DataUploadIntervalPage/Model/**'
+        end
+      end
+      
       sss.subspec 'DuplicateDataFilterPage' do |ssss|
         ssss.subspec 'Controller' do |sssss|
           sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/DuplicateDataFilterPage/Controller/**'
@@ -463,6 +534,19 @@ TODO: Add long description of the pod here.
         end
       end
       
+      sss.subspec 'FilterByNanoBeaconPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Model/**'
+        end
+      end
+      
       sss.subspec 'FilterByOtherPage' do |ssss|
         ssss.subspec 'Controller' do |sssss|
           sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByOtherPage/Controller/**'
@@ -511,6 +595,28 @@ TODO: Add long description of the pod here.
         end
       end
       
+      sss.subspec 'FilterByRawDataV2Page' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByRawDataV2Page/Controller/**'
+        
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Model'
+          
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage'
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByRawDataV2Page/Model/**'
+        end
+      end
+      
       sss.subspec 'FilterByTag' do |ssss|
         ssss.subspec 'Controller' do |sssss|
           sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTag/Controller/**'
@@ -534,6 +640,19 @@ TODO: Add long description of the pod here.
       
         ssss.subspec 'Model' do |sssss|
           sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTLMPage/Model/**'
+        end
+      end
+      
+      sss.subspec 'FilterByTofPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTofPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTofPage/Model/**'
         end
       end
       
@@ -581,7 +700,6 @@ TODO: Add long description of the pod here.
           sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionPage/Controller/**'
         
           sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/Model'
-          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/View'
           
           sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage'
           sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage'
@@ -595,8 +713,25 @@ TODO: Add long description of the pod here.
           sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionPage/Model/**'
         end
         
-        ssss.subspec 'View' do |sssss|
-          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionPage/View/**'
+      end
+      
+      sss.subspec 'UploadOptionV2Page' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionV2Page/Controller/**'
+        
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Model'
+          
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage'
+          sssss.dependency 'MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionV2Page/Model/**'
         end
         
       end
@@ -617,17 +752,332 @@ TODO: Add long description of the pod here.
           end
       end
       
-      sss.subspec 'BXPButtonPage' do |ssss|
-          ssss.subspec 'Controller' do |sssss|
-              sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPButtonPage/Controller/**'
-              
-              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/View'
-              
-              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+      sss.subspec 'BXPBCRPages' do |ssss|
+        ssss.subspec 'BXPButtonCRPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage/Controller/**'
+                                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage'
+            end
+        end
+        ssss.subspec 'BXPButtonCRRemoteReminderPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPButtonCRAccDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View'
+            end
+            sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View/**'
+            end
+        end
+        ssss.subspec 'BXPButtonCRAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPButtonCREventAlarmPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model'
+            end
+            sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View/**'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model/**'
+            end
+        end
+      end
+      
+      sss.subspec 'BXPBDPages' do |ssss|
+        ssss.subspec 'BXPButtonPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View'
+                                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage'
+            end
+            sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View/**'
+            end
+        end
+        ssss.subspec 'BXPButtonRemoteReminderPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPButtonAccDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage/Controller/**'
+                
+            end
+        end
+        ssss.subspec 'BXPButtonAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model/**'
+            end
+        end
+      end
+      
+      sss.subspec 'BXPCPages' do |ssss|
+        ssss.subspec 'BXPCAccDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPCAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPCPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCPage/Controller/**'
+                                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage'
+                
+            end
+        end
+        ssss.subspec 'BXPCHistoricalTHDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View'
+            end
+            sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View/**'
+            end
+        end
+        ssss.subspec 'BXPCRealTimeTHDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPCTHDataSampleRatePage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model/**'
+            end
+        end
+      end
+      
+      sss.subspec 'BXPDPages' do |ssss|
+        ssss.subspec 'BXPDPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDPage/Controller/**'
+          
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage'
           end
-          ssss.subspec 'View' do |sssss|
-              sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPButtonPage/View/**'
+        end
+        ssss.subspec 'BXPDAccDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPDAccParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPDAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model/**'
+            end
+        end
+      end
+      
+      sss.subspec 'BXPSPages' do |ssss|
+        ssss.subspec 'BXPSAccDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPSAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Controller/**'
+
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model/**'
+            end
+            sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View/**'
+            end
+        end
+        ssss.subspec 'BXPSHallCountPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPSPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSPage/Controller/**'
+                                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage'
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage'
+            end
+        end
+        ssss.subspec 'BXPSHistoricalTHDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View'
+            end
+            sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View/**'
+            end
+        end
+        ssss.subspec 'BXPSRealTimeTHDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPSTHDataSampleRatePage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPSRemoteReminderPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model/**'
+            end
+        end
+      end
+      
+      sss.subspec 'BXPTPages' do |ssss|
+        ssss.subspec 'BXPTAccDataPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage/Controller/**'
+            end
+        end
+        ssss.subspec 'BXPTAccParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPTAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'BXPTMotionEventPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage/Controller/**'
+                
+            end
+        end
+        ssss.subspec 'BXPTPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTPage/Controller/**'
+          
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage'
           end
+        end
+        ssss.subspec 'BXPTRemoteReminderPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model/**'
+            end
+        end
       end
       
       sss.subspec 'ManageBleDevicesPage' do |ssss|
@@ -636,13 +1086,67 @@ TODO: Add long description of the pod here.
               
               sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ManageBleDevicesPage/View'
               
-              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages'
+              sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages'
               sssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage'
           end
           
           ssss.subspec 'View' do |sssss|
               sssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/ManageBleDevicesPage/View/**'
           end
+      end
+      
+      sss.subspec 'MKTofPages' do |ssss|
+        ssss.subspec 'TofAccDataPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofAccDataPage/Controller/**'
+          
+          end
+        end
+        ssss.subspec 'TofAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'TofPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofPage/Controller/**'
+          
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage'
+            
+          end
+        end
+        ssss.subspec 'TofSensorDataPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofSensorDataPage/Controller/**'
+          
+          end
+        end
+        ssss.subspec 'TofSensorParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model/**'
+            end
+        end
       end
       
       sss.subspec 'NormalConnectedPage' do |ssss|
@@ -657,6 +1161,44 @@ TODO: Add long description of the pod here.
           end
       end
       
+      sss.subspec 'PirPages' do |ssss|
+        ssss.subspec 'PirAdvParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model/**'
+            end
+        end
+        ssss.subspec 'PirPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirPage/Controller/**'
+          
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage'
+            ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage'
+          end
+        end
+        ssss.subspec 'PirSensorDataPage' do |sssss|
+          sssss.subspec 'Controller' do |ssssss|
+            ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirSensorDataPage/Controller/**'
+          
+          end
+        end
+        ssss.subspec 'PirSensorParamsPage' do |sssss|
+            sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model'
+            end
+            sssss.subspec 'Model' do |ssssss|
+                ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model/**'
+            end
+        end
+      end
     end
     
     ss.subspec 'ScanPage' do |sss|
@@ -775,6 +1317,17 @@ TODO: Add long description of the pod here.
                 end
                 sssss.subspec 'Model'  do |ssssss|
                   ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconPage/Model/**'
+                end
+            end
+            
+            ssss.subspec 'AdvBeaconV2Page' do |sssss|
+                sssss.subspec 'Controller'  do |ssssss|
+                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Controller/**'
+                
+                  ssssss.dependency 'MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model'
+                end
+                sssss.subspec 'Model'  do |ssssss|
+                  ssssss.source_files = 'MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model/**'
                 end
             end
           

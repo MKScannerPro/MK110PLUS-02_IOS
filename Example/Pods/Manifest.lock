@@ -472,29 +472,49 @@ PODS:
   - MKGatewayMeteringTwo/Expand/View (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
+    - MKGatewayMeteringTwo/Expand/View/AdvNormalCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/AdvTriggerCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/AdvTriggerTwoStateCell (= 0.0.1)
     - MKGatewayMeteringTwo/Expand/View/AlertView (= 0.0.1)
-    - MKGatewayMeteringTwo/Expand/View/FilterCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/BleWifiSettingsCertCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/ButtonFirmwareCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/BXPAdvParamsCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/BXPButtonAccHeaderView (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/MKGTFilterCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/PressEventCountCell (= 0.0.1)
+    - MKGatewayMeteringTwo/Expand/View/RemoteReminderCell (= 0.0.1)
     - MKGatewayMeteringTwo/Expand/View/UserCredentialsView (= 0.0.1)
+  - MKGatewayMeteringTwo/Expand/View/AdvNormalCell (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKGatewayMeteringTwo/Expand/View/AdvTriggerCell (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKGatewayMeteringTwo/Expand/View/AdvTriggerTwoStateCell (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
   - MKGatewayMeteringTwo/Expand/View/AlertView (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-  - MKGatewayMeteringTwo/Expand/View/FilterCell (0.0.1):
+  - MKGatewayMeteringTwo/Expand/View/BleWifiSettingsCertCell (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-    - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterBeaconCell (= 0.0.1)
-    - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterByRawDataCell (= 0.0.1)
-    - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterEditSectionHeaderView (= 0.0.1)
-    - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterNormalTextFieldCell (= 0.0.1)
-  - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterBeaconCell (0.0.1):
+  - MKGatewayMeteringTwo/Expand/View/ButtonFirmwareCell (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-  - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterByRawDataCell (0.0.1):
+  - MKGatewayMeteringTwo/Expand/View/BXPAdvParamsCell (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-  - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterEditSectionHeaderView (0.0.1):
+  - MKGatewayMeteringTwo/Expand/View/BXPButtonAccHeaderView (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-  - MKGatewayMeteringTwo/Expand/View/FilterCell/FilterNormalTextFieldCell (0.0.1):
+  - MKGatewayMeteringTwo/Expand/View/MKGTFilterCell (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKGatewayMeteringTwo/Expand/View/PressEventCountCell (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKGatewayMeteringTwo/Expand/View/RemoteReminderCell (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
   - MKGatewayMeteringTwo/Expand/View/UserCredentialsView (0.0.1):
@@ -537,13 +557,16 @@ PODS:
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage (= 0.0.1)
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/DeviceParamsListPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/DeviceParamsListV2Page (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
@@ -574,6 +597,39 @@ PODS:
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
   - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -616,6 +672,39 @@ PODS:
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
   - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
@@ -640,39 +729,6 @@ PODS:
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
   - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage/Model (0.0.1):
-    - MKBaseModuleLibrary
-    - MKCustomUIModule
-    - MKGatewayMeteringTwo/CTMediator
-    - MKGatewayMeteringTwo/DeviceModel
-    - MKGatewayMeteringTwo/Expand
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
-    - MKGatewayMeteringTwo/LoginManager
-    - MKGatewayMeteringTwo/SDK
-    - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage (0.0.1):
-    - MKBaseModuleLibrary
-    - MKCustomUIModule
-    - MKGatewayMeteringTwo/CTMediator
-    - MKGatewayMeteringTwo/DeviceModel
-    - MKGatewayMeteringTwo/Expand
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Controller (= 0.0.1)
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model (= 0.0.1)
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
-    - MKGatewayMeteringTwo/LoginManager
-    - MKGatewayMeteringTwo/SDK
-    - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Controller (0.0.1):
-    - MKBaseModuleLibrary
-    - MKCustomUIModule
-    - MKGatewayMeteringTwo/CTMediator
-    - MKGatewayMeteringTwo/DeviceModel
-    - MKGatewayMeteringTwo/Expand
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
-    - MKGatewayMeteringTwo/LoginManager
-    - MKGatewayMeteringTwo/SDK
-    - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -736,6 +792,7 @@ PODS:
     - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
@@ -801,12 +858,73 @@ PODS:
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage
-    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/DeviceParamsListV2Page (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/DeviceParamsListV2Page/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/DeviceParamsListV2Page/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/View
+    - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
@@ -984,20 +1102,55 @@ PODS:
     - MKGatewayMeteringTwo/CTMediator
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
@@ -1163,6 +1316,36 @@ PODS:
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
   - MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
@@ -1261,6 +1444,45 @@ PODS:
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Model
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
   - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
@@ -1313,6 +1535,36 @@ PODS:
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
   - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -1419,7 +1671,6 @@ PODS:
     - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/Controller (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/Model (= 0.0.1)
-    - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/View (= 0.0.1)
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
@@ -1435,7 +1686,6 @@ PODS:
     - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataPage
     - MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage
     - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/Model
-    - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/View
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
@@ -1448,7 +1698,34 @@ PODS:
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/View (0.0.1):
+  - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page
+    - MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage
+    - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -1464,9 +1741,16 @@ PODS:
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage (= 0.0.1)
-    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/ManageBleModules/ManageBleDevicesPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages (= 0.0.1)
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
@@ -1500,29 +1784,976 @@ PODS:
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage (0.0.1):
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
-    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/Controller (= 0.0.1)
-    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage (= 0.0.1)
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/Controller (0.0.1):
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage/Controller (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
-    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/View
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
-  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/View (0.0.1):
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -1548,13 +2779,156 @@ PODS:
     - MKGatewayMeteringTwo/CTMediator
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
-    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage
     - MKGatewayMeteringTwo/Functions/ManageBleModules/ManageBleDevicesPage/View
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages
     - MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages
     - MKGatewayMeteringTwo/LoginManager
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
   - MKGatewayMeteringTwo/Functions/ManageBleModules/ManageBleDevicesPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -1585,6 +2959,121 @@ PODS:
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
   - MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -1947,6 +3436,7 @@ PODS:
     - MKGatewayMeteringTwo/DeviceModel
     - MKGatewayMeteringTwo/Expand
     - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconPage (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/CommunicatePage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/DataReportPage (= 0.0.1)
     - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/IndicatorSettingsPage (= 0.0.1)
@@ -1980,6 +3470,36 @@ PODS:
     - MKGatewayMeteringTwo/SDK
     - MLInputDodger
   - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconPage/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Controller (= 0.0.1)
+    - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model (= 0.0.1)
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayMeteringTwo/CTMediator
+    - MKGatewayMeteringTwo/DeviceModel
+    - MKGatewayMeteringTwo/Expand
+    - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model
+    - MKGatewayMeteringTwo/LoginManager
+    - MKGatewayMeteringTwo/SDK
+    - MLInputDodger
+  - MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model (0.0.1):
     - MKBaseModuleLibrary
     - MKCustomUIModule
     - MKGatewayMeteringTwo/CTMediator
@@ -2375,7 +3895,7 @@ DEPENDENCIES:
   - MKGatewayMeteringTwo (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - CircleProgressBar
     - CTMediator
     - FMDB
@@ -2407,13 +3927,13 @@ SPEC CHECKSUMS:
   MKBaseModuleLibrary: 2b79bcae588c755588413fbb643b510253271b23
   MKBaseMQTTModule: 6a934ccf507e0eb807ef8f8a74dacd5d60216834
   MKCustomUIModule: 8426eba1d3178b06d92741d31da32502920fb8fa
-  MKGatewayMeteringTwo: 68c1d14c16e70a3dac0976d9d48be05e8ce48aca
+  MKGatewayMeteringTwo: e4b4b1904c4ffc0f81907d24dc65c0021c4be2a7
   MKIotCloudManager: 241bd4bb7fae48e6b031c69a40c26637aabe67be
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   WRNavigationBar: 10bfdf96addf14d640d07c2ef08a029c18d8af10
 
-PODFILE CHECKSUM: def77e2ad7f970ae6269c04184a82178cb82748d
+PODFILE CHECKSUM: 99354db0563cfbba5cfcac6e3b52e8c08fc496d4
 
-COCOAPODS: 1.16.1
+COCOAPODS: 1.16.2

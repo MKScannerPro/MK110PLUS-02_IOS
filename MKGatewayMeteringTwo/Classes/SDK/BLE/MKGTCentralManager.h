@@ -33,6 +33,8 @@ extern NSString *const mk_gt_deviceDisconnectTypeNotification;
 
 @property (nonatomic, weak)id <mk_gt_centralManagerScanDelegate>delegate;
 
+@property (nonatomic, weak)id <mk_gt_centralManagerScanWifiDelegate>wifiDelegate;
+
 /// Current connection status
 @property (nonatomic, assign, readonly)mk_gt_centralConnectStatus connectStatus;
 

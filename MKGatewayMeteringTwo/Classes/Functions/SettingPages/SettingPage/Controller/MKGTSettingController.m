@@ -41,6 +41,7 @@
 #import "MKGTMqttParamsListController.h"
 #import "MKGTDeviceInfoController.h"
 #import "MKGTAdvBeaconController.h"
+#import "MKGTAdvBeaconV2Controller.h"
 
 #import "MKGTSettingModel.h"
 
@@ -131,6 +132,12 @@ UITableViewDataSource>
     }
     if (indexPath.section == 0 && indexPath.row == 5) {
         //Advertise iBeacon
+        if ([MKGTDeviceModeManager shared].isV2) {
+            //V2
+            MKGTAdvBeaconV2Controller *vc = [[MKGTAdvBeaconV2Controller alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
         MKGTAdvBeaconController *vc = [[MKGTAdvBeaconController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
@@ -429,7 +436,7 @@ UITableViewDataSource>
     [self.section0List addObject:cellModel5];
     
     MKSettingTextCellModel *cellModel6 = [[MKSettingTextCellModel alloc] init];
-    cellModel6.leftMsg = @"Advertise iBeacon";
+    cellModel6.leftMsg = ([MKGTDeviceModeManager shared].isV2 ? @"Advertisement settings" : @"Advertise iBeacon");
     [self.section0List addObject:cellModel6];
     
     MKSettingTextCellModel *cellModel7 = [[MKSettingTextCellModel alloc] init];

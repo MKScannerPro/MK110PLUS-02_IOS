@@ -42,6 +42,8 @@ extern NSString *const MKGTReceiveBxpButtonDfuProgressNotification;
 
 extern NSString *const MKGTReceiveBxpButtonDfuResultNotification;
 
+extern NSString *const MKGTReceiveBxpDfuFailedNotification;
+
 
 extern NSString *const MKGTReceiveDeviceOfflineNotification;
 
@@ -50,6 +52,34 @@ extern NSString *const MKGTReceivePowerDataNotification;
 extern NSString *const MKGTReceiveEnergyDataNotification;
 
 extern NSString *const MKGTReceiveLoadChangeNotification;
+
+extern NSString *const MKGTReceiveBXPBtnAccDataNotification;
+
+extern NSString *const MKGTReceiveBXPBtnCRAccDataNotification;
+
+extern NSString *const MKGTReceiveBXPCRealTimeHTDataNotification;
+
+extern NSString *const MKGTReceiveBXPCAccDataNotification;
+
+extern NSString *const MKGTReceiveBXPBtnCRAlarmEventDataNotification;
+
+extern NSString *const MKGTReceiveBXPCHistoricalHTDataNotification;
+
+extern NSString *const MKGTReceiveBXPDAccDataNotification;
+
+extern NSString *const MKGTReceiveBXPTAccDataNotification;
+
+extern NSString *const MKGTReceiveBXPSRealTimeHTDataNotification;
+
+extern NSString *const MKGTReceiveBXPSAccDataNotification;
+
+extern NSString *const MKGTReceiveBXPSHistoricalHTDataNotification;
+
+extern NSString *const MKGTReceiveMKPirSensorDataNotification;
+
+extern NSString *const MKGTReceiveMKTofAccDataNotification;
+
+extern NSString *const MKGTReceiveMKTofDistanceDataNotification;
 
 @protocol MKGTReceiveDeviceDatasDelegate <NSObject>
 

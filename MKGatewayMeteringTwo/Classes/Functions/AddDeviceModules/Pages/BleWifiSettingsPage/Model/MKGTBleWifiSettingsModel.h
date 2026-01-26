@@ -45,6 +45,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// eapType为TLS有效
 @property (nonatomic, copy)NSString *clientCertName;
 
+#pragma mark - Wifi Network Settings
+
+@property (nonatomic, assign)BOOL wifi_dhcp;
+
+@property (nonatomic, copy)NSString *wifi_ip;
+
+@property (nonatomic, copy)NSString *wifi_mask;
+
+@property (nonatomic, copy)NSString *wifi_gateway;
+
+@property (nonatomic, copy)NSString *wifi_dns;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 - (void)configDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;

@@ -103,6 +103,29 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)gt_readTimeZoneWithSucBlock:(void (^)(id returnData))sucBlock
                         failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Read the firmware version of the wifi.
+/*
+ @{
+ @"firmware":@"V1.0.2"
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_readWifiFirmwareWithSucBlock:(void (^)(id returnData))sucBlock
+                            failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Read the firmware version of the BLE.
+/*
+ @{
+ @"firmware":@"V1.0.2"
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_readBLEFirmwareWithSucBlock:(void (^)(id returnData))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock;
+
+
 #pragma mark *********************MQTT Params************************
 
 /// Read the domain name of the MQTT server.
@@ -377,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)gt_readWIFIVerifyServerStatusWithSucBlock:(void (^)(id returnData))sucBlock
                                       failedBlock:(void (^)(NSError *error))failedBlock;
 
-/// DHCP Status.
+/// DHCP Status For Wifi.
 /*
     @{
     @"isOn":@(YES)
@@ -385,10 +408,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
-+ (void)gt_readDHCPStatusWithSucBlock:(void (^)(id returnData))sucBlock
-                          failedBlock:(void (^)(NSError *error))failedBlock;
++ (void)gt_readWIFIDHCPStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                              failedBlock:(void (^)(NSError *error))failedBlock;
 
-/// IP Information.
+/// IP Information For Wifi.
 /*
     @{
     @"ip":@"47.104.81.55",
@@ -399,8 +422,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
-+ (void)gt_readNetworkIpInfosWithSucBlock:(void (^)(id returnData))sucBlock
-                              failedBlock:(void (^)(NSError *error))failedBlock;
++ (void)gt_readWIFINetworkIpInfosWithSucBlock:(void (^)(id returnData))sucBlock
+                                  failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************Filter Params************************
 
@@ -548,6 +571,39 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)gt_readBeaconTxPowerWithSucBlock:(void (^)(id returnData))sucBlock
                              failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// iBeacon RSSI@1m.
+/*
+ @{
+    @"rssi":@"-50",     //Unit:dBm
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_readBeaconRssiWithSucBlock:(void (^)(id returnData))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Connectable.
+/*
+ @{
+    @"connectable":@(YES),
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_readConnectableWithSucBlock:(void (^)(id returnData))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Device Mode.
+/*
+ @{
+    @"mode":@"0",   //@"0":Configuration Mode   @"1":Connection Server Mode
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_readDeviceModeWithSucBlock:(void (^)(id returnData))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************Metering Params************************
 

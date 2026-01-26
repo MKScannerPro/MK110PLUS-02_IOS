@@ -37,6 +37,8 @@
 
 #import "MKGTUserLoginManager.h"
 
+#import "MKGTMQTTInterface.h"
+
 #import "MKGTDeviceListModel.h"
 
 #import "MKGTAddDeviceView.h"
@@ -118,9 +120,20 @@ MKGTDeviceModelDelegate>
         [self.view showCentralToast:@"Device is off-line!"];
         return;
     }
-    [[MKGTDeviceModeManager shared] addDeviceModel:deviceModel];
-    MKGTDeviceDataController *vc = [[MKGTDeviceDataController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
+    [MKGTMQTTInterface gt_readDeviceInfoWithMacAddress:deviceModel.macAddress topic:[deviceModel currentSubscribedTopic] sucBlock:^(id  _Nonnull returnData) {
+        [[MKHudManager share] hide];
+        [[MKGTDeviceModeManager shared] addDeviceModel:deviceModel];
+        NSString *firmware = returnData[@"data"][@"firmware_version"];
+        firmware = [firmware stringByReplacingOccurrencesOfString:@"V" withString:@""];
+        firmware = [firmware stringByReplacingOccurrencesOfString:@"." withString:@""];
+        [MKGTDeviceModeManager shared].isV2 = ([firmware integerValue] >= 200);
+        MKGTDeviceDataController *vc = [[MKGTDeviceDataController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    }];
 }
 
 #pragma mark - UITableViewDataSource

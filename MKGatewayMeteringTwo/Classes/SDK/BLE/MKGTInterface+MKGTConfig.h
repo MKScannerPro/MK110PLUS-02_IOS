@@ -284,27 +284,33 @@ NS_ASSUME_NONNULL_BEGIN
                              sucBlock:(void (^)(void))sucBlock
                           failedBlock:(void (^)(NSError *error))failedBlock;
 
-/// DHCP Status.
+/// DHCP Status For Wifi.
 /// @param isOn isOn
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
-+ (void)gt_configDHCPStatus:(BOOL)isOn
-                   sucBlock:(void (^)(void))sucBlock
-                failedBlock:(void (^)(NSError *error))failedBlock;
++ (void)gt_configWIFIDHCPStatus:(BOOL)isOn
+                       sucBlock:(void (^)(void))sucBlock
+                    failedBlock:(void (^)(NSError *error))failedBlock;
 
-/// IP Information.
+/// IP Information For Wifi.
 /// @param ip e.g.(@"47.104.81.55")
 /// @param mask e.g.(@"255.255.255.255")
 /// @param gateway e.g.(@"255.255.255.1")
 /// @param dns e.g.(@"47.104.81.55")
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
-+ (void)gt_configIpAddress:(NSString *)ip
-                      mask:(NSString *)mask
-                   gateway:(NSString *)gateway
-                       dns:(NSString *)dns
-                  sucBlock:(void (^)(void))sucBlock
-               failedBlock:(void (^)(NSError *error))failedBlock;
++ (void)gt_configWIFIIpAddress:(NSString *)ip
+                          mask:(NSString *)mask
+                       gateway:(NSString *)gateway
+                           dns:(NSString *)dns
+                      sucBlock:(void (^)(void))sucBlock
+                   failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Start wife scan.
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_startWifiScanWithSucBlock:(void (^)(void))sucBlock
+                         failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************Filter Params************************
 
@@ -408,6 +414,24 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)gt_configTxPower:(NSInteger)txPower
                 sucBlock:(void (^)(void))sucBlock
              failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// iBeacon Rssi@1m.
+/// - Parameters:
+///   - rssi: -100dBm~0dBm.
+///   - sucBlock: Success callback
+///   - failedBlock: Failure callback
++ (void)gt_configBeaconRssi:(NSInteger)rssi
+                   sucBlock:(void (^)(void))sucBlock
+                failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Connectable.
+/// - Parameters:
+///   - connectable: connectable
+///   - sucBlock: Success callback
+///   - failedBlock: Failure callback
++ (void)gt_configConnectable:(BOOL)connectable
+                    sucBlock:(void (^)(void))sucBlock
+                 failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************Metering Params************************
 

@@ -9,6 +9,7 @@
 #import "MKGTBleWifiSettingsModel.h"
 
 #import "MKMacroDefines.h"
+#import "NSString+MKAdd.h"
 
 #import "MKGTInterface.h"
 #import "MKGTInterface+MKGTConfig.h"
@@ -55,6 +56,14 @@
         }
         if (![self readVerifyServer]) {
             [self operationFailedBlockWithMsg:@"Read EAP Verify Server Error" block:failedBlock];
+            return;
+        }
+        if (![self readWifiDHCPStatus]) {
+            [self operationFailedBlockWithMsg:@"Read Wifi DHCP Error" block:failedBlock];
+            return;
+        }
+        if (![self readWifiIpAddress]) {
+            [self operationFailedBlockWithMsg:@"Read Wifi Ip Error" block:failedBlock];
             return;
         }
         moko_dispatch_main_safe(^{
@@ -138,7 +147,16 @@
                 }
             }
         }
-        
+        if (![self configWifiDHCPStatus]) {
+            [self operationFailedBlockWithMsg:@"Config DHCP Error" block:failedBlock];
+            return;
+        }
+        if (!self.wifi_dhcp) {
+            if (![self configWifiIpAddress]) {
+                [self operationFailedBlockWithMsg:@"Config IP Error" block:failedBlock];
+                return;
+            }
+        }
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();
@@ -148,6 +166,9 @@
 }
 
 #pragma mark - interface
+
+#pragma mark - Wifi Settings
+
 - (BOOL)readSecurityType {
     __block BOOL success = NO;
     [MKGTInterface gt_readWIFISecurityWithSucBlock:^(id  _Nonnull returnData) {
@@ -402,7 +423,67 @@
     return success;
 }
 
+#pragma mark - Wifi Network Settings
+- (BOOL)readWifiDHCPStatus {
+    __block BOOL success = NO;
+    [MKGTInterface gt_readWIFIDHCPStatusWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.wifi_dhcp = [returnData[@"result"][@"isOn"] boolValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)configWifiDHCPStatus {
+    __block BOOL success = NO;
+    [MKGTInterface gt_configWIFIDHCPStatus:self.wifi_dhcp sucBlock:^{
+        success = YES;
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readWifiIpAddress {
+    __block BOOL success = NO;
+    [MKGTInterface gt_readWIFINetworkIpInfosWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.wifi_ip = returnData[@"result"][@"ip"];
+        self.wifi_mask = returnData[@"result"][@"mask"];
+        self.wifi_gateway = returnData[@"result"][@"gateway"];
+        self.wifi_dns = returnData[@"result"][@"dns"];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)configWifiIpAddress {
+    __block BOOL success = NO;
+    [MKGTInterface gt_configWIFIIpAddress:self.wifi_ip
+                                     mask:self.wifi_mask
+                                  gateway:self.wifi_gateway
+                                      dns:self.wifi_dns
+                                 sucBlock:^{
+        success = YES;
+        dispatch_semaphore_signal(self.semaphore);
+    }
+                          failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
 #pragma mark - private method
+
 - (NSString *)checkMsg {
     if (!ValidStr(self.ssid) || self.ssid.length > 32) {
         return @"ssid error";
@@ -425,7 +506,7 @@
         }
         if (self.verifyServer && !ValidStr(self.caFileName)) {
             return @"CA File cannot be empty.";
-        } 
+        }
     }
     if (self.eapType == 2) {
         //TLS
@@ -435,16 +516,17 @@
         if (!ValidStr(self.caFileName)) {
             return @"CA File cannot be empty.";
         }
-        if (!ValidStr(self.clientKeyName) || !ValidStr(self.clientCertName)) {
-            return @"Client File cannot be empty.";
-        }
+//        if (!ValidStr(self.clientKeyName) || !ValidStr(self.clientCertName)) {
+//            return @"Client File cannot be empty.";
+//        }
     }
     return @"";
 }
 
+
 - (void)operationFailedBlockWithMsg:(NSString *)msg block:(void (^)(NSError *error))block {
     moko_dispatch_main_safe(^{
-        NSError *error = [[NSError alloc] initWithDomain:@"WIfiSettings"
+        NSError *error = [[NSError alloc] initWithDomain:@"NetworkSettings"
                                                     code:-999
                                                 userInfo:@{@"errorInfo":msg}];
         block(error);

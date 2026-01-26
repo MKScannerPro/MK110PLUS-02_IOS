@@ -152,6 +152,16 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
             @"timeZone":[MKBLEBaseSDKAdopter signedHexTurnString:content],
         };
         operationID = mk_gt_taskReadTimeZoneOperation;
+    }else if ([cmd isEqualToString:@"13"]) {
+        //读取wifi固件版本
+        NSString *firmware = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(4, data.length - 4)] encoding:NSUTF8StringEncoding];
+        resultDic = @{@"firmware":firmware};
+        operationID = mk_gt_taskReadWifiFirmwareOperation;
+    }else if ([cmd isEqualToString:@"16"]) {
+        //读取BLE固件版本
+        NSString *firmware = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(4, data.length - 4)] encoding:NSUTF8StringEncoding];
+        resultDic = @{@"firmware":firmware};
+        operationID = mk_gt_taskReadBLEFirmwareOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //读取MQTT服务器域名
         NSString *host = @"";
@@ -332,7 +342,7 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
         //读取DHCP开关
         BOOL isOn = ([content isEqualToString:@"01"]);
         resultDic = @{@"isOn":@(isOn)};
-        operationID = mk_gt_taskReadDHCPStatusOperation;
+        operationID = mk_gt_taskReadWIFIDHCPStatusOperation;
     }else if ([cmd isEqualToString:@"4c"]) {
         //读取IP信息
         NSString *ip = [MKGTSDKDataAdopter parseIpAddress:[content substringWithRange:NSMakeRange(0, 8)]];
@@ -345,7 +355,7 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
             @"gateway":gateway,
             @"dns":dns
         };
-        operationID = mk_gt_taskReadNetworkIpInfosOperation;
+        operationID = mk_gt_taskReadWIFINetworkIpInfosOperation;
     }else if ([cmd isEqualToString:@"60"]) {
         //读取RSSI过滤规则
         resultDic = @{
@@ -394,6 +404,22 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
         NSString *txPower = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)];
         resultDic = @{@"txPower":txPower};
         operationID = mk_gt_taskReadBeaconTxPowerOperation;
+    }else if ([cmd isEqualToString:@"76"]) {
+        //读取RSSI@1m
+        resultDic = @{
+            @"rssi":[NSString stringWithFormat:@"%@",[MKBLEBaseSDKAdopter signedHexTurnString:content]],
+        };
+        operationID = mk_gt_taskReadBeaconRssiOperation;
+    }else if ([cmd isEqualToString:@"77"]) {
+        //读取可连接状态
+        BOOL connectable = ([content isEqualToString:@"01"]);
+        resultDic = @{@"connectable":@(connectable)};
+        operationID = mk_gt_taskReadConnectableOperation;
+    }else if ([cmd isEqualToString:@"c0"]) {
+        //读取设备模式
+        NSString *mode = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)];
+        resultDic = @{@"mode":mode};
+        operationID = mk_gt_taskReadDeviceModeOperation;
     }else if ([cmd isEqualToString:@"80"]) {
         //读取计量数据上报开关
         BOOL isOn = ([content isEqualToString:@"01"]);
@@ -499,10 +525,13 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
         operationID = mk_gt_taskConfigWIFIVerifyServerStatusOperation;
     }else if ([cmd isEqualToString:@"4b"]) {
         //配置DHCP状态
-        operationID = mk_gt_taskConfigDHCPStatusOperation;
+        operationID = mk_gt_taskConfigWIFIDHCPStatusOperation;
     }else if ([cmd isEqualToString:@"4c"]) {
         //配置IP地址相关信息
-        operationID = mk_gt_taskConfigIpInfoOperation;
+        operationID = mk_gt_taskConfigWIFIIpInfoOperation;
+    }else if ([cmd isEqualToString:@"50"]) {
+        //进行一次wifi扫描
+        operationID = mk_gt_taskStartWifiScanOperation;
     }else if ([cmd isEqualToString:@"60"]) {
         //配置扫描RSSI过滤
         operationID = mk_gt_taskConfigRssiFilterValueOperation;
@@ -530,6 +559,12 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
     }else if ([cmd isEqualToString:@"75"]) {
         //配置发射功率
         operationID = mk_gt_taskConfigTxPowerOperation;
+    }else if ([cmd isEqualToString:@"76"]) {
+        //配置Beacon Rssi@1m
+        operationID = mk_gt_taskConfigBeaconRssiOperation;
+    }else if ([cmd isEqualToString:@"77"]) {
+        //配置可连接状态
+        operationID = mk_gt_taskConfigConnectableOperation;
     }else if ([cmd isEqualToString:@"80"]) {
         //配置计量数据上报开关
         operationID = mk_gt_taskConfigMeteringSwitchOperation;

@@ -30,7 +30,7 @@ extern NSString *const MKGTDeviceModelOfflineNotification;
 
 @interface MKGTDeviceModel : NSObject<MKGTDeviceModeManagerDataProtocol>
 
-/// 设备类型
+/// 设备类型10: V1 11:V2
 @property (nonatomic, copy)NSString *deviceType;
 
 /// MTQQ通信所需的ID，如果存在重复的，会出现交替上线的情况

@@ -28,121 +28,110 @@
       "name": "Target",
       "source_files": "MKGatewayMeteringTwo/Classes/Target/**",
       "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ],
-        "MKGatewayMeteringTwo/Functions": [
-
-        ]
+        "MKBaseModuleLibrary": [],
+        "MKGatewayMeteringTwo/Functions": []
       }
     },
     {
       "name": "CTMediator",
       "source_files": "MKGatewayMeteringTwo/Classes/CTMediator/**",
       "dependencies": {
-        "CTMediator": [
-
-        ],
-        "MKBaseModuleLibrary": [
-
-        ]
+        "CTMediator": [],
+        "MKBaseModuleLibrary": []
       }
     },
     {
       "name": "DeviceModel",
       "source_files": "MKGatewayMeteringTwo/Classes/DeviceModel/**",
       "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ],
-        "MKGatewayMeteringTwo/SDK/MQTT": [
-
-        ]
+        "MKBaseModuleLibrary": [],
+        "MKGatewayMeteringTwo/SDK/MQTT": []
       }
     },
     {
       "name": "Expand",
       "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ],
-        "MKCustomUIModule": [
-
-        ]
+        "MKBaseModuleLibrary": [],
+        "MKCustomUIModule": []
       },
       "subspecs": [
         {
           "name": "BleBaseController",
           "source_files": "MKGatewayMeteringTwo/Classes/Expand/BleBaseController/**",
           "dependencies": {
-            "MKGatewayMeteringTwo/SDK/BLE": [
-
-            ]
+            "MKGatewayMeteringTwo/SDK/BLE": []
           }
         },
         {
           "name": "BaseController",
           "source_files": "MKGatewayMeteringTwo/Classes/Expand/BaseController/**",
           "dependencies": {
-            "MKGatewayMeteringTwo/SDK/MQTT": [
-
-            ],
-            "MKGatewayMeteringTwo/DeviceModel": [
-
-            ]
+            "MKGatewayMeteringTwo/SDK/MQTT": [],
+            "MKGatewayMeteringTwo/DeviceModel": []
           }
         },
         {
           "name": "DatabaseManager",
           "source_files": "MKGatewayMeteringTwo/Classes/Expand/DatabaseManager/**",
           "dependencies": {
-            "FMDB": [
-
-            ],
-            "MKGatewayMeteringTwo/DeviceModel": [
-
-            ]
+            "FMDB": [],
+            "MKGatewayMeteringTwo/DeviceModel": []
           }
         },
         {
           "name": "ExcelManager",
           "source_files": "MKGatewayMeteringTwo/Classes/Expand/ExcelManager/**",
           "dependencies": {
-            "libxlsxwriter": [
-
-            ],
-            "SSZipArchive": [
-
-            ]
+            "libxlsxwriter": [],
+            "SSZipArchive": []
           }
         },
         {
           "name": "View",
           "subspecs": [
             {
+              "name": "AdvNormalCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/AdvNormalCell/**"
+            },
+            {
+              "name": "AdvTriggerCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/AdvTriggerCell/**"
+            },
+            {
+              "name": "AdvTriggerTwoStateCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/AdvTriggerTwoStateCell/**"
+            },
+            {
               "name": "AlertView",
               "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/AlertView/**"
             },
             {
-              "name": "FilterCell",
-              "subspecs": [
-                {
-                  "name": "FilterBeaconCell",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterBeaconCell/**"
-                },
-                {
-                  "name": "FilterByRawDataCell",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterByRawDataCell/**"
-                },
-                {
-                  "name": "FilterEditSectionHeaderView",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterEditSectionHeaderView/**"
-                },
-                {
-                  "name": "FilterNormalTextFieldCell",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/FilterCell/FilterNormalTextFieldCell/**"
-                }
-              ]
+              "name": "BleWifiSettingsCertCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/BleWifiSettingsCertCell/**"
+            },
+            {
+              "name": "ButtonFirmwareCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/ButtonFirmwareCell/**"
+            },
+            {
+              "name": "BXPAdvParamsCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/BXPAdvParamsCell/**"
+            },
+            {
+              "name": "BXPButtonAccHeaderView",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/BXPButtonAccHeaderView/**"
+            },
+            {
+              "name": "MKGTFilterCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/MKGTFilterCell/**"
+            },
+            {
+              "name": "PressEventCountCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/PressEventCountCell/**"
+            },
+            {
+              "name": "RemoteReminderCell",
+              "source_files": "MKGatewayMeteringTwo/Classes/Expand/View/RemoteReminderCell/**"
             },
             {
               "name": "UserCredentialsView",
@@ -168,9 +157,7 @@
           "name": "BLE",
           "source_files": "MKGatewayMeteringTwo/Classes/SDK/BLE/**",
           "dependencies": {
-            "MKBaseBleModule": [
-
-            ]
+            "MKBaseBleModule": []
           }
         },
         {
@@ -180,24 +167,16 @@
               "name": "Manager",
               "source_files": "MKGatewayMeteringTwo/Classes/SDK/MQTT/Manager/**",
               "dependencies": {
-                "MKBaseModuleLibrary": [
-
-                ],
-                "MKBaseMQTTModule": [
-
-                ]
+                "MKBaseModuleLibrary": [],
+                "MKBaseMQTTModule": []
               }
             },
             {
               "name": "SDK",
               "source_files": "MKGatewayMeteringTwo/Classes/SDK/MQTT/SDK/**",
               "dependencies": {
-                "MKBaseModuleLibrary": [
-
-                ],
-                "MKGatewayMeteringTwo/SDK/MQTT/Manager": [
-
-                ]
+                "MKBaseModuleLibrary": [],
+                "MKGatewayMeteringTwo/SDK/MQTT/Manager": []
               }
             }
           ]
@@ -208,38 +187,20 @@
       "name": "LoginManager",
       "source_files": "MKGatewayMeteringTwo/Classes/LoginManager/**",
       "dependencies": {
-        "MKIotCloudManager": [
-
-        ]
+        "MKIotCloudManager": []
       }
     },
     {
       "name": "Functions",
       "dependencies": {
-        "MKGatewayMeteringTwo/SDK": [
-
-        ],
-        "MKGatewayMeteringTwo/Expand": [
-
-        ],
-        "MKGatewayMeteringTwo/CTMediator": [
-
-        ],
-        "MKGatewayMeteringTwo/DeviceModel": [
-
-        ],
-        "MKGatewayMeteringTwo/LoginManager": [
-
-        ],
-        "MKBaseModuleLibrary": [
-
-        ],
-        "MKCustomUIModule": [
-
-        ],
-        "MLInputDodger": [
-
-        ]
+        "MKGatewayMeteringTwo/SDK": [],
+        "MKGatewayMeteringTwo/Expand": [],
+        "MKGatewayMeteringTwo/CTMediator": [],
+        "MKGatewayMeteringTwo/DeviceModel": [],
+        "MKGatewayMeteringTwo/LoginManager": [],
+        "MKBaseModuleLibrary": [],
+        "MKCustomUIModule": [],
+        "MLInputDodger": []
       },
       "subspecs": [
         {
@@ -252,11 +213,41 @@
             {
               "name": "Pages",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/AddDeviceModules/ParamsModel": []
               },
               "subspecs": [
+                {
+                  "name": "BleAdvBeaconPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BleAdvBeaconV2Page",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page/Model/**"
+                    }
+                  ]
+                },
                 {
                   "name": "BleDeviceInfoPage",
                   "subspecs": [
@@ -264,9 +255,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Model": []
                       }
                     },
                     {
@@ -276,20 +265,18 @@
                   ]
                 },
                 {
-                  "name": "BleNetworkSettingsPage",
+                  "name": "BleDeviceInfoV2Page",
                   "subspecs": [
                     {
                       "name": "Controller",
-                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Controller/**",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model": []
                       }
                     },
                     {
                       "name": "Model",
-                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model/**"
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page/Model/**"
                     }
                   ]
                 },
@@ -300,9 +287,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleScannerFilterPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage/Model": []
                       }
                     },
                     {
@@ -318,12 +303,9 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage": []
                       }
                     },
                     {
@@ -337,33 +319,13 @@
                   ]
                 },
                 {
-                  "name": "BleAdvBeaconPage",
-                  "subspecs": [
-                    {
-                      "name": "Controller",
-                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Controller/**",
-                      "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model": [
-
-                        ]
-                      }
-                    },
-                    {
-                      "name": "Model",
-                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleAdvBeaconPage/Model/**"
-                    }
-                  ]
-                },
-                {
                   "name": "BleMeteringSettingsPage",
                   "subspecs": [
                     {
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage/Model": []
                       }
                     },
                     {
@@ -388,34 +350,50 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/DeviceParamsListPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice": []
                       }
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceParamsListV2Page",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/DeviceParamsListV2Page/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleDeviceInfoV2Page": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleScannerFilterPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleWifiSettingsPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleAdvBeaconV2Page": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/BleMeteringSettingsPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ConnectSuccessPage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "NearbyWifiPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/NearbyWifiPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NearbyWifiPage/View": []
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/NearbyWifiPage/View/**"
                     }
                   ]
                 },
@@ -426,9 +404,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/NTPTimezonePage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/NTPTimezonePage/Model": []
                       }
                     },
                     {
@@ -444,12 +420,8 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/AddDeviceModules/Pages/ServerForDevice/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice/Model": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice/View": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice/Model": [],
+                        "MKGatewayMeteringTwo/Functions/AddDeviceModules/Pages/ServerForDevice/View": []
                       }
                     },
                     {
@@ -473,21 +445,11 @@
               "name": "Controller",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/DeviceDataPage/Controller/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/DeviceDataPage/View": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/SettingPages": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/ManageBleModules": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/PowerMeteringModules": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/DeviceDataPage/View": [],
+                "MKGatewayMeteringTwo/Functions/SettingPages": [],
+                "MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage": [],
+                "MKGatewayMeteringTwo/Functions/ManageBleModules": [],
+                "MKGatewayMeteringTwo/Functions/PowerMeteringModules": []
               }
             },
             {
@@ -506,12 +468,8 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/PowerMeteringModules/PowerMeteringPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/PowerMeteringModules/MeteringParamsPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/PowerMeteringModules/PowerMeteringPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/PowerMeteringModules/MeteringParamsPage": [],
+                    "MKGatewayMeteringTwo/Functions/PowerMeteringModules/PowerMeteringPage/Model": []
                   }
                 },
                 {
@@ -527,9 +485,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/PowerMeteringModules/MeteringParamsPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/PowerMeteringModules/MeteringParamsPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/PowerMeteringModules/MeteringParamsPage/Model": []
                   }
                 },
                 {
@@ -547,24 +503,12 @@
               "name": "Controller",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/DeviceListPage/Controller/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/DeviceListPage/View": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/DeviceListPage/Model": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/ServerForApp": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/ScanPage": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/DeviceDataPage": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/SyncDevicePage": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/DeviceListPage/View": [],
+                "MKGatewayMeteringTwo/Functions/DeviceListPage/Model": [],
+                "MKGatewayMeteringTwo/Functions/ServerForApp": [],
+                "MKGatewayMeteringTwo/Functions/ScanPage": [],
+                "MKGatewayMeteringTwo/Functions/DeviceDataPage": [],
+                "MKGatewayMeteringTwo/Functions/SyncDevicePage": []
               }
             },
             {
@@ -575,9 +519,7 @@
               "name": "View",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/DeviceListPage/View/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/DeviceListPage/Model": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/DeviceListPage/Model": []
               }
             }
           ]
@@ -586,15 +528,29 @@
           "name": "FilterPages",
           "subspecs": [
             {
+              "name": "DataUploadIntervalPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/DataUploadIntervalPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage/Model": []
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/DataUploadIntervalPage/Model/**"
+                }
+              ]
+            },
+            {
               "name": "DuplicateDataFilterPage",
               "subspecs": [
                 {
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/DuplicateDataFilterPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage/Model": []
                   }
                 },
                 {
@@ -610,9 +566,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByAdvNamePage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage/Model": []
                   }
                 },
                 {
@@ -628,12 +582,8 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByBeaconPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage/Header": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage/Header": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage/Model": []
                   }
                 },
                 {
@@ -644,9 +594,7 @@
                   "name": "Model",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByBeaconPage/Model/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage/Header": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage/Header": []
                   }
                 }
               ]
@@ -658,9 +606,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByButtonPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage/Model": []
                   }
                 },
                 {
@@ -676,14 +622,28 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByMacPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage/Model": []
                   }
                 },
                 {
                   "name": "Model",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByMacPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByNanoBeaconPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByNanoBeaconPage/Model": []
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Model/**"
                 }
               ]
             },
@@ -694,9 +654,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByOtherPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage/Model": []
                   }
                 },
                 {
@@ -712,9 +670,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByPirPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage/Model": []
                   }
                 },
                 {
@@ -730,38 +686,45 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByRawDataPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataPage/Model": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataPage/Model": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage": []
                   }
                 },
                 {
                   "name": "Model",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByRawDataPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByRawDataV2Page",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByRawDataV2Page/Controller/**",
+                  "dependencies": {
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page/Model": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByBeaconPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByButtonPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByPirPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByOtherPage": []
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByRawDataV2Page/Model/**"
                 }
               ]
             },
@@ -772,9 +735,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTag/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTag/Model": []
                   }
                 },
                 {
@@ -790,14 +751,28 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTLMPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTLMPage/Model": []
                   }
                 },
                 {
                   "name": "Model",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTLMPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByTofPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTofPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByTofPage/Model": []
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByTofPage/Model/**"
                 }
               ]
             },
@@ -808,9 +783,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByUIDPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByUIDPage/Model": []
                   }
                 },
                 {
@@ -826,9 +799,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/FilterByURLPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByURLPage/Model": []
                   }
                 },
                 {
@@ -844,9 +815,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadDataOptionPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage/Model": []
                   }
                 },
                 {
@@ -862,36 +831,39 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/Model": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/View": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataPage": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionPage/Model": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataPage": []
                   }
                 },
                 {
                   "name": "Model",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "UploadOptionV2Page",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionV2Page/Controller/**",
+                  "dependencies": {
+                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadOptionV2Page/Model": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/DuplicateDataFilterPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/DataUploadIntervalPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/UploadDataOptionPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByMacPage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByAdvNamePage": [],
+                    "MKGatewayMeteringTwo/Functions/FilterPages/FilterByRawDataV2Page": []
+                  }
                 },
                 {
-                  "name": "View",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionPage/View/**"
+                  "name": "Model",
+                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/FilterPages/UploadOptionV2Page/Model/**"
                 }
               ]
             }
@@ -907,9 +879,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/ButtonDFUPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage/Model": []
                   }
                 },
                 {
@@ -919,23 +889,515 @@
               ]
             },
             {
-              "name": "BXPButtonPage",
+              "name": "BXPBCRPages",
               "subspecs": [
                 {
-                  "name": "Controller",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPButtonPage/Controller/**",
-                  "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage/View": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [
-
-                    ]
-                  }
+                  "name": "BXPButtonCRPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage": []
+                      }
+                    }
+                  ]
                 },
                 {
-                  "name": "View",
-                  "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPButtonPage/View/**"
+                  "name": "BXPButtonCRRemoteReminderPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRRemoteReminderPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPButtonCRAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View": []
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAccDataPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPButtonCRAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRAdvParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPButtonCREventAlarmPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBCRPages/BXPButtonCREventAlarmPage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BXPBDPages",
+              "subspecs": [
+                {
+                  "name": "BXPButtonPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage": []
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPButtonRemoteReminderPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonRemoteReminderPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPButtonAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonAccDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPButtonAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPBDPages/BXPButtonAdvParamsPage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BXPCPages",
+              "subspecs": [
+                {
+                  "name": "BXPCAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPCAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPCPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAccDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCAdvParamsPage": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPCHistoricalTHDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View": []
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCHistoricalTHDataPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPCRealTimeTHDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCRealTimeTHDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPCTHDataSampleRatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPCPages/BXPCTHDataSampleRatePage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BXPDPages",
+              "subspecs": [
+                {
+                  "name": "BXPDPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPDAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAccDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPDAccParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAccParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPDAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPDPages/BXPDAdvParamsPage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BXPSPages",
+              "subspecs": [
+                {
+                  "name": "BXPSAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSHallCountPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAccDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHallCountPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSAdvParamsPage": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSHistoricalTHDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View": []
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSHistoricalTHDataPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSRealTimeTHDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSRealTimeTHDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSTHDataSampleRatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSTHDataSampleRatePage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPSRemoteReminderPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPSPages/BXPSRemoteReminderPage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BXPTPages",
+              "subspecs": [
+                {
+                  "name": "BXPTAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPTAccParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPTAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPTMotionEventPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPTPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAccParamsPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTAdvParamsPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTMotionEventPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "BXPTRemoteReminderPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/BXPTPages/BXPTRemoteReminderPage/Model/**"
+                    }
+                  ]
                 }
               ]
             },
@@ -946,20 +1408,92 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/ManageBleDevicesPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/ManageBleDevicesPage/View": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPButtonPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/ManageBleDevicesPage/View": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBDPages/BXPButtonPage": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPBCRPages/BXPButtonCRPage": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPCPages/BXPCPage": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPDPages/BXPDPage": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPTPages/BXPTPage": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/BXPSPages/BXPSPage": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages": [],
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage": []
                   }
                 },
                 {
                   "name": "View",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/ManageBleDevicesPage/View/**"
+                }
+              ]
+            },
+            {
+              "name": "MKTofPages",
+              "subspecs": [
+                {
+                  "name": "TofAccDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofAccDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "TofAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "TofPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAdvParamsPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofAccDataPage": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "TofSensorDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofSensorDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "TofSensorParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/MKTofPages/TofSensorParamsPage/Model/**"
+                    }
+                  ]
                 }
               ]
             },
@@ -970,14 +1504,73 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/NormalConnectedPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage/View": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/ManageBleModules/NormalConnectedPage/View": []
                   }
                 },
                 {
                   "name": "View",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/NormalConnectedPage/View/**"
+                }
+              ]
+            },
+            {
+              "name": "PirPages",
+              "subspecs": [
+                {
+                  "name": "PirAdvParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirAdvParamsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "PirPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/ButtonDFUPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirAdvParamsPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorDataPage": [],
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage": []
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "PirSensorDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirSensorDataPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "PirSensorParamsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/ManageBleModules/PirPages/PirSensorParamsPage/Model/**"
+                    }
+                  ]
                 }
               ]
             }
@@ -990,15 +1583,9 @@
               "name": "Controller",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/ScanPage/Controller/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/ScanPage/Model": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/ScanPage/View": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/AddDeviceModules": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/ScanPage/Model": [],
+                "MKGatewayMeteringTwo/Functions/ScanPage/View": [],
+                "MKGatewayMeteringTwo/Functions/AddDeviceModules": []
               }
             },
             {
@@ -1009,9 +1596,7 @@
               "name": "View",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/ScanPage/View/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/ScanPage/Model": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/ScanPage/Model": []
               }
             }
           ]
@@ -1023,12 +1608,8 @@
               "name": "Controller",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/ServerForApp/Controller/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/ServerForApp/Model": [
-
-                ],
-                "MKGatewayMeteringTwo/Functions/ServerForApp/View": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/ServerForApp/Model": [],
+                "MKGatewayMeteringTwo/Functions/ServerForApp/View": []
               }
             },
             {
@@ -1051,9 +1632,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/DeviceInfoPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/SettingPages/DeviceInfoPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/SettingPages/DeviceInfoPage/Model": []
                   }
                 },
                 {
@@ -1072,9 +1651,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage/Model": []
                       }
                     },
                     {
@@ -1090,18 +1667,10 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttParamsListPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttParamsListPage/Model": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttServerPage": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttParamsListPage/Model": [],
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage": [],
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttServerPage": [],
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage": []
                       }
                     },
                     {
@@ -1117,12 +1686,8 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/Model": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/View": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/Model": [],
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/View": []
                       }
                     },
                     {
@@ -1142,9 +1707,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model": []
                       }
                     },
                     {
@@ -1165,14 +1728,28 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconPage/Model": []
                       }
                     },
                     {
                       "name": "Model",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "AdvBeaconV2Page",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Controller/**",
+                      "dependencies": {
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model": []
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/AdvBeaconV2Page/Model/**"
                     }
                   ]
                 },
@@ -1183,9 +1760,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/CommunicatePage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/CommunicatePage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/CommunicatePage/Model": []
                       }
                     },
                     {
@@ -1201,9 +1776,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/DataReportPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/DataReportPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/DataReportPage/Model": []
                       }
                     },
                     {
@@ -1219,9 +1792,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/IndicatorSettingsPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/IndicatorSettingsPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/IndicatorSettingsPage/Model": []
                       }
                     },
                     {
@@ -1237,9 +1808,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/NetworkStatusPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/NetworkStatusPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/NetworkStatusPage/Model": []
                       }
                     },
                     {
@@ -1255,9 +1824,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/NTPServerPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/NTPServerPage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/NTPServerPage/Model": []
                       }
                     },
                     {
@@ -1273,9 +1840,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/ReconnectTimePage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/ReconnectTimePage/Model": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/ReconnectTimePage/Model": []
                       }
                     },
                     {
@@ -1291,9 +1856,7 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/ResetByButtonPage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/ResetByButtonPage/View": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/ResetByButtonPage/View": []
                       }
                     },
                     {
@@ -1309,12 +1872,8 @@
                       "name": "Controller",
                       "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/NormalSettings/SystemTimePage/Controller/**",
                       "dependencies": {
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/SystemTimePage/View": [
-
-                        ],
-                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/NTPServerPage": [
-
-                        ]
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/SystemTimePage/View": [],
+                        "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings/NTPServerPage": []
                       }
                     },
                     {
@@ -1332,9 +1891,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/OTAPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/SettingPages/OTAPage/Model": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/SettingPages/OTAPage/Model": []
                   }
                 },
                 {
@@ -1350,21 +1907,11 @@
                   "name": "Controller",
                   "source_files": "MKGatewayMeteringTwo/Classes/Functions/SettingPages/SettingPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayMeteringTwo/Functions/SettingPages/SettingPage/Model": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/SettingPages/DeviceInfoPage": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings": [
-
-                    ],
-                    "MKGatewayMeteringTwo/Functions/SettingPages/OTAPage": [
-
-                    ]
+                    "MKGatewayMeteringTwo/Functions/SettingPages/SettingPage/Model": [],
+                    "MKGatewayMeteringTwo/Functions/SettingPages/DeviceInfoPage": [],
+                    "MKGatewayMeteringTwo/Functions/SettingPages/ModifyNetworkPages": [],
+                    "MKGatewayMeteringTwo/Functions/SettingPages/NormalSettings": [],
+                    "MKGatewayMeteringTwo/Functions/SettingPages/OTAPage": []
                   }
                 },
                 {
@@ -1382,9 +1929,7 @@
               "name": "Controller",
               "source_files": "MKGatewayMeteringTwo/Classes/Functions/SyncDevicePage/Controller/**",
               "dependencies": {
-                "MKGatewayMeteringTwo/Functions/SyncDevicePage/View": [
-
-                ]
+                "MKGatewayMeteringTwo/Functions/SyncDevicePage/View": []
               }
             },
             {

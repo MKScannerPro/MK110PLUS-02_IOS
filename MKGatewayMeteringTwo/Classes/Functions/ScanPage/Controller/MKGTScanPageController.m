@@ -26,6 +26,7 @@
 #import "MKGTBLESDK.h"
 
 #import "MKGTDeviceParamsListController.h"
+#import "MKGTDeviceParamsListV2Controller.h"
 
 #import "MKGTScanPageCell.h"
 
@@ -256,7 +257,18 @@ mk_gt_centralManagerScanDelegate>
         [[NSUserDefaults standardUserDefaults] setObject:password forKey:localPasswordKey];
         [[MKHudManager share] hide];
         self.rightButton.selected = NO;
-        [self pushMQTTForDevicePage:deviecModel.deviceType];
+        if ([deviecModel.deviceType isEqualToString:@"10"]) {
+            //V1
+            MKGTDeviceParamsListController *vc = [[MKGTDeviceParamsListController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
+        if ([deviecModel.deviceType isEqualToString:@"11"]) {
+            //V2
+            [self readDeviceMode:deviecModel.deviceType];
+            return;
+        }
+        [self.view showCentralToast:@"Device Type Error"];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKGTCentralManager shared] disconnect];
         [[MKHudManager share] hide];
@@ -265,10 +277,20 @@ mk_gt_centralManagerScanDelegate>
     }];
 }
 
-- (void)pushMQTTForDevicePage:(NSString *)deviceType {
-    MKGTDeviceParamsListController *vc = [[MKGTDeviceParamsListController alloc] init];
-    vc.deviceType = deviceType;
-    [self.navigationController pushViewController:vc animated:YES];
+- (void)readDeviceMode:(NSString *)deviceType {
+    [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
+    [MKGTInterface gt_readDeviceModeWithSucBlock:^(id  _Nonnull returnData) {
+        [[MKHudManager share] hide];
+        self.rightButton.selected = NO;
+        MKGTDeviceParamsListV2Controller *vc = [[MKGTDeviceParamsListV2Controller alloc] init];
+        vc.originMode = ([returnData[@"result"][@"mode"] integerValue] == 0);
+        [self.navigationController pushViewController:vc animated:YES];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKGTCentralManager shared] disconnect];
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self connectFailed];
+    }];
 }
 
 - (void)connectFailed {

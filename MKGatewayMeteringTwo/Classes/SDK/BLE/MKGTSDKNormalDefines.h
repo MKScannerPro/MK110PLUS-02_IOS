@@ -65,3 +65,9 @@ typedef NS_ENUM(NSInteger, mk_gt_filterRelationship) {
 - (void)mk_gt_stopScan;
 
 @end
+
+@protocol mk_gt_centralManagerScanWifiDelegate <NSObject>
+
+- (void)mk_gt_receiveWifi:(NSString *)content;
+
+@end

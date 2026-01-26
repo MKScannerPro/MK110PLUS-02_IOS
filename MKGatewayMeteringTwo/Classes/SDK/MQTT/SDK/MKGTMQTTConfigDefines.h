@@ -44,6 +44,56 @@ typedef NS_ENUM(NSInteger, mk_gt_PHYMode) {
     mk_bv_PHYMode_CodedBLE5,                //Coded PHY(BLE 5)
 };
 
+typedef NS_ENUM(NSInteger, mk_gt_triggerEventType) {
+    mk_gt_triggerEventType_singlePress,
+    mk_gt_triggerEventType_DoublePress,
+    mk_gt_triggerEventType_longPress,
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_threeAxisDataRate) {
+    mk_gt_threeAxisDataRate1hz,           //1hz
+    mk_gt_threeAxisDataRate10hz,          //10hz
+    mk_gt_threeAxisDataRate25hz,          //25hz
+    mk_gt_threeAxisDataRate50hz,          //50hz
+    mk_gt_threeAxisDataRate100hz          //100hz
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_threeAxisDataAG) {
+    mk_gt_threeAxisDataAG0,               //±2g
+    mk_gt_threeAxisDataAG1,               //±4g
+    mk_gt_threeAxisDataAG2,               //±8g
+    mk_gt_threeAxisDataAG3                //±16g
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_bxptLedColor) {
+    mk_gt_bxptLedColor_green,
+    mk_gt_bxptLedColor_blue,
+    mk_gt_bxptLedColor_red
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_pirSensorParamType) {
+    mk_gt_pirSensorParamTypeLow,
+    mk_gt_pirSensorParamTypeMedium,
+    mk_gt_pirSensorParamTypeHigh,
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_tofRangingMode) {
+    mk_gt_tofRangingModeShortdistance,
+    mk_gt_tofRangingModeLongdistance,
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_bxpcrAlarmEventType) {
+    mk_gt_bxpcrAlarmEventType_single,
+    mk_gt_bxpcrAlarmEventType_double,
+    mk_gt_bxpcrAlarmEventType_long
+};
+
+typedef NS_ENUM(NSInteger, mk_gt_filterByNanoBeaconAdvType) {
+    mk_gt_filterByNanoBeaconAdvType_normal,
+    mk_gt_filterByNanoBeaconAdvType_trigger,
+    mk_gt_filterByNanoBeaconAdvType_all
+};
+
 
 @protocol gt_indicatorLightStatusProtocol <NSObject>
 
@@ -242,11 +292,18 @@ typedef NS_ENUM(NSInteger, mk_gt_PHYMode) {
 
 @protocol gt_uploadDataOptionProtocol <NSObject>
 
+/// V2版本固件
+@property (nonatomic, assign)BOOL isV2;
+
 @property (nonatomic, assign)BOOL timestamp;
 
 @property (nonatomic, assign)BOOL rawData_advertising;
 
+/// V2中无此参数
 @property (nonatomic, assign)BOOL rawData_response;
+
+/// V2中有此参数
+@property (nonatomic, assign)BOOL parsed_data;
 
 @end
 
@@ -284,5 +341,15 @@ typedef NS_ENUM(NSInteger, mk_gt_PHYMode) {
  15：21dbm
  */
 @property (nonatomic, assign)NSInteger txPower;
+
+@property (nonatomic, assign)NSInteger rssi1m;
+
+@end
+
+@protocol gt_advertiseBeaconV2Protocol <gt_advertiseBeaconProtocol>
+
+@property (nonatomic, assign)NSInteger rssi1M;
+
+@property (nonatomic, assign)BOOL connectable;
 
 @end

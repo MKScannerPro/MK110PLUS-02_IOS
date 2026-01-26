@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskReadDeviceWifiSTAMacAddressOperation, //读取WIFI STA MAC地址
     mk_gt_taskReadNTPServerHostOperation,       //读取NTP服务器域名
     mk_gt_taskReadTimeZoneOperation,            //读取时区
+    mk_gt_taskReadWifiFirmwareOperation,        //读取wifi固件版本
+    mk_gt_taskReadBLEFirmwareOperation,         //读取BLE固件版本
     
 #pragma mark - Wifi Params
     mk_gt_taskReadWIFISecurityOperation,        //读取设备当前wifi的加密模式
@@ -26,8 +28,8 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskReadWIFIEAPPasswordOperation,     //读取设备当前的wifi EAP密码
     mk_gt_taskReadWIFIEAPDomainIDOperation,     //读取设备当前的wifi EAP域名ID
     mk_gt_taskReadWIFIVerifyServerStatusOperation,  //读取是否校验服务器
-    mk_gt_taskReadDHCPStatusOperation,              //读取DHCP开关
-    mk_gt_taskReadNetworkIpInfosOperation,          //读取IP信息
+    mk_gt_taskReadWIFIDHCPStatusOperation,              //读取DHCP开关
+    mk_gt_taskReadWIFINetworkIpInfosOperation,          //读取IP信息
     
 #pragma mark - MQTT Params
     mk_gt_taskReadServerHostOperation,          //读取MQTT服务器域名
@@ -60,6 +62,9 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskReadBeaconUUIDOperation,                  //读取iBeacon UUID
     mk_gt_taskReadBeaconAdvIntervalOperation,           //读取Adv interval
     mk_gt_taskReadBeaconTxPowerOperation,               //读取Tx Power
+    mk_gt_taskReadBeaconRssiOperation,                      //读取RSSI@1m
+    mk_gt_taskReadConnectableOperation,                 //读取可连接状态
+    mk_gt_taskReadDeviceModeOperation,                  //读取设备模式
     
 #pragma mark - 计电量参数
     mk_gt_taskReadMeteringSwitchOperation,              //读取计量数据上报开关
@@ -89,8 +94,9 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskConfigWIFICAFileOperation,                //配置WIFI CA证书
     mk_gt_taskConfigWIFIClientCertOperation,            //配置WIFI设备证书
     mk_gt_taskConfigWIFIClientPrivateKeyOperation,      //配置WIFI私钥
-    mk_gt_taskConfigDHCPStatusOperation,                //配置DHCP开关
-    mk_gt_taskConfigIpInfoOperation,                    //配置IP地址相关信息
+    mk_gt_taskConfigWIFIDHCPStatusOperation,                //配置DHCP开关
+    mk_gt_taskConfigWIFIIpInfoOperation,                    //配置IP地址相关信息
+    mk_gt_taskStartWifiScanOperation,                       //进行一次wifi扫描
     
 #pragma mark - MQTT Params
     mk_gt_taskConfigServerHostOperation,        //配置MQTT服务器域名
@@ -126,6 +132,8 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskConfigBeaconUUIDOperation,                    //配置iBeacon UUID
     mk_gt_taskConfigAdvIntervalOperation,                   //配置广播频率
     mk_gt_taskConfigTxPowerOperation,                       //配置Tx Power
+    mk_gt_taskConfigBeaconRssiOperation,                        //配置Beacon Rssi@1m
+    mk_gt_taskConfigConnectableOperation,                   //配置可连接状态
     
 #pragma mark - 计电量参数
     mk_gt_taskConfigMeteringSwitchOperation,                //配置计量数据上报开关

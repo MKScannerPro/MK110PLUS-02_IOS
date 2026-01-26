@@ -118,6 +118,26 @@
                          failureBlock:failedBlock];
 }
 
++ (void)gt_readWifiFirmwareWithSucBlock:(void (^)(id returnData))sucBlock
+                            failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed001300";
+    [centralManager addTaskWithTaskID:mk_gt_taskReadWifiFirmwareOperation
+                       characteristic:peripheral.gt_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
++ (void)gt_readBLEFirmwareWithSucBlock:(void (^)(id returnData))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed001600";
+    [centralManager addTaskWithTaskID:mk_gt_taskReadBLEFirmwareOperation
+                       characteristic:peripheral.gt_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
 #pragma mark *********************MQTT Params************************
 
 + (void)gt_readServerHostWithSucBlock:(void (^)(id returnData))sucBlock
@@ -404,20 +424,20 @@
                          failureBlock:failedBlock];
 }
 
-+ (void)gt_readDHCPStatusWithSucBlock:(void (^)(id returnData))sucBlock
-                          failedBlock:(void (^)(NSError *error))failedBlock {
++ (void)gt_readWIFIDHCPStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                              failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = @"ed004b00";
-    [centralManager addTaskWithTaskID:mk_gt_taskReadDHCPStatusOperation
+    [centralManager addTaskWithTaskID:mk_gt_taskReadWIFIDHCPStatusOperation
                        characteristic:peripheral.gt_custom
                           commandData:commandString
                          successBlock:sucBlock
                          failureBlock:failedBlock];
 }
 
-+ (void)gt_readNetworkIpInfosWithSucBlock:(void (^)(id returnData))sucBlock
-                              failedBlock:(void (^)(NSError *error))failedBlock {
++ (void)gt_readWIFINetworkIpInfosWithSucBlock:(void (^)(id returnData))sucBlock
+                                  failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = @"ed004c00";
-    [centralManager addTaskWithTaskID:mk_gt_taskReadNetworkIpInfosOperation
+    [centralManager addTaskWithTaskID:mk_gt_taskReadWIFINetworkIpInfosOperation
                        characteristic:peripheral.gt_custom
                           commandData:commandString
                          successBlock:sucBlock
@@ -535,6 +555,36 @@
                              failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = @"ed007500";
     [centralManager addTaskWithTaskID:mk_gt_taskReadBeaconTxPowerOperation
+                       characteristic:peripheral.gt_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
++ (void)gt_readBeaconRssiWithSucBlock:(void (^)(id returnData))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed007600";
+    [centralManager addTaskWithTaskID:mk_gt_taskReadBeaconRssiOperation
+                       characteristic:peripheral.gt_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
++ (void)gt_readConnectableWithSucBlock:(void (^)(id returnData))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed007700";
+    [centralManager addTaskWithTaskID:mk_gt_taskReadConnectableOperation
+                       characteristic:peripheral.gt_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
++ (void)gt_readDeviceModeWithSucBlock:(void (^)(id returnData))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed00c000";
+    [centralManager addTaskWithTaskID:mk_gt_taskReadDeviceModeOperation
                        characteristic:peripheral.gt_custom
                           commandData:commandString
                          successBlock:sucBlock

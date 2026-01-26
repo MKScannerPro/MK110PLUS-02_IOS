@@ -33,7 +33,6 @@
 
 #import "MKGTBleWifiSettingsController.h"
 #import "MKGTServerForDeviceController.h"
-#import "MKGTBleNetworkSettingsController.h"
 #import "MKGTBleNTPTimezoneController.h"
 #import "MKGTBleScannerFilterController.h"
 #import "MKGTBleDeviceInfoController.h"
@@ -131,36 +130,30 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
         return;
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
-        //Network Settings
-        MKGTBleNetworkSettingsController *vc = [[MKGTBleNetworkSettingsController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 1 && indexPath.row == 1) {
         //NTP & Timezone
         MKGTBleNTPTimezoneController *vc = [[MKGTBleNTPTimezoneController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 1 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 1) {
         //Scanner Filter
         MKGTBleScannerFilterController *vc = [[MKGTBleScannerFilterController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 1 && indexPath.row == 3) {
+    if (indexPath.section == 1 && indexPath.row == 2) {
         //Advertise iBeacon
         MKGTBleAdvBeaconController *vc = [[MKGTBleAdvBeaconController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 1 && indexPath.row == 4) {
+    if (indexPath.section == 1 && indexPath.row == 3) {
         //Metering Settings
         MKGTBleMeteringSettingsController *vc = [[MKGTBleMeteringSettingsController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 1 && indexPath.row == 5) {
+    if (indexPath.section == 1 && indexPath.row == 4) {
         //Device Information
         MKGTBleDeviceInfoController *vc = [[MKGTBleDeviceInfoController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
@@ -336,28 +329,24 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
 
 - (void)loadSection1Datas {
     MKSettingTextCellModel *cellModel1 = [[MKSettingTextCellModel alloc] init];
-    cellModel1.leftMsg = @"Network Settings";
+    cellModel1.leftMsg = @"NTP & Timezone";
     [self.section1List addObject:cellModel1];
     
     MKSettingTextCellModel *cellModel2 = [[MKSettingTextCellModel alloc] init];
-    cellModel2.leftMsg = @"NTP & Timezone";
+    cellModel2.leftMsg = @"Scanner Filter";
     [self.section1List addObject:cellModel2];
     
     MKSettingTextCellModel *cellModel3 = [[MKSettingTextCellModel alloc] init];
-    cellModel3.leftMsg = @"Scanner Filter";
+    cellModel3.leftMsg = @"Advertise iBeacon";
     [self.section1List addObject:cellModel3];
     
     MKSettingTextCellModel *cellModel4 = [[MKSettingTextCellModel alloc] init];
-    cellModel4.leftMsg = @"Advertise iBeacon";
+    cellModel4.leftMsg = @"Metering Settings";
     [self.section1List addObject:cellModel4];
     
     MKSettingTextCellModel *cellModel5 = [[MKSettingTextCellModel alloc] init];
-    cellModel5.leftMsg = @"Metering Settings";
+    cellModel5.leftMsg = @"Device Information";
     [self.section1List addObject:cellModel5];
-    
-    MKSettingTextCellModel *cellModel6 = [[MKSettingTextCellModel alloc] init];
-    cellModel6.leftMsg = @"Device Information";
-    [self.section1List addObject:cellModel6];
 }
 
 #pragma mark - UI

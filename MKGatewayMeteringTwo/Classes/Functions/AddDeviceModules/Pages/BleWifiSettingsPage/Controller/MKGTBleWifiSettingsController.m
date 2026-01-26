@@ -26,10 +26,15 @@
 #import "MKTextSwitchCell.h"
 #import "MKCAFileSelectController.h"
 
+#import "MKGTDeviceModel.h"
+
 #import "MKGTDeviceMQTTParamsModel.h"
+
+#import "MKGTNearbyWifiController.h"
 
 #import "MKGTBleWifiSettingsModel.h"
 
+#import "MKGTNetworkSsidSettingsCell.h"
 #include "MKGTBleWifiSettingsCertCell.h"
 
 static NSString *const noteMsg = @"Please note the CA certificate is required, the client certificate and client key are optional.";
@@ -39,8 +44,10 @@ UITableViewDataSource,
 MKTextButtonCellDelegate,
 MKTextFieldCellDelegate,
 mk_textSwitchCellDelegate,
+MKGTNetworkSsidSettingsCellDelegate,
 MKGTBleWifiSettingsCertCellDelegate,
-MKCAFileSelectControllerDelegate>
+MKCAFileSelectControllerDelegate,
+MKGTNearbyWifiControllerDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
@@ -65,6 +72,10 @@ MKCAFileSelectControllerDelegate>
 @property (nonatomic, strong)NSMutableArray *section9List;
 
 @property (nonatomic, strong)NSMutableArray *section10List;
+
+@property (nonatomic, strong)NSMutableArray *section11List;
+
+@property (nonatomic, strong)NSMutableArray *section12List;
 
 @property (nonatomic, strong)NSMutableArray *headerList;
 
@@ -103,6 +114,9 @@ MKCAFileSelectControllerDelegate>
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0 || section == 12) {
+        return 10.f;
+    }
     return 0.f;
 }
 
@@ -192,6 +206,34 @@ MKCAFileSelectControllerDelegate>
         cellModel.textFieldValue = value;
         return;
     }
+    if (index == 5) {
+        //Ethernet IP
+        self.dataModel.wifi_ip = value;
+        MKTextFieldCellModel *cellModel = self.section12List[0];
+        cellModel.textFieldValue = value;
+        return;
+    }
+    if (index == 6) {
+        //Mask
+        self.dataModel.wifi_mask = value;
+        MKTextFieldCellModel *cellModel = self.section12List[1];
+        cellModel.textFieldValue = value;
+        return;
+    }
+    if (index == 7) {
+        //Gateway
+        self.dataModel.wifi_gateway = value;
+        MKTextFieldCellModel *cellModel = self.section12List[2];
+        cellModel.textFieldValue = value;
+        return;
+    }
+    if (index == 8) {
+        //DNS
+        self.dataModel.wifi_dns = value;
+        MKTextFieldCellModel *cellModel = self.section12List[3];
+        cellModel.textFieldValue = value;
+        return;
+    }
 }
 
 #pragma mark - mk_textSwitchCellDelegate
@@ -208,6 +250,37 @@ MKCAFileSelectControllerDelegate>
         [self.tableView mk_reloadSection:8 withRowAnimation:UITableViewRowAnimationNone];
         return;
     }
+    if (index == 1) {
+        //Wifi DHCP
+        self.dataModel.wifi_dhcp = isOn;
+        MKTextSwitchCellModel *cellModel = self.section11List[0];
+        cellModel.isOn = isOn;
+        [self.tableView mk_reloadSection:12 withRowAnimation:UITableViewRowAnimationNone];
+        return;
+    }
+}
+
+#pragma mark - MKGTNetworkSsidSettingsCellDelegate
+- (void)gt_networkSsidSettingsCell_ssidChanged:(NSString *)ssid {
+    //SSID
+    self.dataModel.ssid = ssid;
+    MKGTNetworkSsidSettingsCellModel *cellModel = self.section2List[0];
+    cellModel.ssid = ssid;
+}
+
+- (void)gt_networkSsidSettingsCell_buttonPressed {
+    MKGTNearbyWifiController *vc = [[MKGTNearbyWifiController alloc] init];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - MKGTNearbyWifiControllerDelegate
+- (void)gt_nearbyWifiController_selectedWifi:(NSString *)ssid {
+    MKGTNetworkSsidSettingsCellModel *cellModel = self.section2List[0];
+    cellModel.ssid = ssid;
+    self.dataModel.ssid = ssid;
+    
+    [self.tableView mk_reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - MKGTBleWifiSettingsCertCellDelegate
@@ -339,7 +412,6 @@ MKCAFileSelectControllerDelegate>
         if (self.dataModel.security == 1 && (self.dataModel.eapType == 0 || self.dataModel.eapType == 1)) {
             return self.section7List.count;
         }
-        return 0;
         
     }
     if (section == 8) {
@@ -350,7 +422,6 @@ MKCAFileSelectControllerDelegate>
             }
             return self.section8List.count;
         }
-        return 0;
     }
     if (section == 9) {
         //Client certificate.TLS特有
@@ -359,6 +430,15 @@ MKCAFileSelectControllerDelegate>
     if (section == 10) {
         //Client key.TLS特有
         return ((self.dataModel.security == 1 && self.dataModel.eapType == 2) ? self.section10List.count : 0);
+    }
+    
+    if (section == 11) {
+        //Wifi DHCP
+        return self.section11List.count;
+    }
+    if (section == 12) {
+        //Wifi IP
+        return (self.dataModel.wifi_dhcp ? 0 : self.section12List.count);
     }
     
     return 0;
@@ -381,6 +461,12 @@ MKCAFileSelectControllerDelegate>
     }
     if (indexPath.section == 2) {
         //SSID
+        if (self.isV2) {
+            MKGTNetworkSsidSettingsCell *cell = [MKGTNetworkSsidSettingsCell initCellWithTableView:self.tableView];
+            cell.dataModel = self.section2List[indexPath.row];
+            cell.delegate = self;
+            return cell;
+        }
         MKTextFieldCell *cell = [MKTextFieldCell initCellWithTableView:self.tableView];
         cell.dataModel = self.section2List[indexPath.row];
         cell.delegate = self;
@@ -435,9 +521,23 @@ MKCAFileSelectControllerDelegate>
         cell.delegate = self;
         return cell;
     }
-    //
-    MKGTBleWifiSettingsCertCell *cell = [MKGTBleWifiSettingsCertCell initCellWithTableView:self.tableView];
-    cell.dataModel = self.section10List[indexPath.row];
+    if (indexPath.section == 10) {
+        //CA certificate
+        MKGTBleWifiSettingsCertCell *cell = [MKGTBleWifiSettingsCertCell initCellWithTableView:self.tableView];
+        cell.dataModel = self.section10List[indexPath.row];
+        cell.delegate = self;
+        return cell;
+    }
+    if (indexPath.section == 11) {
+        //Wifi DHCP
+        MKTextSwitchCell *cell = [MKTextSwitchCell initCellWithTableView:self.tableView];
+        cell.dataModel = self.section11List[indexPath.row];
+        cell.delegate = self;
+        return cell;
+    }
+    //Wifi IP
+    MKTextFieldCell *cell = [MKTextFieldCell initCellWithTableView:self.tableView];
+    cell.dataModel = self.section12List[indexPath.row];
     cell.delegate = self;
     return cell;
 }
@@ -455,8 +555,10 @@ MKCAFileSelectControllerDelegate>
     [self loadSection8Datas];
     [self loadSection9Datas];
     [self loadSection10Datas];
+    [self loadSection11Datas];
+    [self loadSection12Datas];
     
-    for (NSInteger i = 0; i < 11; i ++) {
+    for (NSInteger i = 0; i < 13; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
         [self.headerList addObject:headerModel];
     }
@@ -487,6 +589,14 @@ MKCAFileSelectControllerDelegate>
 }
 
 - (void)loadSection2Datas {
+    if (self.isV2) {
+        //V2
+        MKGTNetworkSsidSettingsCellModel *cellModel = [[MKGTNetworkSsidSettingsCellModel alloc] init];
+        cellModel.ssid = self.dataModel.ssid;
+        [self.section2List addObject:cellModel];
+        return;
+    }
+    //V1
     MKTextFieldCellModel *cellModel = [[MKTextFieldCellModel alloc] init];
     cellModel.index = 0;
     cellModel.msg = @"SSID";
@@ -573,9 +683,47 @@ MKCAFileSelectControllerDelegate>
     [self.section10List addObject:cellModel];
 }
 
+- (void)loadSection11Datas {
+    MKTextSwitchCellModel *cellModel = [[MKTextSwitchCellModel alloc] init];
+    cellModel.index = 1;
+    cellModel.msg = @"DHCP";
+    cellModel.isOn = self.dataModel.wifi_dhcp;
+    [self.section11List addObject:cellModel];
+}
+
+- (void)loadSection12Datas {
+    MKTextFieldCellModel *cellModel1 = [[MKTextFieldCellModel alloc] init];
+    cellModel1.index = 5;
+    cellModel1.msg = @"IP";
+    cellModel1.textFieldType = mk_normal;
+    cellModel1.textFieldValue = self.dataModel.wifi_ip;
+    [self.section12List addObject:cellModel1];
+    
+    MKTextFieldCellModel *cellModel2 = [[MKTextFieldCellModel alloc] init];
+    cellModel2.index = 6;
+    cellModel2.msg = @"Mask";
+    cellModel2.textFieldType = mk_normal;
+    cellModel2.textFieldValue = self.dataModel.wifi_mask;
+    [self.section12List addObject:cellModel2];
+    
+    MKTextFieldCellModel *cellModel3 = [[MKTextFieldCellModel alloc] init];
+    cellModel3.index = 7;
+    cellModel3.msg = @"Gateway";
+    cellModel3.textFieldType = mk_normal;
+    cellModel3.textFieldValue = self.dataModel.wifi_gateway;
+    [self.section12List addObject:cellModel3];
+    
+    MKTextFieldCellModel *cellModel4 = [[MKTextFieldCellModel alloc] init];
+    cellModel4.index = 8;
+    cellModel4.msg = @"DNS";
+    cellModel4.textFieldType = mk_normal;
+    cellModel4.textFieldValue = self.dataModel.wifi_dns;
+    [self.section12List addObject:cellModel4];
+}
+
 #pragma mark - UI
 - (void)loadSubViews {
-    self.defaultTitle = @"WIFI Settings";
+    self.defaultTitle = @"Network Settings";
     [self.rightButton setImage:LOADICON(@"MKGatewayMeteringTwo", @"MKGTBleWifiSettingsController", @"gt_saveIcon.png") forState:UIControlStateNormal];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -676,6 +824,20 @@ MKCAFileSelectControllerDelegate>
     return _section10List;
 }
 
+- (NSMutableArray *)section11List {
+    if (!_section11List) {
+        _section11List = [NSMutableArray array];
+    }
+    return _section11List;
+}
+
+- (NSMutableArray *)section12List {
+    if (!_section12List) {
+        _section12List = [NSMutableArray array];
+    }
+    return _section12List;
+}
+
 - (NSMutableArray *)headerList {
     if (!_headerList) {
         _headerList = [NSMutableArray array];
@@ -706,12 +868,12 @@ MKCAFileSelectControllerDelegate>
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, 60.f)];
     footerView.backgroundColor = RGBCOLOR(242, 242, 242);
     
-//    [footerView addSubview:self.noteLabel];
-//    [self.noteLabel setHidden:YES];
-//    CGSize msgSize = [NSString sizeWithText:noteMsg
-//                                    andFont:MKFont(12.f)
-//                                 andMaxSize:CGSizeMake(kViewWidth - 2 * 15.f, MAXFLOAT)];
-//    [self.noteLabel setFrame:CGRectMake(15.f, 15.f, kViewWidth - 2 * 15.f, msgSize.height)];
+    [footerView addSubview:self.noteLabel];
+    [self.noteLabel setHidden:YES];
+    CGSize msgSize = [NSString sizeWithText:noteMsg
+                                    andFont:MKFont(12.f)
+                                 andMaxSize:CGSizeMake(kViewWidth - 2 * 15.f, MAXFLOAT)];
+    [self.noteLabel setFrame:CGRectMake(15.f, 15.f, kViewWidth - 2 * 15.f, msgSize.height)];
     
     return footerView;
 }

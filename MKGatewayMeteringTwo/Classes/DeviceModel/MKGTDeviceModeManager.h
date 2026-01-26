@@ -38,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKGTDeviceModeManager : NSObject
 
+/// 是不是V2版本的固件
+@property (nonatomic, assign)BOOL isV2;
+
 + (MKGTDeviceModeManager *)shared;
 
 + (void)sharedDealloc;

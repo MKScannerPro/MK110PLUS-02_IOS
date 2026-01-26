@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKGTBleWifiSettingsController : MKGTBleBaseController
 
+/// 是否是V2版本
+@property (nonatomic, assign)BOOL isV2;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -741,22 +741,22 @@ static const NSInteger packDataMaxLen = 150;
     });
 }
 
-+ (void)gt_configDHCPStatus:(BOOL)isOn
-                   sucBlock:(void (^)(void))sucBlock
-                failedBlock:(void (^)(NSError *error))failedBlock {
++ (void)gt_configWIFIDHCPStatus:(BOOL)isOn
+                       sucBlock:(void (^)(void))sucBlock
+                    failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = (isOn ? @"ed014b0101" : @"ed014b0100");
-    [self configDataWithTaskID:mk_gt_taskConfigDHCPStatusOperation
+    [self configDataWithTaskID:mk_gt_taskConfigWIFIDHCPStatusOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];
 }
 
-+ (void)gt_configIpAddress:(NSString *)ip
-                      mask:(NSString *)mask
-                   gateway:(NSString *)gateway
-                       dns:(NSString *)dns
-                  sucBlock:(void (^)(void))sucBlock
-               failedBlock:(void (^)(NSError *error))failedBlock {
++ (void)gt_configWIFIIpAddress:(NSString *)ip
+                          mask:(NSString *)mask
+                       gateway:(NSString *)gateway
+                           dns:(NSString *)dns
+                      sucBlock:(void (^)(void))sucBlock
+                   failedBlock:(void (^)(NSError *error))failedBlock {
     if (![MKGTSDKDataAdopter isIpAddress:ip] || ![MKGTSDKDataAdopter isIpAddress:mask]
         || ![MKGTSDKDataAdopter isIpAddress:gateway] || ![MKGTSDKDataAdopter isIpAddress:dns]) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
@@ -767,7 +767,16 @@ static const NSInteger packDataMaxLen = 150;
     NSString *gatewayValue = [MKGTSDKDataAdopter ipAddressToHex:gateway];
     NSString *dnsValue = [MKGTSDKDataAdopter ipAddressToHex:dns];
     NSString *commandString = [NSString stringWithFormat:@"%@%@%@%@%@",@"ed014c10",ipValue,maskValue,gatewayValue,dnsValue];
-    [self configDataWithTaskID:mk_gt_taskConfigIpInfoOperation
+    [self configDataWithTaskID:mk_gt_taskConfigWIFIIpInfoOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)gt_startWifiScanWithSucBlock:(void (^)(void))sucBlock
+                         failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed015000";
+    [self configDataWithTaskID:mk_gt_taskStartWifiScanOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];
@@ -994,6 +1003,31 @@ static const NSInteger packDataMaxLen = 150;
     NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:txPower byteLen:1];
     NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed017501",value];
     [self configDataWithTaskID:mk_gt_taskConfigTxPowerOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)gt_configBeaconRssi:(NSInteger)rssi
+                   sucBlock:(void (^)(void))sucBlock
+                failedBlock:(void (^)(NSError *error))failedBlock {
+    if (rssi < -100 || rssi > 0) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *rssiValue = [MKBLEBaseSDKAdopter hexStringFromSignedNumber:rssi];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed017601",rssiValue];
+    [self configDataWithTaskID:mk_gt_taskConfigBeaconRssiOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)gt_configConnectable:(BOOL)connectable
+                    sucBlock:(void (^)(void))sucBlock
+                 failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = (connectable ? @"ed01770101" : @"ed01770100");
+    [self configDataWithTaskID:mk_gt_taskConfigConnectableOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];
