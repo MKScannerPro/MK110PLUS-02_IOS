@@ -6,12 +6,12 @@
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTBaseViewController.h"
+#import <MKScannerCommonModule/MKScannerBaseController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class MKGTDeviceModel;
-@interface MKGTConnectSuccessController : MKGTBaseViewController
+@interface MKGTConnectSuccessController : MKScannerBaseController
 
 @property (nonatomic, strong)MKGTDeviceModel *deviceModel;
 

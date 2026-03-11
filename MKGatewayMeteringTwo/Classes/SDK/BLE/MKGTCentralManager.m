@@ -413,27 +413,28 @@ static dispatch_once_t onceToken;
     NSDictionary *manuParams = advDic[CBAdvertisementDataServiceDataKey];
     NSData *manufacturerData = manuParams[[CBUUID UUIDWithString:@"AA0E"]];
     NSData *normalData = advDic[CBAdvertisementDataManufacturerDataKey];
-    if (!MKValidData(manufacturerData) || manufacturerData.length != 1
-        || !MKValidData(normalData) || normalData.length < 8) {
+    if (!MKValidData(manufacturerData) || manufacturerData.length != 1) {
         return @{};
     }
     NSString *deviceType = [MKBLEBaseSDKAdopter hexStringFromData:manufacturerData];
     if (![deviceType isEqualToString:@"10"] && ![deviceType isEqualToString:@"11"]) {
         return @{};
     }
-    
-    NSString *content = [MKBLEBaseSDKAdopter hexStringFromData:[normalData subdataWithRange:NSMakeRange(2, 6)]];
-    
-    NSString *tempMac = [content uppercaseString];
-    NSString *macAddress = [NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",
-    [tempMac substringWithRange:NSMakeRange(0, 2)],
-    [tempMac substringWithRange:NSMakeRange(2, 2)],
-    [tempMac substringWithRange:NSMakeRange(4, 2)],
-    [tempMac substringWithRange:NSMakeRange(6, 2)],
-    [tempMac substringWithRange:NSMakeRange(8, 2)],
-    [tempMac substringWithRange:NSMakeRange(10, 2)]];
-    
-    [self logToLocal:[@"扫描到设备:" stringByAppendingString:content]];
+    NSString *macAddress = @"";
+    if (MKValidData(normalData) && normalData.length >= 8) {
+        NSString *content = [MKBLEBaseSDKAdopter hexStringFromData:[normalData subdataWithRange:NSMakeRange(2, 6)]];
+        
+        NSString *tempMac = [content uppercaseString];
+        macAddress = [NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",
+        [tempMac substringWithRange:NSMakeRange(0, 2)],
+        [tempMac substringWithRange:NSMakeRange(2, 2)],
+        [tempMac substringWithRange:NSMakeRange(4, 2)],
+        [tempMac substringWithRange:NSMakeRange(6, 2)],
+        [tempMac substringWithRange:NSMakeRange(8, 2)],
+        [tempMac substringWithRange:NSMakeRange(10, 2)]];
+        
+        [self logToLocal:[@"扫描到设备:" stringByAppendingString:content]];
+    }
     
     return @{
         @"rssi":rssi,

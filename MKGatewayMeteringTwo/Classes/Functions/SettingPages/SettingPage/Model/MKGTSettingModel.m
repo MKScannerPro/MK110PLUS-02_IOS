@@ -10,13 +10,13 @@
 
 #import "MKMacroDefines.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKScannerDeviceModelManager.h"
 
 #import "MKGTMQTTInterface.h"
 
 #import "MKMacroDefines.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKScannerDeviceModelManager.h"
 
 #import "MKGTMQTTInterface.h"
 
@@ -49,7 +49,7 @@
 #pragma mark - interface
 - (BOOL)readOutputSwitch {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readOutputSwitchWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readOutputSwitchWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.output = ([returnData[@"data"][@"switch_value"] integerValue] == 1);
         dispatch_semaphore_signal(self.semaphore);
@@ -62,7 +62,7 @@
 
 - (BOOL)readOutputControlByButton {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readOutputControlByButtonWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readOutputControlByButtonWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.outputByButton = ([returnData[@"data"][@"switch_value"] integerValue] == 1);
         dispatch_semaphore_signal(self.semaphore);

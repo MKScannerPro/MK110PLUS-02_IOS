@@ -10,7 +10,7 @@
 
 #import "MKMacroDefines.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKScannerDeviceModelManager.h"
 
 #import "MKGTMQTTInterface.h"
 
@@ -48,7 +48,7 @@
 #pragma mark - interface
 - (BOOL)readMeteringSwitch {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readMeteringSwitchWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readMeteringSwitchWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.isOn = ([returnData[@"data"][@"switch_value"] integerValue] == 1);
         dispatch_semaphore_signal(self.semaphore);
@@ -61,7 +61,7 @@
 
 - (BOOL)readPowerData {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readPowerDataWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readPowerDataWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.voltage = [NSString stringWithFormat:@"%.1f",[returnData[@"data"][@"voltage"] floatValue]];
         self.current = [NSString stringWithFormat:@"%ld",(long)([returnData[@"data"][@"current"] floatValue] * 1000)];
@@ -76,7 +76,7 @@
 
 - (BOOL)readEnergyData {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readEnergyDataWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readEnergyDataWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.energy = [NSString stringWithFormat:@"%.3f",[returnData[@"data"][@"energy"] floatValue]];
         dispatch_semaphore_signal(self.semaphore);

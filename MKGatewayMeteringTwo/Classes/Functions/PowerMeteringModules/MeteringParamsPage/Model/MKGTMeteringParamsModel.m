@@ -13,7 +13,7 @@
 
 #import "MKGTMQTTInterface.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKScannerDeviceModelManager.h"
 
 @interface MKGTMeteringParamsModel ()
 
@@ -93,7 +93,7 @@
 #pragma mark - interface
 - (BOOL)readMeteringSwitch {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readMeteringSwitchWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readMeteringSwitchWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.isOn = ([returnData[@"data"][@"switch_value"] integerValue] == 1);
         dispatch_semaphore_signal(self.semaphore);
@@ -106,7 +106,7 @@
 
 - (BOOL)configMeteringSwitch {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configMeteringSwitch:self.isOn macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configMeteringSwitch:self.isOn macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -118,7 +118,7 @@
 
 - (BOOL)readLoadDetection {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readLoadChangeNotificationStatusWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readLoadChangeNotificationStatusWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.loadDetection = ([returnData[@"data"][@"switch_value"] integerValue] == 1);
         dispatch_semaphore_signal(self.semaphore);
@@ -131,7 +131,7 @@
 
 - (BOOL)configLoadDetection {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configLoadChangeNotificationStatus:self.loadDetection macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configLoadChangeNotificationStatus:self.loadDetection macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -143,7 +143,7 @@
 
 - (BOOL)readPowerInterval {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readPowerReportIntervalWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readPowerReportIntervalWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.powerInterval = [NSString stringWithFormat:@"%@",returnData[@"data"][@"interval"]];
         dispatch_semaphore_signal(self.semaphore);
@@ -156,7 +156,7 @@
 
 - (BOOL)configPowerInterval {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configPowerReportInterval:[self.powerInterval integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configPowerReportInterval:[self.powerInterval integerValue] macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -168,7 +168,7 @@
 
 - (BOOL)readEnergyInterval {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readEnergyReportIntervalWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readEnergyReportIntervalWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.energyInterval = [NSString stringWithFormat:@"%@",returnData[@"data"][@"interval"]];
         dispatch_semaphore_signal(self.semaphore);
@@ -181,7 +181,7 @@
 
 - (BOOL)configEnergyInterval {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configEnergyReportInterval:[self.energyInterval integerValue] macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configEnergyReportInterval:[self.energyInterval integerValue] macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {

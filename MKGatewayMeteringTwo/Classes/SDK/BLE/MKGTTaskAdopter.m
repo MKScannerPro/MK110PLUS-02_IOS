@@ -375,6 +375,11 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
             @"macList":(MKValidArray(macList) ? macList : @[]),
         };
         operationID = mk_gt_taskReadFilterMACAddressListOperation;
+    }else if ([cmd isEqualToString:@"69"]) {
+        //读取数据上报间隔
+        NSString *interval = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)];
+        resultDic = @{@"interval":interval};
+        operationID = mk_gt_taskReadFilterReportIntervalOperation;
     }else if ([cmd isEqualToString:@"70"]) {
         //读取iBeacon开关
         BOOL isOn = ([content isEqualToString:@"01"]);
@@ -541,6 +546,9 @@ NSString *const mk_gt_contentKey = @"mk_gt_contentKey";
     }else if ([cmd isEqualToString:@"64"]) {
         //配置MAC过滤规则
         operationID = mk_gt_taskConfigFilterMACAddressListOperation;
+    }else if ([cmd isEqualToString:@"69"]) {
+        //配置数据上报间隔
+        operationID = mk_gt_taskConfigFilterReportIntervalOperation;
     }else if ([cmd isEqualToString:@"70"]) {
         //配置iBeacon 开关
         operationID = mk_gt_taskConfigAdvertiseBeaconStatusOperation;

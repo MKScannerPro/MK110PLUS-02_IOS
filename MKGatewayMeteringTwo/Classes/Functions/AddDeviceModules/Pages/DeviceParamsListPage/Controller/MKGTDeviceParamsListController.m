@@ -21,6 +21,13 @@
 #import "MKSettingTextCell.h"
 #import "MKTableSectionLineHeader.h"
 #import "MKProgressView.h"
+#import "MKAlertView.h"
+
+#import "MKScannerBleBeaconController.h"
+#import "MKScannerBleDeviceInfoController.h"
+#import "MKScannerBleNTPTimezoneController.h"
+#import "MKScannerBleScannerFilterController.h"
+#import "MKScannerBleServerForDeviceController.h"
 
 #import "MKGTCentralManager.h"
 #import "MKGTInterface+MKGTConfig.h"
@@ -32,13 +39,14 @@
 #import "MKGTDeviceMQTTParamsModel.h"
 
 #import "MKGTBleWifiSettingsController.h"
-#import "MKGTServerForDeviceController.h"
-#import "MKGTBleNTPTimezoneController.h"
-#import "MKGTBleScannerFilterController.h"
-#import "MKGTBleDeviceInfoController.h"
 #import "MKGTConnectSuccessController.h"
-#import "MKGTBleAdvBeaconController.h"
 #import "MKGTBleMeteringSettingsController.h"
+
+#import "MKGTBleAdvBeaconModel.h"
+#import "MKGTBleDeviceInfoModel.h"
+#import "MKGTBleNTPTimezoneModel.h"
+#import "MKGTBleScannerFilterModel.h"
+#import "MKGTServerForDeviceModel.h"
 
 static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settings are required,the other settings are optional.";
 
@@ -67,6 +75,7 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
 - (void)dealloc {
     NSLog(@"MKGTDeviceParamsListController销毁");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [MKGTDeviceMQTTParamsModel sharedDealloc];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -95,7 +104,6 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
 - (void)leftButtonMethod {
     [self popToViewControllerWithClassName:@"MKGTScanPageController"];
     [[MKGTCentralManager shared] disconnect];
-    [MKGTDeviceMQTTParamsModel sharedDealloc];
 }
 
 #pragma mark - UITableViewDelegate
@@ -125,25 +133,43 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         //MQTT settings
-        MKGTServerForDeviceController *vc = [[MKGTServerForDeviceController alloc] init];
+        MKGTServerForDeviceModel *model = [[MKGTServerForDeviceModel alloc] init];
+        MKScannerBleServerForDeviceController *vc = [[MKScannerBleServerForDeviceController alloc] initWithProtocol:model];
+        vc.updateCompleteBlock = ^(BOOL success) {
+            [MKGTDeviceMQTTParamsModel shared].mqttConfig = success;
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.clientID = (success ? model.clientID : @"");
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.deviceName = (success ? model.deviceName : @"");
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.subscribedTopic = (success ? model.subscribeTopic : @"");
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.publishedTopic = (success ? model.publishTopic : @"");
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.macAddress = (success ? model.macAddress : @"");
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.lwtStatus = (success ? model.lwtStatus : NO);
+            [MKGTDeviceMQTTParamsModel shared].deviceModel.lwtTopic = (success ? model.lwtTopic : @"");
+        };
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
         //NTP & Timezone
-        MKGTBleNTPTimezoneController *vc = [[MKGTBleNTPTimezoneController alloc] init];
+        MKGTBleNTPTimezoneModel *model = [[MKGTBleNTPTimezoneModel alloc] init];
+        MKScannerBleNTPTimezoneController *vc = [[MKScannerBleNTPTimezoneController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
         //Scanner Filter
-        MKGTBleScannerFilterController *vc = [[MKGTBleScannerFilterController alloc] init];
+        BOOL supportInterval = [[MKGTDeviceMQTTParamsModel shared].deviceModel.deviceType isEqualToString:@"11"];
+        MKGTBleScannerFilterModel *model = [[MKGTBleScannerFilterModel alloc] init];
+        model.title = (supportInterval ? @"Scan & Upload" : @"Scanner Filter");
+        model.supportInterval = supportInterval;
+        MKScannerBleScannerFilterController *vc = [[MKScannerBleScannerFilterController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     if (indexPath.section == 1 && indexPath.row == 2) {
         //Advertise iBeacon
-        MKGTBleAdvBeaconController *vc = [[MKGTBleAdvBeaconController alloc] init];
+        MKGTBleAdvBeaconModel *model = [[MKGTBleAdvBeaconModel alloc] init];
+        model.isV2 = NO;
+        MKScannerBleBeaconController *vc = [[MKScannerBleBeaconController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
@@ -155,7 +181,8 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
     }
     if (indexPath.section == 1 && indexPath.row == 4) {
         //Device Information
-        MKGTBleDeviceInfoController *vc = [[MKGTBleDeviceInfoController alloc] init];
+        MKGTBleDeviceInfoModel *model = [[MKGTBleDeviceInfoModel alloc] init];
+        MKScannerBleDeviceInfoController *vc = [[MKScannerBleDeviceInfoController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
@@ -197,7 +224,7 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
         [self.progressView dismiss];
     }
     [self.view showCentralToast:@"Device disconnect!"];
-    [self performSelector:@selector(leftButtonMethod) withObject:nil afterDelay:0.5f];
+    [self performSelector:@selector(gobackToScanPage) withObject:nil afterDelay:0.5f];
 }
 
 - (void)receiveDeviceOnline:(NSNotification *)note {
@@ -219,18 +246,25 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
 
 #pragma mark - event method
 - (void)connectButtonPressed {
-    if (![MKGTDeviceMQTTParamsModel shared].wifiConfig || ![MKGTDeviceMQTTParamsModel shared].mqttConfig) {
-        [self.view showCentralToast:@"Please configure WIFI and MQTT settings first!"];
+    if ([MKGTMQTTDataManager shared].state == MKGTMQTTSessionManagerStateConnected) {
+        [self sendSTACmdToDevice:YES];
         return;
     }
-    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    [MKGTInterface gt_enterSTAModeWithSucBlock:^{
-        [[MKHudManager share] hide];
-        [self startMqttProcess];
-    } failedBlock:^(NSError * _Nonnull error) {
-        [[MKHudManager share] hide];
-        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    //app与MQTT服务器未连接
+    @weakify(self);
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"NO" handler:^{
+        
     }];
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"YES" handler:^{
+        @strongify(self);
+        [self sendSTACmdToDevice:NO];
+    }];
+    NSString *msg = @"APP connects to the MQTT broker failed, do you need continue to send configurations to gateway?";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"" message:msg notificationName:@"mk_scanner_needDismissAlert"];
 }
 
 #pragma mark - connect process
@@ -267,8 +301,7 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
                                                           object:nil];
             moko_dispatch_main_safe(^{
                 [self.progressView dismiss];
-                [self.view showCentralToast:@"Connect Failed!"];
-                [self performSelector:@selector(gobackDeviceListPage) withObject:nil afterDelay:0.5f];
+                [self showConnectFailedAlert];
             });
             return ;
         }
@@ -300,8 +333,58 @@ static NSString *const noteMsg = @"Please note the WIFI settings and MQTT settin
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)gobackDeviceListPage {
+- (void)gobackToScanPage {
+    [self popToViewControllerWithClassName:@"MKGTScanPageController"];
+}
+
+- (void)sendSTACmdToDevice:(BOOL)connected {
+    if (![MKGTDeviceMQTTParamsModel shared].wifiConfig || ![MKGTDeviceMQTTParamsModel shared].mqttConfig) {
+        [self.view showCentralToast:@"Please configure WIFI and MQTT settings first!"];
+        return;
+    }
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    [MKGTInterface gt_enterSTAModeWithSucBlock:^{
+        [[MKHudManager share] hide];
+        if (connected) {
+            [self startMqttProcess];
+        }else {
+            //没有连接，则弹出第二个弹窗
+            [self showConfigSuccessAlert];
+        }
+        
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    }];
+}
+
+- (void)showConfigSuccessAlert {
+    @weakify(self);
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
+        @strongify(self);
+        [self backToDeviceListPage];
+    }];
+    NSString *msg = @"Configurations are successfully sent to gateway.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"" message:msg notificationName:@"mk_scanner_needDismissAlert"];
+}
+
+- (void)showConnectFailedAlert {
+    @weakify(self);
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
+        @strongify(self);
+        [self gobackToScanPage];
+    }];
+    NSString *msg = @"The APP is unable to subscribe messages from the gateway. This may be caused by the failure connection with MQTT broker of the gayteway or an incorrect subscription topic set for the APP.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"" message:msg notificationName:@"mk_scanner_needDismissAlert"];
+}
+
+- (void)backToDeviceListPage {
     [self popToViewControllerWithClassName:@"MKGTDeviceListController"];
+    [[MKGTCentralManager shared] disconnect];
 }
 
 #pragma mark - loadSectionDatas

@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskReadFilterRelationshipOperation,          //读取扫描过滤逻辑
     mk_gt_taskReadFilterMACAddressListOperation,        //读取MAC过滤列表
     mk_gt_taskReadFilterAdvNameListOperation,           //读取ADV Name过滤列表
+    mk_gt_taskReadFilterReportIntervalOperation,        //读取读取数据上报间隔
     
 #pragma mark - iBeacon Params
     mk_gt_taskReadAdvertiseBeaconStatusOperation,       //读取iBeacon开关
@@ -124,6 +125,7 @@ typedef NS_ENUM(NSInteger, mk_gt_taskOperationID) {
     mk_gt_taskConfigFilterRelationshipOperation,                //配置扫描过滤逻辑
     mk_gt_taskConfigFilterMACAddressListOperation,           //配置MAC过滤规则
     mk_gt_taskConfigFilterAdvNameListOperation,             //配置Adv Name过滤规则
+    mk_gt_taskConfigFilterReportIntervalOperation,          //配置数据上报间隔
     
 #pragma mark - 蓝牙广播参数
     mk_gt_taskConfigAdvertiseBeaconStatusOperation,         //配置iBeacon开关

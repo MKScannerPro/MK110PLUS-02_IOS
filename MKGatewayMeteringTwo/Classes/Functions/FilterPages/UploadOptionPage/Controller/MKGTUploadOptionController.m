@@ -21,24 +21,28 @@
 #import "MKTableSectionLineHeader.h"
 #import "MKCustomUIAdopter.h"
 
+#import "MKScannerDeviceModelManager.h"
+#import "MKScannerFilterByMacController.h"
+#import "MKScannerFilterByAdvNameController.h"
+#import "MKScannerDuplicateDataFilterController.h"
+#import "MKScannerUploadDataOptionV2Controller.h"
+#import "MKScannerFilterByRawDataController.h"
+#import "MKScannerFilterCell.h"
+
 #import "MKGTDeviceModel.h"
-#import "MKGTDeviceModeManager.h"
 
 #import "MKGTUploadOptionModel.h"
 
-#import "MKGTFilterCell.h"
-
-#import "MKGTDuplicateDataFilterController.h"
-#import "MKGTUploadDataOptionController.h"
-
-#import "MKGTFilterByMacController.h"
-#import "MKGTFilterByAdvNameController.h"
-#import "MKGTFilterByRawDataController.h"
+#import "MKGTFilterByAdvNameModel.h"
+#import "MKGTFilterByMacModel.h"
+#import "MKGTDuplicateDataFilterModel.h"
+#import "MKGTUploadDataOptionModel.h"
+#import "MKGTFilterByRawDataModel.h"
 
 @interface MKGTUploadOptionController ()<UITableViewDelegate,
 UITableViewDataSource,
 MKNormalSliderCellDelegate,
-MKGTFilterCellDelegate>
+MKScannerFilterCellDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
@@ -164,7 +168,7 @@ MKGTFilterCellDelegate>
         return cell;
     }
     if (indexPath.section == 1) {
-        MKGTFilterCell *cell = [MKGTFilterCell initCellWithTableView:tableView];
+        MKScannerFilterCell *cell = [MKScannerFilterCell initCellWithTableView:tableView];
         cell.dataModel = self.section1List[indexPath.row];
         cell.delegate = self;
         return cell;
@@ -175,7 +179,7 @@ MKGTFilterCellDelegate>
         return cell;
     }
     if (indexPath.section == 3) {
-        MKGTFilterCell *cell = [MKGTFilterCell initCellWithTableView:tableView];
+        MKScannerFilterCell *cell = [MKScannerFilterCell initCellWithTableView:tableView];
         cell.dataModel = self.section3List[indexPath.row];
         cell.delegate = self;
         return cell;
@@ -202,19 +206,19 @@ MKGTFilterCellDelegate>
     }
 }
 
-#pragma mark - MKGTFilterCellDelegate
-- (void)gt_filterValueChanged:(NSInteger)dataListIndex index:(NSInteger)index {
+#pragma mark - MKScannerFilterCellDelegate
+- (void)mk_scanner_filterValueChanged:(NSInteger)dataListIndex index:(NSInteger)index {
     if (index == 0) {
         //Filter by PHY
         self.dataModel.phy = dataListIndex;
-        MKGTFilterCellModel *cellModel = self.section1List[0];
+        MKScannerFilterCellModel *cellModel = self.section1List[0];
         cellModel.dataListIndex = dataListIndex;
         return;
     }
     if (index == 1) {
         //Filter Relationship
         self.dataModel.relationship = dataListIndex;
-        MKGTFilterCellModel *cellModel = self.section3List[0];
+        MKScannerFilterCellModel *cellModel = self.section3List[0];
         cellModel.dataListIndex = dataListIndex;
         return;
     }
@@ -222,27 +226,35 @@ MKGTFilterCellDelegate>
 
 #pragma mark - cell event method
 - (void)filterByMACAddress {
-    MKGTFilterByMacController *vc = [[MKGTFilterByMacController alloc] init];
+    MKGTFilterByMacModel *model = [[MKGTFilterByMacModel alloc] init];
+    MKScannerFilterByMacController *vc = [[MKScannerFilterByMacController alloc] initWithProtocol:model];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)filterByADVName {
-    MKGTFilterByAdvNameController *vc = [[MKGTFilterByAdvNameController alloc] init];
+    MKGTFilterByAdvNameModel *model = [[MKGTFilterByAdvNameModel alloc] init];
+    MKScannerFilterByAdvNameController *vc = [[MKScannerFilterByAdvNameController alloc] initWithProtocol:model];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)filterByRawData {
-    MKGTFilterByRawDataController *vc = [[MKGTFilterByRawDataController alloc] init];
+    MKGTFilterByRawDataModel *model = [[MKGTFilterByRawDataModel alloc] init];
+    model.supportTof = NO;
+    model.supportNanoBeacon = NO;
+    MKScannerFilterByRawDataController *vc = [[MKScannerFilterByRawDataController alloc] initWithProtocol:model];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)duplicateDataFilter {
-    MKGTDuplicateDataFilterController *vc = [[MKGTDuplicateDataFilterController alloc] init];
+    MKGTDuplicateDataFilterModel *model = [[MKGTDuplicateDataFilterModel alloc] init];
+    MKScannerDuplicateDataFilterController *vc = [[MKScannerDuplicateDataFilterController alloc] initWithProtocol:model];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)uploadDataOption {
-    MKGTUploadDataOptionController *vc = [[MKGTUploadDataOptionController alloc] init];
+    MKGTUploadDataOptionModel *model = [[MKGTUploadDataOptionModel alloc] init];
+    model.isV2 = NO;
+    MKScannerUploadDataOptionV2Controller *vc = [[MKScannerUploadDataOptionV2Controller alloc] initWithProtocol:model];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -305,7 +317,7 @@ MKGTFilterCellDelegate>
 }
 
 - (void)loadSection1Datas {
-    MKGTFilterCellModel *cellModel = [[MKGTFilterCellModel alloc] init];
+    MKScannerFilterCellModel *cellModel = [[MKScannerFilterCellModel alloc] init];
     cellModel.index = 0;
     cellModel.msg = @"Filter by PHY";
     cellModel.dataList = @[@"1M PHY(V4.2)",@"1M PHY(V5.0)",@"1M PHY(V4.2) & 1M PHY(V5.0)",@"Coded PHY(V5.0)"];
@@ -334,7 +346,7 @@ MKGTFilterCellDelegate>
 }
 
 - (void)loadSection3Datas {
-    MKGTFilterCellModel *cellModel = [[MKGTFilterCellModel alloc] init];
+    MKScannerFilterCellModel *cellModel = [[MKScannerFilterCellModel alloc] init];
     cellModel.index = 1;
     cellModel.msg = @"Filter Relationship";
     cellModel.dataList = @[@"Null",@"Only MAC",@"Only ADV Name",@"Only RAW DATA",@"ADV name&Raw data",@"MAC&ADV name&Raw data",@"ADV name | Raw data",@"ADV Name & MAC"];
@@ -360,7 +372,7 @@ MKGTFilterCellDelegate>
 
 #pragma mark - UI
 - (void)loadSubViews {
-    self.defaultTitle = [MKGTDeviceModeManager shared].deviceName;
+    self.defaultTitle = [MKScannerDeviceModelManager shared].deviceName;
     [self.rightButton setImage:LOADICON(@"MKGatewayMeteringTwo", @"MKGTUploadOptionController", @"gt_saveIcon.png")
                       forState:UIControlStateNormal];
     [self.view addSubview:self.tableView];

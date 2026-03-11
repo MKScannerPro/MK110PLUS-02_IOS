@@ -21,7 +21,7 @@
 
 #import "MKNormalTextCell.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKScannerDeviceModelManager.h"
 
 #import "MKGTMQTTDataManager.h"
 #import "MKGTMQTTInterface.h"
@@ -109,7 +109,7 @@
 #pragma mark - notes
 - (void)receivePowerData:(NSNotification *)note {
     NSDictionary *user = note.userInfo;
-    if (!ValidDict(user) || !ValidStr(user[@"device_info"][@"mac"]) || ![[MKGTDeviceModeManager shared].macAddress isEqualToString:user[@"device_info"][@"mac"]]) {
+    if (!ValidDict(user) || !ValidStr(user[@"device_info"][@"mac"]) || ![[MKScannerDeviceModelManager shared].macAddress isEqualToString:user[@"device_info"][@"mac"]]) {
         return;
     }
     if (self.section1List.count == 0) {
@@ -129,7 +129,7 @@
 
 - (void)receiveEnergyData:(NSNotification *)note {
     NSDictionary *user = note.userInfo;
-    if (!ValidDict(user) || !ValidStr(user[@"device_info"][@"mac"]) || ![[MKGTDeviceModeManager shared].macAddress isEqualToString:user[@"device_info"][@"mac"]]) {
+    if (!ValidDict(user) || !ValidStr(user[@"device_info"][@"mac"]) || ![[MKScannerDeviceModelManager shared].macAddress isEqualToString:user[@"device_info"][@"mac"]]) {
         return;
     }
     if (self.section1List.count == 0) {
@@ -156,7 +156,7 @@
     MKAlertView *alertView = [[MKAlertView alloc] init];
     [alertView addAction:cancelAction];
     [alertView addAction:confirmAction];
-    [alertView showAlertWithTitle:@"Reset Energy Data" message:msg notificationName:@"mk_gt_needDismissAlert"];
+    [alertView showAlertWithTitle:@"Reset Energy Data" message:msg notificationName:@"mk_scanner_needDismissAlert"];
 }
 
 #pragma mark - interface
@@ -179,7 +179,7 @@
 
 - (void)resetEnergyData {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_resetEnergyDataWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_resetEnergyDataWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:@"Success!"];
         MKNormalTextCellModel *cellModel1 = self.section1List[0];

@@ -64,6 +64,7 @@ mk_gt_centralManagerScanDelegate>
 
 - (void)dealloc {
     NSLog(@"MKGTScanPageController销毁");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     //移除runloop的监听
     CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), self.observerRef, kCFRunLoopCommonModes);
     [[MKGTCentralManager shared] stopScan];
@@ -79,6 +80,10 @@ mk_gt_centralManagerScanDelegate>
     [super viewDidLoad];
     [self loadSubViews];
     [self runloopObserver];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(peripheralConnectStateChanged)
+                                                 name:mk_gt_peripheralConnectStateChangedNotification
+                                               object:nil];
     [MKGTCentralManager shared].delegate = self;
 }
 
@@ -139,6 +144,15 @@ mk_gt_centralManagerScanDelegate>
     if (self.rightButton.isSelected) {
         [self.refreshIcon.layer removeAnimationForKey:@"mk_refreshAnimationKey"];
         [self.rightButton setSelected:NO];
+    }
+}
+
+#pragma mark - Note
+- (void)peripheralConnectStateChanged {
+    if ([MKGTCentralManager shared].connectStatus == mk_gt_centralConnectStatusDisconnect) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_scanner_peripheralDisconnectNotification"
+                                                            object:nil
+                                                          userInfo:nil];
     }
 }
 

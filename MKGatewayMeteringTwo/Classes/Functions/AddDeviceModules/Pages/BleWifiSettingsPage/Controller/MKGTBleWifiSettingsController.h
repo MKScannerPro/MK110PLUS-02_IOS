@@ -6,11 +6,11 @@
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTBleBaseController.h"
+#import <MKScannerCommonModule/MKScannerBleBaseController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKGTBleWifiSettingsController : MKGTBleBaseController
+@interface MKGTBleWifiSettingsController : MKScannerBleBaseController
 
 /// 是否是V2版本
 @property (nonatomic, assign)BOOL isV2;

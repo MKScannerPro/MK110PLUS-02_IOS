@@ -499,6 +499,16 @@
                          failureBlock:failedBlock];
 }
 
++ (void)gt_readFilterReportIntervalWithSucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed006900";
+    [centralManager addTaskWithTaskID:mk_gt_taskReadFilterReportIntervalOperation
+                       characteristic:peripheral.gt_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
 #pragma mark *********************BLE Adv Params************************
 
 + (void)gt_readAdvertiseBeaconStatusWithSucBlock:(void (^)(id returnData))sucBlock

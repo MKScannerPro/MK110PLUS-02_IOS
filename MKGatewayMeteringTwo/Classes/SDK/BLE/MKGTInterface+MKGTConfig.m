@@ -922,6 +922,21 @@ static const NSInteger packDataMaxLen = 150;
     dispatch_resume(timer);
 }
 
++ (void)gt_configFilterReportInterval:(NSInteger)interval
+                             sucBlock:(void (^)(void))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock {
+    if (interval < 0 || interval > 86400) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:interval byteLen:4];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed016904",value];
+    [self configDataWithTaskID:mk_gt_taskConfigFilterReportIntervalOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
 #pragma mark *********************BLE Adv Params************************
 
 + (void)gt_configAdvertiseBeaconStatus:(BOOL)isOn

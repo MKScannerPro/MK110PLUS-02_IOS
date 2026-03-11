@@ -97,10 +97,6 @@ typedef NS_ENUM(NSInteger, mk_gt_filterByNanoBeaconAdvType) {
 
 @protocol gt_indicatorLightStatusProtocol <NSObject>
 
-@property (nonatomic, assign)BOOL ble_advertising;
-
-@property (nonatomic, assign)BOOL ble_connected;
-
 @property (nonatomic, assign)BOOL server_connecting;
 
 @property (nonatomic, assign)BOOL server_connected;
@@ -297,13 +293,17 @@ typedef NS_ENUM(NSInteger, mk_gt_filterByNanoBeaconAdvType) {
 
 @property (nonatomic, assign)BOOL timestamp;
 
+/// V1中有此参数
 @property (nonatomic, assign)BOOL rawData_advertising;
 
-/// V2中无此参数
+/// V1中有此参数
 @property (nonatomic, assign)BOOL rawData_response;
 
 /// V2中有此参数
-@property (nonatomic, assign)BOOL parsed_data;
+@property (nonatomic, assign)BOOL adv_data;
+
+/// V2中有此参数
+@property (nonatomic, assign)BOOL parse_adv_data;
 
 @end
 
@@ -341,8 +341,6 @@ typedef NS_ENUM(NSInteger, mk_gt_filterByNanoBeaconAdvType) {
  15：21dbm
  */
 @property (nonatomic, assign)NSInteger txPower;
-
-@property (nonatomic, assign)NSInteger rssi1m;
 
 @end
 

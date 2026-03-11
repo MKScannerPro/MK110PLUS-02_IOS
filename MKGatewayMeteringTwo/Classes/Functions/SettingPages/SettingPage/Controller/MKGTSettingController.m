@@ -24,26 +24,33 @@
 #import "MKTableSectionLineHeader.h"
 #import "MKAlertView.h"
 
-#import "MKGTDeviceDatabaseManager.h"
+#import "MKScannerDeviceModelManager.h"
+#import "MKScannerDeviceInfoController.h"
+#import "MKScannerBeaconController.h"
+#import "MKScannerCommunicateController.h"
+#import "MKScannerNetworkStatusController.h"
+#import "MKScannerSystemTimeController.h"
+#import "MKScannerReconnectTimeController.h"
+#import "MKScannerResetByButtonController.h"
+#import "MKScannerOTAController.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKGTDeviceDatabaseManager.h"
 
 #import "MKGTMQTTInterface.h"
 
 #import "MKGTIndicatorSettingsController.h"
-#import "MKGTNetworkStatusController.h"
-#import "MKGTReconnectTimeController.h"
-#import "MKGTCommunicateController.h"
-#import "MKGTDataReportController.h"
-#import "MKGTSystemTimeController.h"
-#import "MKGTResetByButtonController.h"
-#import "MKGTOTAController.h"
+
 #import "MKGTMqttParamsListController.h"
-#import "MKGTDeviceInfoController.h"
-#import "MKGTAdvBeaconController.h"
-#import "MKGTAdvBeaconV2Controller.h"
 
 #import "MKGTSettingModel.h"
+#import "MKGTDeviceInfoModel.h"
+#import "MKGTAdvBeaconModel.h"
+#import "MKGTCommunicateModel.h"
+#import "MKGTNetworkStatusModel.h"
+#import "MKGTSystemTimeModel.h"
+#import "MKGTReconnectTimeModel.h"
+#import "MKGTOTAPageModel.h"
+#import "MKGTResetByButtonPageModel.h"
 
 @interface MKGTSettingController ()<UITableViewDelegate,
 UITableViewDataSource>
@@ -55,6 +62,10 @@ UITableViewDataSource>
 @property (nonatomic, strong)NSMutableArray *section1List;
 
 @property (nonatomic, strong)NSMutableArray *section2List;
+
+@property (nonatomic, strong)NSMutableArray *section3List;
+
+@property (nonatomic, strong)NSMutableArray *section4List;
 
 @property (nonatomic, strong)NSMutableArray *headerList;
 
@@ -108,67 +119,71 @@ UITableViewDataSource>
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         //Network status report interval
-        MKGTNetworkStatusController *vc = [[MKGTNetworkStatusController alloc] init];
+        MKGTNetworkStatusModel *model = [[MKGTNetworkStatusModel alloc] init];
+        MKScannerNetworkStatusController *vc = [[MKScannerNetworkStatusController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
         //Reconnect timeout
-        MKGTReconnectTimeController *vc = [[MKGTReconnectTimeController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 3) {
-        //Communicate timeout
-        MKGTCommunicateController *vc = [[MKGTCommunicateController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 4) {
-        //System time
-        MKGTSystemTimeController *vc = [[MKGTSystemTimeController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 5) {
-        //Advertise iBeacon
-        if ([MKGTDeviceModeManager shared].isV2) {
-            //V2
-            MKGTAdvBeaconV2Controller *vc = [[MKGTAdvBeaconV2Controller alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-            return;
-        }
-        MKGTAdvBeaconController *vc = [[MKGTAdvBeaconController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 6) {
-        //Reset device by button
-        MKGTResetByButtonController *vc = [[MKGTResetByButtonController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 7) {
-        //Data report timout
-        MKGTDataReportController *vc = [[MKGTDataReportController alloc] init];
+        MKGTReconnectTimeModel *model = [[MKGTReconnectTimeModel alloc] init];
+        MKScannerReconnectTimeController *vc = [[MKScannerReconnectTimeController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     if (indexPath.section == 2 && indexPath.row == 0) {
-        //OTA
-        MKGTOTAController *vc = [[MKGTOTAController alloc] init];
+        //Communication timeout
+        MKGTCommunicateModel *model = [[MKGTCommunicateModel alloc] init];
+        MKScannerCommunicateController *vc = [[MKScannerCommunicateController alloc] initWithProtocol:model];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     if (indexPath.section == 2 && indexPath.row == 1) {
+        //System time
+        MKGTSystemTimeModel *model = [[MKGTSystemTimeModel alloc] init];
+        MKScannerSystemTimeController *vc = [[MKScannerSystemTimeController alloc] initWithProtocol:model];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 2 && indexPath.row == 2) {
+        //Advertise iBeacon
+        MKGTAdvBeaconModel *model = [[MKGTAdvBeaconModel alloc] init];
+        model.isV2 = [MKScannerDeviceModelManager shared].isV2;
+        MKScannerBeaconController *vc = [[MKScannerBeaconController alloc] initWithProtocol:model];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 2 && indexPath.row == 3) {
+        //Reset device by button
+        MKGTResetByButtonPageModel *model = [[MKGTResetByButtonPageModel alloc] init];
+        model.supportDisable = NO;
+        MKScannerResetByButtonController *vc = [[MKScannerResetByButtonController alloc] initWithProtocol:model];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 4 && indexPath.row == 0) {
+        //OTA
+        MKGTOTAPageModel *model = [[MKGTOTAPageModel alloc] init];
+        MKScannerOTAController *vc = [[MKScannerOTAController alloc] initWithProtocol:model];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 4 && indexPath.row == 1) {
         //Modify network settings
         MKGTMqttParamsListController *vc = [[MKGTMqttParamsListController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 2 && indexPath.row == 2) {
+    if (indexPath.section == 4 && indexPath.row == 2) {
         //Device information
-        MKGTDeviceInfoController *vc = [[MKGTDeviceInfoController alloc] init];
+        id <MKScannerDeviceInfoProtocol>protocol = nil;
+        if ([MKScannerDeviceModelManager shared].isV2) {
+            protocol = [[MKGTDeviceInfoV2Model alloc] init];
+        }else {
+            protocol = [[MKGTDeviceInfoModel alloc] init];
+        }
+        
+        MKScannerDeviceInfoController *vc = [[MKScannerDeviceInfoController alloc] initWithProtocol:protocol];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
@@ -184,10 +199,16 @@ UITableViewDataSource>
         return self.section0List.count;
     }
     if (section == 1) {
-        return self.section1List.count;
+        return ([MKScannerDeviceModelManager shared].isV2 ? 0 : self.section1List.count);
     }
     if (section == 2) {
         return self.section2List.count;
+    }
+    if (section == 3) {
+        return self.section3List.count;
+    }
+    if (section == 4) {
+        return self.section4List.count;
     }
     return 0;
 }
@@ -199,13 +220,23 @@ UITableViewDataSource>
         return cell;
     }
     if (indexPath.section == 1) {
-        MKTextSwitchCell *cell = [MKTextSwitchCell initCellWithTableView:tableView];
+        MKSettingTextCell *cell = [MKSettingTextCell initCellWithTableView:tableView];
         cell.dataModel = self.section1List[indexPath.row];
+        return cell;
+    }
+    if (indexPath.section == 2) {
+        MKSettingTextCell *cell = [MKSettingTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section2List[indexPath.row];
+        return cell;
+    }
+    if (indexPath.section == 3) {
+        MKTextSwitchCell *cell = [MKTextSwitchCell initCellWithTableView:tableView];
+        cell.dataModel = self.section3List[indexPath.row];
         cell.delegate = self;
         return cell;
     }
     MKSettingTextCell *cell = [MKSettingTextCell initCellWithTableView:tableView];
-    cell.dataModel = self.section2List[indexPath.row];
+    cell.dataModel = self.section4List[indexPath.row];
     return cell;
 }
 
@@ -241,7 +272,7 @@ UITableViewDataSource>
     MKAlertView *alertView = [[MKAlertView alloc] init];
     [alertView addAction:cancelAction];
     [alertView addAction:confirmAction];
-    [alertView showAlertWithTitle:@"Reboot Device" message:msg notificationName:@"mk_gt_needDismissAlert"];
+    [alertView showAlertWithTitle:@"Reboot Device" message:msg notificationName:@"mk_scanner_needDismissAlert"];
 }
 
 - (void)resetButtonPressed {
@@ -258,7 +289,7 @@ UITableViewDataSource>
     MKAlertView *alertView = [[MKAlertView alloc] init];
     [alertView addAction:cancelAction];
     [alertView addAction:confirmAction];
-    [alertView showAlertWithTitle:@"Reset Device" message:msg notificationName:@"mk_gt_needDismissAlert"];
+    [alertView showAlertWithTitle:@"Reset Device" message:msg notificationName:@"mk_scanner_needDismissAlert"];
 }
 
 #pragma mark - 修改设备本地名称
@@ -271,8 +302,8 @@ UITableViewDataSource>
         @strongify(self);
         [self saveDeviceLocalName];
     }];
-    self.localNameAsciiStr = SafeStr([MKGTDeviceModeManager shared].deviceName);
-    MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr([MKGTDeviceModeManager shared].deviceName)
+    self.localNameAsciiStr = SafeStr([MKScannerDeviceModelManager shared].deviceName);
+    MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr([MKScannerDeviceModelManager shared].deviceName)
                                                                           placeholder:@"1-20 characters"
                                                                         textFieldType:mk_normal
                                                                             maxLength:20
@@ -286,7 +317,7 @@ UITableViewDataSource>
     [alertView addAction:cancelAction];
     [alertView addAction:confirmAction];
     [alertView addTextField:textField];
-    [alertView showAlertWithTitle:@"Edit Local Name" message:msg notificationName:@"mk_gt_needDismissAlert"];
+    [alertView showAlertWithTitle:@"Edit Local Name" message:msg notificationName:@"mk_scanner_needDismissAlert"];
 }
 
 - (void)saveDeviceLocalName {
@@ -296,13 +327,13 @@ UITableViewDataSource>
     }
     [[MKHudManager share] showHUDWithTitle:@"Save..." inView:self.view isPenetration:NO];
     [MKGTDeviceDatabaseManager updateLocalName:self.localNameAsciiStr
-                                    macAddress:[MKGTDeviceModeManager shared].macAddress
+                                    macAddress:[MKScannerDeviceModelManager shared].macAddress
                                       sucBlock:^{
         [[MKHudManager share] hide];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_deviceNameChangedNotification"
                                                             object:nil
                                                           userInfo:@{
-                                                              @"macAddress":[MKGTDeviceModeManager shared].macAddress,
+                                                              @"macAddress":[MKScannerDeviceModelManager shared].macAddress,
                                                               @"deviceName":self.localNameAsciiStr
                                                           }];
     }
@@ -330,7 +361,7 @@ UITableViewDataSource>
 #pragma mark - 设备复位
 - (void)resetDevice {
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_resetDeviceWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_resetDeviceWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         [self removeDevice];
     } failedBlock:^(NSError * _Nonnull error) {
@@ -341,11 +372,11 @@ UITableViewDataSource>
 
 - (void)removeDevice {
     [[MKHudManager share] showHUDWithTitle:@"Delete..." inView:self.view isPenetration:NO];
-    [MKGTDeviceDatabaseManager deleteDeviceWithMacAddress:[MKGTDeviceModeManager shared].macAddress sucBlock:^{
+    [MKGTDeviceDatabaseManager deleteDeviceWithMacAddress:[MKScannerDeviceModelManager shared].macAddress sucBlock:^{
         [[MKHudManager share] hide];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_gt_deleteDeviceNotification"
                                                             object:nil
-                                                          userInfo:@{@"macAddress":[MKGTDeviceModeManager shared].macAddress}];
+                                                          userInfo:@{@"macAddress":[MKScannerDeviceModelManager shared].macAddress}];
         [self popToViewControllerWithClassName:@"MKGTDeviceListController"];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
@@ -356,7 +387,7 @@ UITableViewDataSource>
 #pragma mark - 设备重启
 - (void)rebootDevice {
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_rebootDeviceWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_rebootDeviceWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:@"Success!"];
     } failedBlock:^(NSError * _Nonnull error) {
@@ -368,35 +399,35 @@ UITableViewDataSource>
 #pragma mark - 插座开关控制状态
 - (void)configOutputSwitch:(BOOL)isOn {
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_configOutputSwitch:isOn macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configOutputSwitch:isOn macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:@"Success!"];
         self.dataModel.output = isOn;
-        MKTextSwitchCellModel *cellModel = self.section1List[0];
+        MKTextSwitchCellModel *cellModel = self.section3List[0];
         cellModel.isOn = isOn;
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
-        MKTextSwitchCellModel *cellModel = self.section1List[0];
+        MKTextSwitchCellModel *cellModel = self.section3List[0];
         cellModel.isOn = !isOn;
-        [self.tableView mk_reloadRow:0 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView mk_reloadRow:0 inSection:3 withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
 - (void)configOutputControlByButton:(BOOL)isOn {
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
-    [MKGTMQTTInterface gt_configOutputControlByButton:isOn macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configOutputControlByButton:isOn macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:@"Success!"];
         self.dataModel.outputByButton = isOn;
-        MKTextSwitchCellModel *cellModel = self.section1List[1];
+        MKTextSwitchCellModel *cellModel = self.section3List[1];
         cellModel.isOn = isOn;
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
-        MKTextSwitchCellModel *cellModel = self.section1List[1];
+        MKTextSwitchCellModel *cellModel = self.section3List[1];
         cellModel.isOn = !isOn;
-        [self.tableView mk_reloadRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView mk_reloadRow:1 inSection:3 withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
@@ -405,8 +436,10 @@ UITableViewDataSource>
     [self loadSection0Datas];
     [self loadSection1Datas];
     [self loadSection2Datas];
+    [self loadSection3Datas];
+    [self loadSection4Datas];
     
-    for (NSInteger i = 0; i < 3; i ++) {
+    for (NSInteger i = 0; i < 5; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
         [self.headerList addObject:headerModel];
     }
@@ -422,58 +455,58 @@ UITableViewDataSource>
     MKSettingTextCellModel *cellModel2 = [[MKSettingTextCellModel alloc] init];
     cellModel2.leftMsg = @"Network status report interval";
     [self.section0List addObject:cellModel2];
-    
-    MKSettingTextCellModel *cellModel3 = [[MKSettingTextCellModel alloc] init];
-    cellModel3.leftMsg = @"Reconnect timeout";
-    [self.section0List addObject:cellModel3];
-    
-    MKSettingTextCellModel *cellModel4 = [[MKSettingTextCellModel alloc] init];
-    cellModel4.leftMsg = @"Communication timeout";
-    [self.section0List addObject:cellModel4];
-    
-    MKSettingTextCellModel *cellModel5 = [[MKSettingTextCellModel alloc] init];
-    cellModel5.leftMsg = @"System time";
-    [self.section0List addObject:cellModel5];
-    
-    MKSettingTextCellModel *cellModel6 = [[MKSettingTextCellModel alloc] init];
-    cellModel6.leftMsg = ([MKGTDeviceModeManager shared].isV2 ? @"Advertisement settings" : @"Advertise iBeacon");
-    [self.section0List addObject:cellModel6];
-    
-    MKSettingTextCellModel *cellModel7 = [[MKSettingTextCellModel alloc] init];
-    cellModel7.leftMsg = @"Reset device by button";
-    [self.section0List addObject:cellModel7];
-    
-//    MKSettingTextCellModel *cellModel8 = [[MKSettingTextCellModel alloc] init];
-//    cellModel8.leftMsg = @"Data report timout";
-//    [self.section0List addObject:cellModel8];
 }
 
 - (void)loadSection1Datas {
+    MKSettingTextCellModel *cellModel = [[MKSettingTextCellModel alloc] init];
+    cellModel.leftMsg = @"Reconnect timeout";
+    [self.section1List addObject:cellModel];
+}
+
+- (void)loadSection2Datas {
+    MKSettingTextCellModel *cellModel1 = [[MKSettingTextCellModel alloc] init];
+    cellModel1.leftMsg = @"Communication timeout";
+    [self.section2List addObject:cellModel1];
+    
+    MKSettingTextCellModel *cellModel2 = [[MKSettingTextCellModel alloc] init];
+    cellModel2.leftMsg = @"System time";
+    [self.section2List addObject:cellModel2];
+    
+    MKSettingTextCellModel *cellModel3 = [[MKSettingTextCellModel alloc] init];
+    cellModel3.leftMsg = ([MKScannerDeviceModelManager shared].isV2 ? @"Advertisement settings" : @"Advertise iBeacon");
+    [self.section2List addObject:cellModel3];
+    
+    MKSettingTextCellModel *cellModel4 = [[MKSettingTextCellModel alloc] init];
+    cellModel4.leftMsg = @"Reset device by button";
+    [self.section2List addObject:cellModel4];
+}
+
+- (void)loadSection3Datas {
     MKTextSwitchCellModel *cellModel1 = [[MKTextSwitchCellModel alloc] init];
     cellModel1.index = 0;
     cellModel1.msg = @"Output switch";
     cellModel1.isOn = self.dataModel.output;
-    [self.section1List addObject:cellModel1];
+    [self.section3List addObject:cellModel1];
     
     MKTextSwitchCellModel *cellModel2 = [[MKTextSwitchCellModel alloc] init];
     cellModel2.index = 1;
     cellModel2.msg = @"Output control by button";
     cellModel2.isOn = self.dataModel.outputByButton;
-    [self.section1List addObject:cellModel2];
+    [self.section3List addObject:cellModel2];
 }
 
-- (void)loadSection2Datas {
+- (void)loadSection4Datas {
     MKSettingTextCellModel *cellModel1 = [[MKSettingTextCellModel alloc] init];
     cellModel1.leftMsg = @"OTA";
-    [self.section2List addObject:cellModel1];
+    [self.section4List addObject:cellModel1];
     
     MKSettingTextCellModel *cellModel2 = [[MKSettingTextCellModel alloc] init];
     cellModel2.leftMsg = @"Modify Network Settings";
-    [self.section2List addObject:cellModel2];
+    [self.section4List addObject:cellModel2];
     
     MKSettingTextCellModel *cellModel3 = [[MKSettingTextCellModel alloc] init];
     cellModel3.leftMsg = @"Device information";
-    [self.section2List addObject:cellModel3];
+    [self.section4List addObject:cellModel3];
 }
 
 #pragma mark - UI
@@ -521,6 +554,20 @@ UITableViewDataSource>
         _section2List = [NSMutableArray array];
     }
     return _section2List;
+}
+
+- (NSMutableArray *)section3List {
+    if (!_section3List) {
+        _section3List = [NSMutableArray array];
+    }
+    return _section3List;
+}
+
+- (NSMutableArray *)section4List {
+    if (!_section4List) {
+        _section4List = [NSMutableArray array];
+    }
+    return _section4List;
 }
 
 - (NSMutableArray *)headerList {

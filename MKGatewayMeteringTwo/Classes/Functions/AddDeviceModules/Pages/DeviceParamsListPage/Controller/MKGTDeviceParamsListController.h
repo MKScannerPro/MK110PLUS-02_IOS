@@ -6,11 +6,11 @@
 //  Copyright © 2023 aadyx2007@163.com. All rights reserved.
 //
 
-#import "MKGTBleBaseController.h"
+#import <MKBaseModuleLibrary/MKBaseViewController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKGTDeviceParamsListController : MKGTBleBaseController
+@interface MKGTDeviceParamsListController : MKBaseViewController
 
 @property (nonatomic, copy)NSString *deviceType;
 

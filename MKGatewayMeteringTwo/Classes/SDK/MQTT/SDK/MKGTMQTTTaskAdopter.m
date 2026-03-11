@@ -62,7 +62,7 @@
         if (!success) {
             return @{};
         }
-        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigDeviceLedReminderOperation];
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnLedRemoteReminderOperation];
     }
     if (msgID == 3112) {
         //控制B1 蜂鸣器结果
@@ -70,7 +70,7 @@
         if (!success) {
             return @{};
         }
-        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskConfigDeviceBuzzerReminderOperation];
+        return [self dataParserGetDataSuccess:json operationID:mk_gt_server_taskBxpBtnBuzzerRemoteReminderOperation];
     }
     if (msgID == 3114) {
         //删除触发记录

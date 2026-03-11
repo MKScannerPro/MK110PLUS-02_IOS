@@ -487,6 +487,17 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)gt_readFilterAdvNameListWithSucBlock:(void (^)(id returnData))sucBlock
                                  failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// The reports interval gateway upload the beacon's data .
+/*
+ @{
+ @"interval":@"600",        //Unit:s        Supported by V2.
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_readFilterReportIntervalWithSucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock;
+
 
 #pragma mark *********************BLE Adv Params************************
 

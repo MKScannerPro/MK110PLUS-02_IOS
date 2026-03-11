@@ -280,8 +280,6 @@
                 @"mac":macAddress
         },
         @"data":@{
-            @"ble_adv_led":(protocol.ble_advertising ? @(1) : @(0)),
-            @"ble_connected_led":(protocol.ble_connected ? @(1) : @(0)),
             @"server_connecting_led":(protocol.server_connecting ? @(1) : @(0)),
             @"server_connected_led":(protocol.server_connected ? @(1) : @(0))
         },
@@ -1249,16 +1247,22 @@
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:(protocol.timestamp ? @(1) : @(0)) forKey:@"timestamp"];
+    
+    if (protocol.isV2) {
+        [params setObject:(protocol.adv_data ? @(1) : @(0)) forKey:@"adv_data"];
+        [params setObject:(protocol.parse_adv_data ? @(1) : @(0)) forKey:@"parse_adv_data"];
+    }else {
+        [params setObject:(protocol.rawData_advertising ? @(1) : @(0)) forKey:@"adv_data"];
+        [params setObject:(protocol.rawData_response ? @(1) : @(0)) forKey:@"rsp_data"];
+    }
     NSDictionary *data = @{
         @"msg_id":@(1059),
         @"device_info":@{
                 @"mac":macAddress
         },
-        @"data":@{
-            @"timestamp":(protocol.timestamp ? @(1) : @(0)),
-            @"adv_data":(protocol.rawData_advertising ? @(1) : @(0)),
-            @"rsp_data":(protocol.rawData_response ? @(1) : @(0)),
-        }
+        @"data":params
     };
     [[MKGTMQTTDataManager shared] sendData:data
                                      topic:topic
@@ -2207,87 +2211,6 @@
                                failedBlock:failedBlock];
 }
 
-+ (void)gt_configDeviceLedReminderWithBleMac:(NSString *)bleMacAddress
-                                    interval:(NSInteger)interval
-                                    duration:(NSInteger)duration
-                                  macAddress:(NSString *)macAddress
-                                       topic:(NSString *)topic
-                                    sucBlock:(void (^)(id returnData))sucBlock
-                                 failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *checkMsg = [self checkMacAddress:macAddress topic:topic];
-    if (ValidStr(checkMsg)) {
-        [self operationFailedBlockWithMsg:checkMsg failedBlock:failedBlock];
-        return;
-    }
-    if (!ValidStr(bleMacAddress) || bleMacAddress.length != 12 || ![bleMacAddress regularExpressions:isHexadecimal]) {
-        [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
-        return;
-    }
-    if (interval < 0 || interval > 100 || duration < 1 || duration > 6000) {
-        [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
-        return;
-    }
-    NSDictionary *data = @{
-        @"msg_id":@(1109),
-        @"device_info":@{
-                @"mac":macAddress
-        },
-        @"data":@{
-            @"mac":bleMacAddress,
-            @"flash_interval":@(interval),
-            @"flash_time":@(duration)
-        }
-    };
-    [[MKGTMQTTDataManager shared] sendData:data
-                                     topic:topic
-                                macAddress:macAddress
-                                    taskID:mk_gt_server_taskConfigDeviceLedReminderOperation
-                                   timeout:50
-                                  sucBlock:sucBlock
-                               failedBlock:failedBlock];
-}
-
-+ (void)gt_configDeviceBuzzerReminderWithBleMac:(NSString *)bleMacAddress
-                                       interval:(NSInteger)interval
-                                       duration:(NSInteger)duration
-                                     macAddress:(NSString *)macAddress
-                                          topic:(NSString *)topic
-                                       sucBlock:(void (^)(id returnData))sucBlock
-                                    failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *checkMsg = [self checkMacAddress:macAddress topic:topic];
-    if (ValidStr(checkMsg)) {
-        [self operationFailedBlockWithMsg:checkMsg failedBlock:failedBlock];
-        return;
-    }
-    if (!ValidStr(bleMacAddress) || bleMacAddress.length != 12 || ![bleMacAddress regularExpressions:isHexadecimal]) {
-        [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
-        return;
-    }
-    if (interval < 0 || interval > 100 || duration < 1 || duration > 6000) {
-        [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
-        return;
-    }
-    
-    NSDictionary *data = @{
-        @"msg_id":@(1111),
-        @"device_info":@{
-                @"mac":macAddress
-        },
-        @"data":@{
-            @"mac":bleMacAddress,
-            @"ring_interval":@(interval),
-            @"ring_time":@(duration)
-        }
-    };
-    [[MKGTMQTTDataManager shared] sendData:data
-                                     topic:topic
-                                macAddress:macAddress
-                                    taskID:mk_gt_server_taskConfigDeviceBuzzerReminderOperation
-                                   timeout:50
-                                  sucBlock:sucBlock
-                               failedBlock:failedBlock];
-}
-
 #pragma mark - 计电量相关
 
 + (void)gt_readMeteringSwitchWithMacAddress:(NSString *)macAddress
@@ -3115,7 +3038,6 @@
             @"minor":@(protocol.minor),
             @"uuid":SafeStr(protocol.uuid),
             @"adv_interval":@(protocol.advInterval),
-            @"rssi_1m":@(protocol.rssi1m),
             @"tx_power":@(protocol.txPower)
         },
     };
@@ -6922,9 +6844,6 @@
             return NO;
         }
         if (protocol.advInterval < 1 || protocol.advInterval > 100 || protocol.txPower < 0 || protocol.txPower > 15) {
-            return NO;
-        }
-        if (protocol.rssi1m < -100 || protocol.rssi1m > 0) {
             return NO;
         }
     }

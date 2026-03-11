@@ -346,6 +346,14 @@ NS_ASSUME_NONNULL_BEGIN
                           sucBlock:(void (^)(void))sucBlock
                        failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// The reports interval gateway upload the beacon's data .
+/// @param interval 0s~86400s
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)gt_configFilterReportInterval:(NSInteger)interval
+                             sucBlock:(void (^)(void))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock;
+
 #pragma mark *********************BLE Adv Params************************
 
 /// The advertise status of iBeacon.

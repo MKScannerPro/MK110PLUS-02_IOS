@@ -10,7 +10,7 @@
 
 #import "MKMacroDefines.h"
 
-#import "MKGTDeviceModeManager.h"
+#import "MKScannerDeviceModelManager.h"
 
 #import "MKGTMQTTInterface.h"
 
@@ -71,7 +71,7 @@
 #pragma mark - interface
 - (BOOL)readFilterRelationship {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readFilterRelationshipWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readFilterRelationshipWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.relationship = [returnData[@"data"][@"relation"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
@@ -84,7 +84,7 @@
 
 - (BOOL)configFilterRelationship {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configFilterRelationship:self.relationship macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configFilterRelationship:self.relationship macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -96,7 +96,7 @@
 
 - (BOOL)readFilterByRSSI {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readFilterByRSSIWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readFilterByRSSIWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.rssi = [returnData[@"data"][@"rssi"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
@@ -109,7 +109,7 @@
 
 - (BOOL)configFilterByRSSI {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configFilterByRSSI:self.rssi macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configFilterByRSSI:self.rssi macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -121,7 +121,7 @@
 
 - (BOOL)readFilterByPhy {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_readFilterByPhyWithMacAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_readFilterByPhyWithMacAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.phy = [returnData[@"data"][@"phy_filter"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
@@ -134,7 +134,7 @@
 
 - (BOOL)configFilterByPhy {
     __block BOOL success = NO;
-    [MKGTMQTTInterface gt_configFilterByPhy:self.phy macAddress:[MKGTDeviceModeManager shared].macAddress topic:[MKGTDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+    [MKGTMQTTInterface gt_configFilterByPhy:self.phy macAddress:[MKScannerDeviceModelManager shared].macAddress topic:[MKScannerDeviceModelManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
